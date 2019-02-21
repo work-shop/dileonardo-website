@@ -23,50 +23,168 @@ class WS_Site {
         //WS_Custom_Category::register();
         //WS_Custom_Post::register();
 
-        register_post_type( 'people',
+        // register_post_type( 'people',
+        //     array(
+        //         'labels' => array(
+        //             'name' => 'People',
+        //             'singular_name' =>'Person',
+        //             'add_new' => 'Add New',
+        //             'add_new_item' => 'Add New Person',
+        //             'edit_item' => 'Edit Person',
+        //             'new_item' => 'New Person',
+        //             'all_items' => 'All People',
+        //             'view_item' => 'View Person',
+        //             'search_items' => 'Search People',
+        //             'not_found' =>  'No People found',
+        //             'not_found_in_trash' => 'No People found in Trash',
+        //         ),
+        //         'public' => true,
+        //         'has_archive' => true,
+        //         'rewrite' => array('slug' => 'people'),
+        //         'show_in_rest'       => true,
+        //         'rest_base'          => 'people',
+        //         'rest_controller_class' => 'WP_REST_Posts_Controller',
+        //         'supports' => array( 'title', 'thumbnail'),
+        //         'menu_icon'   => 'dashicons-id'
+        //     ));
+
+        // register_taxonomy(
+        //     'people_categories',
+        //     'people',
+        //     array(
+        //         'hierarchical' => true,
+        //         'label' => 'People Categories',
+        //         'query_var' => true,
+        //         'rewrite' => array('slug' => 'people_categories'),
+        //         'rest_base'          => 'people_categories',
+        //         'rest_controller_class' => 'WP_REST_Terms_Controller',
+        //     )
+        // );
+
+
+        register_post_type( 'projects',
             array(
                 'labels' => array(
-                    'name' => 'People',
-                    'singular_name' =>'Person',
+                    'name' => 'Projects',
+                    'singular_name' =>'Project',
                     'add_new' => 'Add New',
-                    'add_new_item' => 'Add New Person',
-                    'edit_item' => 'Edit Person',
-                    'new_item' => 'New Person',
-                    'all_items' => 'All People',
-                    'view_item' => 'View Person',
-                    'search_items' => 'Search People',
-                    'not_found' =>  'No People found',
-                    'not_found_in_trash' => 'No People found in Trash',
+                    'add_new_item' => 'Add New Project',
+                    'edit_item' => 'Edit Project',
+                    'new_item' => 'New Project',
+                    'all_items' => 'All Projects',
+                    'view_item' => 'View Project',
+                    'search_items' => 'Search Projects',
+                    'not_found' =>  'No Projects found',
+                    'not_found_in_trash' => 'No Projects found in Trash',
                 ),
                 'public' => true,
-                'has_archive' => true,
-                'rewrite' => array('slug' => 'people'),
+                'has_archive' => false,
+                'rewrite' => array('slug' => 'projects'),
                 'show_in_rest'       => true,
-                'rest_base'          => 'people',
+                'rest_base'          => 'projects',
                 'rest_controller_class' => 'WP_REST_Posts_Controller',
                 'supports' => array( 'title', 'thumbnail'),
-                'menu_icon'   => 'dashicons-id'
+                'menu_icon'   => 'dashicons-building'
             ));
 
         register_taxonomy(
-            'people_categories',
-            'people',
+            'project-categories',
+            'projects',
             array(
                 'hierarchical' => true,
-                'label' => 'People Categories',
+                'label' => 'Project Categories',
+                'show_admin_column' => true,
                 'query_var' => true,
-                'rewrite' => array('slug' => 'people_categories'),
-                'rest_base'          => 'people_categories',
+                'rewrite' => array('slug' => 'project-categories'),
+                'rest_base'          => 'project-categories',
+                'rest_controller_class' => 'WP_REST_Terms_Controller',
+            )
+        );
+
+        register_post_type( 'thoughts',
+            array(
+                'labels' => array(
+                    'name' => 'Thoughts',
+                    'singular_name' =>'Thought',
+                    'add_new' => 'Add New',
+                    'add_new_item' => 'Add New Thought',
+                    'edit_item' => 'Edit Thought',
+                    'new_item' => 'New Thought',
+                    'all_items' => 'All Thoughts',
+                    'view_item' => 'View Thought',
+                    'search_items' => 'Search Thoughts',
+                    'not_found' =>  'No Thoughts found',
+                    'not_found_in_trash' => 'No Thoughts found in Trash',
+                ),
+                'public' => true,
+                'has_archive' => false,
+                'rewrite' => array('slug' => 'thoughts'),
+                'show_in_rest'       => true,
+                'rest_base'          => 'thoughts',
+                'rest_controller_class' => 'WP_REST_Posts_Controller',
+                'supports' => array( 'title', 'thumbnail'),
+                'menu_icon'   => 'dashicons-lightbulb'
+            ));
+
+        register_taxonomy(
+            'thought-categories',
+            'thoughts',
+            array(
+                'hierarchical' => true,
+                'label' => 'Thought Categories',
+                'show_admin_column' => true,
+                'query_var' => true,
+                'rewrite' => array('slug' => 'thought-categories'),
+                'rest_base'          => 'thought-categories',
                 'rest_controller_class' => 'WP_REST_Terms_Controller',
             )
         );
         global $wp_taxonomies;
-        $taxonomy_name = 'people_categories';
+        $taxonomy_name = 'thought-categories';
         if ( isset( $wp_taxonomies[ $taxonomy_name ] ) ) {
             $wp_taxonomies[ $taxonomy_name ]->show_in_rest = true;
             $wp_taxonomies[ $taxonomy_name ]->rest_base = $taxonomy_name;
             $wp_taxonomies[ $taxonomy_name ]->rest_controller_class = 'WP_REST_Terms_Controller';
         }
+
+        register_post_type( 'news',
+            array(
+                'labels' => array(
+                    'name' => 'News',
+                    'singular_name' =>'News Story',
+                    'add_new' => 'Add New',
+                    'add_new_item' => 'Add New News Story',
+                    'edit_item' => 'Edit News Story',
+                    'new_item' => 'New News Story',
+                    'all_items' => 'All News',
+                    'view_item' => 'View News Story',
+                    'search_items' => 'Search News',
+                    'not_found' =>  'No News Stories found',
+                    'not_found_in_trash' => 'No News Stories found in Trash',
+                ),
+                'public' => true,
+                'has_archive' => false,
+                'rewrite' => array('slug' => 'news'),
+                'show_in_rest'       => true,
+                'rest_base'          => 'news',
+                'rest_controller_class' => 'WP_REST_Posts_Controller',
+                'supports' => array( 'title', 'thumbnail'),
+                'menu_icon'   => 'dashicons-media-document'
+            ));
+
+        register_taxonomy(
+            'news-categories',
+            'news',
+            array(
+                'hierarchical' => true,
+                'label' => 'News Categories',
+                'show_admin_column' => true,
+                'query_var' => true,
+                'rewrite' => array('slug' => 'news-categories'),
+                'rest_base'          => 'news-categories',
+                'rest_controller_class' => 'WP_REST_Terms_Controller',
+            )
+        );
 
     }
 

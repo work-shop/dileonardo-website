@@ -1,7 +1,7 @@
-<nav id="nav" class="fixed before">
+<nav id="nav" class="static before">
 	<div id="logo" class="logo">
 		<a href="/" title="Home">
-			<?php get_template_part('partials/logo'); ?>
+			<?php //get_template_part('partials/logo'); ?>
 		</a>
 	</div>
 	<div id="nav-menus">
