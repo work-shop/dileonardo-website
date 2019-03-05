@@ -1,0 +1,78 @@
+
+@font-face {
+	font-family: 'modern_pictograms_proregular';
+	src: url('modernpictogramspro_234.eot');
+	src: url('modernpictogramspro_234?#iefix') format('embedded-opentype'),
+		url('modernpictogramspro_234.woff') format('woff'),
+		url('modernpictogramspro_234.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+    font-family: 'new-paris-skyline';
+    src: url('NewParisSkyline-Regular-WebS.eot');
+    src: url('NewParisSkyline-Regular-WebS.eot?#iefix') format('embedded-opentype'),
+         url('NewParisSkyline-Regular-WebS.woff') format('woff'),
+         url('NewParisSkyline-Regular-WebS.woff2') format('woff2'),
+         url('NewParisSkyline-Regular-WebS.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'new-paris-skyline-italic';
+    src: url('NewParisSkyline-RegularItalic-WebS.eot');
+    src: url('NewParisSkyline-RegularItalic-WebS.eot?#iefix') format('embedded-opentype'),
+         url('NewParisSkyline-RegularItalic-WebS.woff') format('woff'),
+         url('NewParisSkyline-RegularItalic-WebS.woff2') format('woff2'),
+         url('NewParisSkyline-RegularItalic-WebS.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'new-paris-skyline-medium';
+    src: url('NewParisSkyline-Medium-WebS.eot');
+    src: url('NewParisSkyline-Medium-WebS.eot?#iefix') format('embedded-opentype'),
+         url('NewParisSkyline-Medium-WebS.woff') format('woff'),
+         url('NewParisSkyline-Medium-WebS.woff2') format('woff2'),
+         url('NewParisSkyline-Medium-WebS.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'new-paris-skyline-medium-italic';
+    src: url('NewParisSkyline-MediumItalic-WebS.eot');
+    src: url('NewParisSkyline-MediumItalic-WebS.eot?#iefix') format('embedded-opentype'),
+         url('NewParisSkyline-MediumItalic-WebS.woff') format('woff'),
+         url('NewParisSkyline-MediumItalic-WebS.woff2') format('woff2'),
+         url('NewParisSkyline-MediumItalic-WebS.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'new-paris-skyline-bold';
+    src: url('NewParisSkyline-Bold-WebS.eot');
+    src: url('NewParisSkyline-Bold-WebS.eot?#iefix') format('embedded-opentype'),
+         url('NewParisSkyline-Bold-WebS.woff') format('woff'),
+         url('NewParisSkyline-Bold-WebS.woff2') format('woff2'),
+         url('NewParisSkyline-Bold-WebS.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'new-paris-skyline-bold-italic';
+    src: url('NewParisSkyline-BoldItalic-WebS.eot');
+    src: url('NewParisSkyline-BoldItalic-WebS.eot?#iefix') format('embedded-opentype'),
+         url('NewParisSkyline-BoldItalic-WebS.woff') format('woff'),
+         url('NewParisSkyline-BoldItalic-WebS.woff2') format('woff2'),
+         url('NewParisSkyline-BoldItalic-WebS.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+

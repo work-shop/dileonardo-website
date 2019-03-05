@@ -1,0 +1,117 @@
+
+$hero-height: 61vh;
+
+.page-hero{
+	height: $hero-height;
+}
+
+
+.page-title{
+	font-size: 21px;
+	@extend .uppercase;
+	margin-top: 125px;
+	@extend .bold;
+	@extend .medium;
+	@extend .tracked-less;
+
+	@media screen and (max-width: $sm) {
+		font-size: 17px;
+	}
+
+}
+
+
+.page-intro{
+
+}
+
+
+//projects page
+.page-id-21 .page-intro{
+	padding-bottom: 2em;
+}
+
+
+$sidebar-fixed-top: 100px;
+
+.page-sidebar{
+	position: absolute;
+	top: $hero-height;
+	margin-top: -65px;
+	z-index: 3;
+	left: $container-fluid-padding;
+	width: calc( ( ( 100% - #{$container-fluid-sum} ) / 4 ) - 40px );
+	max-width: 300px;
+	padding: 25px 20px;
+	//background: white;
+	padding: 25px 0;
+	//border: 1px solid $medium;
+
+	&.after{
+		position: fixed;
+		top: $sidebar-fixed-top;
+		//margin-top: -25px; //align sidebar background to section content
+		margin-top: 0; //align page title to section content
+	}
+
+	@media screen and (max-width: $lg) {
+		width: calc( ( ( 100% - #{$container-fluid-sum} ) / 3 ) - 40px );
+	}
+
+	@media screen and (max-width: $md) {
+		width: calc( ( ( 100% - #{$container-fluid-sum-md} ) / 3 ) - 40px );
+		left: $container-fluid-padding-md;
+	}
+
+
+	@media screen and (max-width: $sm) {
+		position: static;
+		width: 100%;
+		max-width: none;
+		padding: $container-fluid-padding-mobile;
+		border: none;
+		border-bottom: 1px solid $medium;
+		margin: 0;
+
+		&.after{
+			position: static;
+		}
+	}
+
+	.page-title{
+		margin-top: 0;
+		margin-bottom: 40px;
+
+		@media screen and (max-width: $sm) {
+			margin-bottom: 20px;
+		}
+	}
+
+	li{
+		margin-bottom: 18px;
+
+		a{
+			font-size: 18px;
+			border-bottom: 2px solid transparent;
+
+			@media screen and (max-width: $sm) {
+				font-size: 14px;
+			}
+
+			&.spy-active{
+				border-bottom: 2px solid $medium;
+			}
+
+			&:hover{
+				color: $dark;
+				border-bottom: 2px solid $light;
+			}
+		}
+	}
+}
+
+
+.page-section{
+	padding-top: $sidebar-fixed-top;
+	padding-bottom: $sidebar-fixed-top;
+}

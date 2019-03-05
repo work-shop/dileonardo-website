@@ -1,0 +1,87 @@
+
+
+#thoughts-grid{
+
+
+}
+
+.card-thought{
+	// border: 1px solid $medium;
+	position: relative;
+	margin-bottom: 100px;
+
+	.card-thought-right{
+		padding-left: 0;
+
+		img{
+			// height: 130%;
+			// max-width: none;
+			// width: auto;
+			//opacity: 0;
+		}
+	}
+
+	.card-thought-left{
+		//transform: scale(.9) translateX(100px);
+		z-index: 1;
+
+	}
+
+	.card-thought-text{
+		//height: 100%;
+		padding: 40px;
+	}	
+
+	.card-thought-title{
+		@extend .bold;
+		//margin-bottom: 2em;
+	}
+
+	.card-thought-author{
+		margin-bottom: 3em;
+	}
+
+	.card-thought-excerpt{
+		@extend .italic;
+		width: 80%;
+		font-style: italic;
+	}
+
+	.card-thought-background-image{
+		position: absolute;
+		z-index: -1;
+		width: 60%;
+		height: 120%;
+		left: 20%;
+		top: -10%;
+		background-size: cover;
+		background-repeat: no-repeat;
+
+		display: none;
+	}
+
+}
+
+
+
+
+/* SINGLE THOUGHT */
+
+.single-thoughts{
+
+	.single-title-container{
+		margin-top: 0;
+	}
+
+	.single-title{
+		font-size: 60px;
+	}
+
+	.single-intro-text{
+		font-style: italic;
+	}
+}
+
+
+
+

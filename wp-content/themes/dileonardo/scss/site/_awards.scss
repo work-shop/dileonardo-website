@@ -1,0 +1,27 @@
+
+
+.award{
+	padding: 1.25em 0;
+	border-bottom: 1px solid $medium-light;
+
+	&:first-child{
+		border-top: 1px solid $medium-light;
+	}
+
+	.award-col{
+		padding: 0;
+	}
+
+	h4{
+		line-height: 1.4 !important;
+		margin-bottom: 0;
+	}
+}
+
+.awards-link{
+	margin-right: -20px;
+
+	@media screen and (max-width: $sm) {
+		margin-right: -10px;
+	}
+}

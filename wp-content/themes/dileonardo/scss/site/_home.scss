@@ -1,0 +1,37 @@
+
+.home{
+
+	#nav{
+		background: none;
+	}
+
+	#content{
+		//margin-top: -60px;
+	}
+
+}
+
+#home-hero{
+	height: 100vh;
+}
+
+
+#scrolly{
+	position: absolute;
+	bottom: 0;
+	height: 80px;
+	left: 0;
+	width: 100%;
+
+	a{
+		display: block;
+		text-indent: 50px;
+
+		.icon:before{
+			font-size: 90px;
+		}
+	}
+}
+
+
+

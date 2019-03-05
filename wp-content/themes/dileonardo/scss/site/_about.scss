@@ -1,0 +1,144 @@
+
+#culture{
+
+	.slide-caption-container{
+		position: absolute;
+		top: $sidebar-fixed-top;
+		z-index: 3;
+	}
+}
+
+
+#team{
+
+	.team-list-secondary{
+		margin-left: -5px;
+		margin-right: -5px;
+	}
+
+	.person{
+
+		&:nth-child(even){
+			//@extend .offset-md-1;
+		}
+
+		&.person-small{
+			margin-bottom: 10px;
+			flex: 0 0 20%;
+			max-width: 20%;
+			padding: 0 5px;
+			position: relative;
+
+			&:hover{
+				h4{
+					display: block
+				}
+			}
+
+			h4{
+				display: none;
+				position: absolute;
+				bottom: 0px;
+				right: 5px;
+				width: calc(100% - 10px);
+				font-size: 13px;
+				color: white;
+				line-height: 1.2;
+				padding: 5px;
+				background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,.1) 50%, rgba(0,0,0,0.25) 100%);
+				background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,.1) 50%,rgba(0,0,0,0.25) 100%);
+				background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,.1) 50%,rgba(0,0,0,0.25) 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
+			}
+		}
+
+	}
+
+	.modal.modal-person{
+		height: 300px;
+		bottom: -300px;
+		top: auto;
+		left: -100%;
+		width: 100%;
+		background: white;
+		border-top: 1px solid $medium;
+		transition: opacity $modal-transition, bottom $modal-transition, left 0s linear $modal-transition;
+
+		&.on{
+			transition: opacity $modal-transition, bottom $modal-transition;
+			bottom: 0;
+			left: 0;
+		}
+
+	}
+
+}
+
+.page-id-9{
+	#modal-close{
+		bottom: 240px;
+		top: auto;
+		left: $container-fluid-padding;
+	}
+
+	#blanket{
+		height: calc(100% - 300px);
+	}
+}
+
+
+#history{
+	overflow: hidden;
+
+	.history-events{
+		//border: 1px solid gray;
+		position: relative;
+
+		&:after{
+			content: '';
+			display: block;
+			position: absolute;
+			top: 50%;
+			height: 2px;
+			width: calc(100% + #{$container-fluid-padding});
+			left: 20px;
+			background: $medium;
+			z-index: -1;
+		}
+	}
+
+	.history-event{
+		padding-top: 20px;
+		padding-bottom: 30px;
+
+		&:before{
+			content: '';
+			display: block;
+			height: 14px;
+			width: 14px;
+			border-radius: 10px;
+			background: $brand;
+			position: relative;
+			top: -27px;
+		}
+
+		&:nth-child(even){
+			transform: translateY(-50%);
+
+			&:before{
+				top: auto;
+				top: calc(100% + 23px);
+			}
+		}
+
+		&:nth-child(odd){
+			transform: translateY(50%);
+		}
+		
+		p{
+			font-size: 16px;
+			line-height: 1.2 !important;
+		}
+	}
+
+}

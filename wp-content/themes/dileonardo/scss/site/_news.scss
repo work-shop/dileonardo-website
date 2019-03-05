@@ -1,0 +1,52 @@
+
+.page-id-25{
+	.page-sidebar{
+		top: 150px;
+	}
+}
+
+#news-grid{
+	padding-top: 180px;
+}
+
+.news-grid{
+	columns: 2;
+	column-gap: 40px;
+
+	.card-news{
+		margin-bottom: 100px;
+
+	}
+}
+
+
+#pagination{
+
+	a{
+		display: block;
+	}
+
+	.pagination-next{
+		.pagination-icon:before{
+			margin-right: 20px;
+		}
+	}
+
+	.pagination-previous{
+		.pagination-icon:before{
+			margin-left: 20px;
+		}
+	}
+
+	.pagination-icon:before{
+		font-size: 60px;
+	}
+
+}
+
+
+#newsletter{
+	input{
+		max-width: 480px;
+	}
+}

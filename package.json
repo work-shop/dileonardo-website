@@ -1,7 +1,7 @@
 {
-  "name": "mit-gov-lab-website",
+  "name": "dileonardo-website",
   "version": "1.0.0",
-  "description": "MIT GOV/LAB Website",
+  "description": "DiLeonardo Website",
   "author": "Work-Shop (http://workshop.co)",
   "license": "ISC",
   "paths": {
@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/work-shop/mit-gov-lab-website.git"
+    "url": "git+https://github.com/work-shop/dileonardo-website.git"
   },
   "bugs": {
-    "url": "https://github.com/work-shop/mit-gov-lab-website/issues"
+    "url": "https://github.com/work-shop/dileonardo-website/issues"
   },
-  "homepage": "https://github.com/work-shop/mit-gov-lab-website#readme",
+  "homepage": "https://github.com/work-shop/dileonardo-website#readme",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "grunt",

@@ -1,0 +1,23 @@
+.press{
+	position: relative;
+
+	&:hover{
+		.press-title{
+			opacity: 1;
+		}
+	}
+
+	.press-title{
+		position: absolute;
+		bottom: 0px;
+		left: 20px;
+		width: calc(100% - 40px);
+		margin-bottom: 0;
+		padding: 10px;
+		font-size: 18px;
+		color: white;
+		opacity: 0;
+		@extend .bold;
+		line-height: 1.2 !important;
+	}
+}

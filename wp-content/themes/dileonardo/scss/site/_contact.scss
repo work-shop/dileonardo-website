@@ -1,0 +1,41 @@
+
+#locations{
+	padding-bottom: 2em;
+	address{
+		font-size: 15px;
+	}
+
+	.location-contacts{
+		max-width: 300px;
+	}
+
+	.accordion{
+		position: relative;
+		left: -2px;
+
+		[data-control]{
+			background: none;
+			padding: 12px 0 9px 0;
+			border: none;
+			border-bottom: 1px solid lighten($medium,20%);
+			border-radius: 0;
+		}
+
+	}
+
+}
+
+#contact-form{
+	label{
+		color: white;
+	}
+
+	input,textarea{
+		background: $light;
+		max-width: 480px;
+	}
+
+	textarea{
+		min-height: 200px;
+	}
+}

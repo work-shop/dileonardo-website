@@ -1,0 +1,22 @@
+@import 'map-base.scss';
+
+.ws-map{
+	height: inherit;
+	min-height: 60vh;
+
+	.marker-card{
+		padding: 5px 10px 10px 10px;
+
+		h4{
+			line-height: 1.2;
+		}
+
+		p{
+			line-height: 1.3;
+			font-size: 14px;
+			font-family: "SimplonNormLight", Helvetica, arial, sans-serif;
+			margin-bottom: 0;
+		}
+	}
+
+}
