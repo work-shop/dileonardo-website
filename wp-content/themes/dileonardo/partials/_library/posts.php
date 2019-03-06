@@ -27,7 +27,7 @@
 				<?php if ( has_post_thumbnail() ) : ?>
 					<?php the_post_thumbnail('md'); ?>
 					<?php else: ?>
-						<img src="<?php echo get_bloginfo( 'stylesheet_directory' ); ?>'/images/default.png" />
+						<img src="<?php echo get_bloginfo( 'stylesheet_directory' ); ?>/images/default.png" />
 					<?php endif; ?>
 					<h3 class="post-title">
 						<?php the_title(); ?>

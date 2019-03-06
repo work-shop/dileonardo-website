@@ -8,37 +8,37 @@
 	</div>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-right offset">
-				<h3 class="section-heading mb2">
+			<div class="col-left">
+				<h3 class="section-heading white mb2">
 					Contact Us
 				</h3>
+			</div>
+			<div class="col-right">
 				<div class="newsletter-form">
 					<form method="post">
-						<div class="mb2">
-							<label>First Name</label>
-							<div>
-								<input type="text">
-							</div>
-						</div>
-						<div class="mb2">
-							<label>Last Name</label>
-							<div>
-								<input type="text">
-							</div>
-						</div>
-						<div class="mb2">
-							<label>Email</label>
-							<div>
-								<input type="email">
-							</div>
-						</div>
 						<div class="mb3">
 							<label>Message</label>
 							<div>
 								<textarea></textarea>
 							</div>
 						</div>
-						<input type="submit" value="Subscribe"> 
+						<div class="row">
+							<div class="col">
+								<label>Name</label>
+								<div>
+									<input type="text">
+								</div>
+							</div>
+							<div class="col">
+								<label>Email</label>
+								<div>
+									<input type="email">
+								</div>
+							</div>
+							<div class="col">
+								<input type="submit" class="mt1" value="Send"> 
+							</div>
+						</div>
 					</form>
 				</div>
 			</div>

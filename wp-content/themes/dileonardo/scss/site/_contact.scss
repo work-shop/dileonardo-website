@@ -32,10 +32,14 @@
 
 	input,textarea{
 		background: $light;
-		max-width: 480px;
+		//max-width: 480px;
 	}
 
 	textarea{
 		min-height: 200px;
+	}
+
+	input[type="submit"]{
+		margin-top: 1em;
 	}
 }
