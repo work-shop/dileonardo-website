@@ -4,7 +4,7 @@ var mapModule = require( '@work-shop/map-module' );
 var tileStyle = require( './tile-style.json' );
 
 function makeMap () {
-  console.log('map.js loaded');
+  //console.log('map.js loaded');
   
   var brandColor = '#132828';
   var latLng = { lat: 30, lng: 0 };
