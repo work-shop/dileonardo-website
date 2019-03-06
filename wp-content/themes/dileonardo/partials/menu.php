@@ -52,3 +52,4 @@
 		</li>
 	</ul>
 </menu>
+<div id="menu-blanket" class="menu-toggle"></div>
