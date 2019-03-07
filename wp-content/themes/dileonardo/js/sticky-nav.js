@@ -62,7 +62,8 @@ function checkNavPosition(){
 	
 	if( $(window).width() > stickyNavProperties.mobileBreakpoint || stickyNavProperties.activeOnMobile ){
 
-		//var footerTrigger = $('#footer').offset().top - $(window).height();
+		//var footerTrigger = $('#footer').offset().top - ( $(window).height() * 1 );
+		var footerTrigger = $('#footer').offset().top - ( $(window).height() * 1 ) + 300;
 
 		if ( $(window).scrollTop() >= stickyNavProperties.triggerPosition && stickyNavProperties.element.hasClass('before') ){
 			toggleNav();
@@ -70,11 +71,13 @@ function checkNavPosition(){
 			toggleNav();
 		}
 
-		// if( $(window).scrollTop() >= footerTrigger && stickyNavProperties.element.hasClass('shown') ){
-		// 	stickyNavProperties.element.addClass('hidden');		
-		// } else if( $(window).scrollTop() < footerTrigger && stickyNavProperties.element.hasClass('hidden') ){
-		// 	stickyNavProperties.element.removeClass('hidden');
-		// }
+		if( $(window).scrollTop() >= footerTrigger && stickyNavProperties.element.hasClass('shown') ){
+			console.log('footer hiding');
+			stickyNavProperties.element.addClass('hidden');		
+		} else if( $(window).scrollTop() < footerTrigger && stickyNavProperties.element.hasClass('hidden') ){
+			console.log('footer showing');
+			stickyNavProperties.element.removeClass('hidden');
+		}
 
 	}
 

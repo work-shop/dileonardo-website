@@ -5,6 +5,8 @@ function filter() {
 
 	var categoryFiltered = false;
 	var categoryFilteredCurrent = 'all';
+	var baseUrl = '/projects/';
+	var stateObj = {};
 
 	$(document).ready( function() {
 
@@ -42,7 +44,7 @@ function filter() {
 					$(this).removeClass('filter-active');
 				} else{
 					if( $('body').hasClass('page-id-25') === false ){
-						scrollToFilter();
+						//scrollToFilter();
 					}
 					var filterClass = $(this).data('target');
 					console.log('filterClass: ' + filterClass);
@@ -62,12 +64,17 @@ function filter() {
 			}
 		});
 
+		window.onpopstate = function(event){
+			//filter(event.state.category);
+		};
+
 	});// end document.ready
 
 
 	function filterCategories(filterClass) {
 		console.log('filterCategories: ' + filterClass);
 		clearFilterMessages();
+		//updateURL(filterClass);
 
 		if( filterClass !== 'all'){
 			categoryFiltered = true;
@@ -80,6 +87,13 @@ function filter() {
 		var newElements = getElementsByCategory( elements, filterClass );
 		updateElements(newElements);
 
+	}
+
+
+	function updateURL(filterClass){
+		var url = baseUrl + '?category=' + filterClass;
+		stateObj.category = filterClass;
+		history.pushState( stateObj, '', url );
 	}
 
 

@@ -6,6 +6,12 @@ img,.block-background,.slick-slide,.page_hero,.card{
 	filter: grayscale(1);
 }
 
+#projects-grid{
+	img,.card{
+		filter: grayscale(.4);
+	}
+}
+
 
 body{
 	background-color: $body-background-color;

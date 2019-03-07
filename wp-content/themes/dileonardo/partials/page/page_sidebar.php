@@ -10,7 +10,7 @@
 	$page = 'page';
 } ?>
 
-<div class="page-sidebar page-sidebar-sticky before" id="page-sidebar-<?php echo $page; ?>">
+<div class="page-sidebar page-sidebar-sticky before shown" id="page-sidebar-<?php echo $page; ?>">
 	<div class="page-sidebar-header">
 		<h1 class="page-title">
 			<?php the_title(); ?>

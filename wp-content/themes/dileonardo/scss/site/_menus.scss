@@ -40,45 +40,45 @@ $menu-padding: 60px;
 		// -webkit-text-stroke-width: 1px;
 		// -webkit-text-stroke-color: white;
 		// @extend .bold;
-		   text-shadow:
-		   -1px -1px 0 rgba(255,255,255,.2),
-		   1px -1px 0 rgba(255,255,255,.2),
-		   -1px 1px 0 rgba(255,255,255,.2),
-		   1px 1px 0 rgba(255,255,255,.2);  
+		text-shadow:
+		-1px -1px 0 rgba(255,255,255,.2),
+		1px -1px 0 rgba(255,255,255,.2),
+		-1px 1px 0 rgba(255,255,255,.2),
+		1px 1px 0 rgba(255,255,255,.2);  
 
-		   &:hover{
-		   	cursor: context-menu;
+		&:hover{
+		   	//cursor: context-menu;
 		   }
+		}
+
 	}
 
-}
-
-#menu{
-	position: fixed;
-	height: 100%;
-	top: 0;
-	width: $menu-width;
-	z-index: 9;
-	background: $ultra-light;
-	right: -$menu-width;
-	transition: right $menu-transition;
-	padding: $menu-padding; 
-	border-left: 1px solid #efefef;
-	margin-top: 0;
-
-	&.open{
+	#menu{
+		position: fixed;
+		height: 100%;
+		top: 0;
+		width: $menu-width;
+		z-index: 9;
+		background: $ultra-light;
+		right: -$menu-width;
 		transition: right $menu-transition;
-		right: 0;
-	}
+		padding: $menu-padding; 
+		border-left: 1px solid #efefef;
+		margin-top: 0;
 
-	ul{
-		margin-top: 10px;
-	}
+		&.open{
+			transition: right $menu-transition;
+			right: 0;
+		}
 
-	li{
+		ul{
+			margin-top: 10px;
+		}
 
-		a{
-			display: block;
+		li{
+
+			a{
+				display: block;
 			//outline: 1px solid black;
 			font-size: 27px;
 			padding: 10px 0;
