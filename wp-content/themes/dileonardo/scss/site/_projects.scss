@@ -82,6 +82,83 @@
 	}
 }
 
+// $grid-item: 32.5%;
+// $grid-item-sm: 48%;
+// $grid-gutter: 1.25%;
+// $grid-gutter-sm: 4%;
+
+// .projects-grid{
+// 	padding-bottom: 10em;
+// 	overflow: hidden;
+// 	//@include transition(opacity,.35s);
+
+
+// 	&:after {
+// 		content: '';
+// 		display: block;
+// 		clear: both;
+// 	}
+// }
+
+// .grid-sizer,.grid-item{
+// 	width: $grid-item;
+
+// 	@media screen and (max-width: $sm) {
+// 		//width: $grid-item-sm;
+// 	}
+// }
+
+// .gutter-sizer{
+// 	width: $grid-gutter;
+
+// 	@media screen and (max-width: $sm) {
+// 		//width: $grid-gutter-sm;
+// 	}	
+// }
+
+// .card-project{
+// 	position: relative;	
+// 	margin-bottom: $grid-gutter;
+// 	//float: left;
+// 	width: $grid-item;
+// 	//border: 10px solid red;
+
+// 	@media screen and (max-width: $sm) {
+// 		//margin-bottom: $grid-gutter-sm;
+// 	}	
+
+// 	img{
+// 		display: block;
+// 	}	
+
+// 	@media screen and (min-width: $md+1) {
+// 		&:hover{
+// 			.project-image:after{
+// 				//background: $tile-hover;			
+// 			}
+// 		}		
+// 	}
+
+// }
+
+// /* clear fix */
+// .project-grid:after {
+//   content: '';
+//   display: block;
+//   clear: both;
+// }
+
+/* ---- .grid-item ---- */
+
+// .grid-item {
+//   float: left;
+//   width: 100px;
+//   height: 100px;
+//   background: #0D8;
+//   border: 2px solid #333;
+//   border-color: hsla(0, 0%, 0%, 0.7);
+// }
+
 
 
 

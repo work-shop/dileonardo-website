@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 function menuToggle( config ) {
 	//console.log('menu-toggle.js loaded');
