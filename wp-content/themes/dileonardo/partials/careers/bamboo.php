@@ -1,4 +1,4 @@
-<section class="block vh70" id="apply">
+<section class="block spy-target vh70" id="apply">
 	<?php 
 	$background_image = get_field('background_image');
 	$background_image = $background_image['sizes']['page_hero'];

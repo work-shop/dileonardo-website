@@ -1,4 +1,4 @@
-<section class="block padded related" id="project-related">
+<section class="block padded bg-light related" id="project-related">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-left">
