@@ -15,6 +15,7 @@
             	gtag('js', new Date());
             	gtag('config', 'UA-');
             </script> -->
+            <script src="<?php bloginfo('template_directory'); ?>/js/masonry.js"></script>
         </div>
 
     <?php wp_footer(); ?>

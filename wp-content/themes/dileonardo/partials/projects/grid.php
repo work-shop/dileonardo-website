@@ -1,5 +1,5 @@
 <section class="block padded-bottom" id="projects-grid">
-	<div class="project-grid" id="grid">
+	<div id="grid" class="grid grid-projects">
 		<?php for ($i=0; $i < 4; $i++) { ?>
 			<?php 
 			$count = 0;
@@ -40,7 +40,7 @@
 			<?php endwhile; ?>
 			<?php wp_reset_postdata(); ?>
 		<?php  } ?>
+		<div class="grid-sizer"></div>
+		<div class="gutter-sizer"></div>
 	</div>
-	<div class="grid-sizer"></div>
-	<div class="gutter-sizer"></div>
 </section>

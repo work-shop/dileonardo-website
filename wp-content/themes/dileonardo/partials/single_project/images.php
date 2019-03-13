@@ -6,11 +6,11 @@ $images = get_field('project_images');
 		<div class="container-fluid project-images-title">
 			<div class="row">
 				<div class="col">
-					<h4 class="">Project Images</h4>
+					<h4 class=""><?php the_title(); ?> Images</h4>
 				</div>
 			</div>
 		</div>
-		<div class="project-images-container">
+		<div class="project-images-container container-fluid">
 			<?php for ($i=0; $i < 4; $i++) { ?>
 				<?php foreach ($images as $image): ?> 
 					<div class="project-image">
