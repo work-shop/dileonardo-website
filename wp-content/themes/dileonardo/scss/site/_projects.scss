@@ -140,6 +140,16 @@ $grid-gutter-sm: 4%;
 
 .project-intro{
 	@extend .padded-bottom;
+
+	.project-categories{
+		max-width: 61%;
+		//background: yellow;
+	}
+
+	.project-category-label{
+		font-size: 14px;
+		white-space: nowrap;
+	}
 }
 
 .single-title-container{

@@ -48,6 +48,17 @@
 						Client Portal
 					</a>
 				</div>
+				<div class="footer-social-links">
+					<a href="https://www.facebook.com/dileonardo/" target="_blank">
+						<img src="<?php bloginfo( 'template_directory' );?>/images/fb.png" class="social-icon">
+					</a> 
+					<a href="https://linkedin.com/dileonardo" target="_blank">
+						<img src="<?php bloginfo( 'template_directory' );?>/images/in.png" class="social-icon">
+					</a>
+					<a href="https://www.instagram.com/dileonardo/" target="_blank">
+						<img src="<?php bloginfo( 'template_directory' );?>/images/ig.png" class="social-icon">
+					</a>
+				</div>
 			</div>
 			<div class="col-3 footer-col">
 				<ul class="footer-links">

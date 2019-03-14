@@ -1,13 +1,18 @@
-<section class="block padded bg-brand-dark" id="home-intro">
-	<div class="container-fluid">
+<section class="block padded bg-dark" id="home-intro">
+	<div class="container-fluid pt4 pb4">
 		<div class="row">
 			<div class="col-right offset">
 				<h2 class="bold mb2 white" id="intro-text">
-					When you enter one of our environments, you sense the unparalleled creativity and technical expertise that we bring to every project.
+					<?php the_field('tagline_text'); ?>
 				</h2>
-				<div class="" id="intro-link">
-					<a href="/about" class="button white">Learn More About DiLeonardo</a>
-				</div>
+				<?php $link = get_field('tagline_link'); ?>
+				<?php if( $link ): ?>
+					<div id="intro-link">
+						<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="button white">
+							<?php echo $link['title']; ?>
+						</a>
+					</div>	
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>

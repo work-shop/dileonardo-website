@@ -11,9 +11,9 @@
 
 #team{
 
-	.team-list-secondary{
-		margin-left: -5px;
-		margin-right: -5px;
+	.team-list{
+		columns: 6;
+		column-gap: 10px;
 	}
 
 	.person{
@@ -24,9 +24,9 @@
 
 		&.person-small{
 			margin-bottom: 10px;
-			flex: 0 0 20%;
-			max-width: 20%;
-			padding: 0 5px;
+			//flex: 0 0 20%;
+			//max-width: 20%;
+			//padding: 0 5px;
 			position: relative;
 
 			&:hover{

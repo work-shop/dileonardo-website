@@ -17,6 +17,16 @@ function slickSlideshows( config ) {
 			speed: config.speed
 		});
 
+		$('.slick-home-hero').slick({
+			slidesToShow: 1,
+			dots: true,
+			arrows: false,
+			autoplay: true,
+			fade: true,
+			autoplaySpeed: config.autoplaySpeed,
+			speed: config.speed
+		});
+
 		$('.slick-project-modal').slick({
 			slidesToShow: config.slidesToShow,
 			dots: config.dots,

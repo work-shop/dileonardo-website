@@ -11,16 +11,39 @@
 	<div class="container-fluid">
 		<div class="row project-intro-row single-intro-row">
 			<div class="col-left">
-				<h4 class="project-location">
-					Beijing, China
-				</h4>
-				<h4 class="project-client">
-					Marriot
-				</h4>
+				<?php if( get_field('project_location') ){ ?>
+					<h4 class="project-location">
+						<?php the_field('project_location'); ?>
+					</h4>
+				<?php } ?>
+				<?php if( get_field('project_client') ){ ?>
+					<h4 class="project-client">
+						<?php the_field('project_client'); ?>
+					</h4>
+				<?php } ?>
+				<div class="project-categories">
+					<?php 
+					$terms = get_the_terms( $post->ID , array( 'project-categories') );
+					// init counter
+					$i = 1;
+					foreach ( $terms as $term ) {
+						$term_link = get_term_link( $term, array( 'project-categories') );
+						if( is_wp_error( $term_link ) )
+							continue;
+						?>
+						<a class="project-category-label" href="/projects/?category=filter-<?php echo $term->slug; ?>">
+							<?php 
+							echo $term->name;
+							echo ($i < count($terms))? ", " : "";
+							$i++;
+							?>
+						</a> 
+					<?php } ?>
+				</div>
 			</div>
 			<div class="col-right">
 				<h3 class="single-intro-text project-intro-text">
-					As homage to the landscape and architecture, the interior is largely inspired by the idea of framing the extraordinary views of Yanqi Lake; whether it is capturing the view of the exterior landscape or framing areas within by enclosing a space or setting a vignette of the interior décor. The design creates elements of intrigue within the overall space of the hotel by experimenting with the juxtaposition of solids and voids and infusing reoccurring geometric forms into unexpected spaces, design elements or features.
+					<?php the_field('project_introduction'); ?>
 				</h3>
 			</div>
 		</div>

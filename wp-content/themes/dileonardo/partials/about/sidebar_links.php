@@ -4,8 +4,8 @@
 	</a>
 </li>
 <li>
-	<a href="#culture" class="jump spy-link">
-		Culture
+	<a href="#history" class="jump spy-link">
+		History
 	</a>
 </li>
 <li>
@@ -14,8 +14,8 @@
 	</a>
 </li>
 <li>
-	<a href="#history" class="jump spy-link">
-		History
+	<a href="#culture" class="jump spy-link">
+		Culture
 	</a>
 </li>
 <li>

@@ -1,6 +1,13 @@
 <section class="block page-section <?php if( is_page(9) ){ ?> bg-light <?php } ?> spy-target" id="awards">
 	<div class="container-fluid">
 		<div class="row">
+			<?php if( is_page(17) ){ ?>
+			<div class="col-left">
+				<h1 class="page-title">
+					<?php the_title(); ?>
+				</h1>
+			</div>
+			<?php } ?>
 			<div class="<?php if( is_page(9) || false ){ ?> col-right offset <?php } else{ ?> col-right <?php } ?>">
 				<?php 
 				$count = 0;

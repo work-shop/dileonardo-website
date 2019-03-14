@@ -24,7 +24,7 @@ import { menuToggle } from './menu-toggle.js';
 import { filter } from './filter.js';
 import { scrollSpy } from './scroll-spy.js';
 import { makeMap } from './map.js';
-import { iso } from './iso.js';
+import { grid } from './grid.js';
 
 //must use 
 livereload();
@@ -45,4 +45,4 @@ menuToggle(config.menuToggle);
 scrollSpy(config.scrollSpy);
 filter();
 makeMap();
-iso();
+grid();

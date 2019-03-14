@@ -7,11 +7,11 @@
 
 <?php get_template_part('partials/about/mission' ); ?>
 
-<?php get_template_part('partials/about/culture' ); ?>
+<?php get_template_part('partials/about/history' ); ?>
 
 <?php get_template_part('partials/about/team' ); ?>
 
-<?php get_template_part('partials/about/history' ); ?>
+<?php get_template_part('partials/about/culture' ); ?>
 
 <?php get_template_part('partials/awards/awards' ); ?>
 

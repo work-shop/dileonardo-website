@@ -1,5 +1,5 @@
 <?php
-$slides = get_field('collaboration_slideshow');
+$slides = get_field('culture_slideshow');
 ?>
 <section class="block slideshow spy-target" id="culture">
 	<?php if( $slides ): ?>

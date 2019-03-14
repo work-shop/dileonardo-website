@@ -1,10 +1,8 @@
 <section class="block vh60" id="home-thinking">
 	<?php 
-	$background_image = get_field('background_image');
+	$background_image = get_field('thinking_section_background_image');
 	$background_image = $background_image['sizes']['page_hero'];
-	$background_image = get_bloginfo( 'stylesheet_directory' ) . '/images/wireframe2.jpg';
-	$background_text = get_field('background_text'); 
-	$background_text = 'Exercitation esse velit elit ut pariatur ad in ex culpa aliqua aute eiusmod laborum magna culpa cupidatat anim in.'; 
+	$background_text = get_field('thinking_section_text'); 
 	?>
 	<div class="block-background page-hero-image" style="background-image: url('<?php echo $background_image; ?>');">
 	</div>
@@ -12,16 +10,21 @@
 		<div class="row">
 			<div class="col-left">
 				<h3 class="section-heading bold white">
-					Thought Leadership
+					<?php the_field('thinking_section_heading'); ?>
 				</h3>
 			</div>
 			<div class="col-right">
 				<h2 class="white mb1">
 					<?php echo $background_text; ?>
 				</h2>
-				<div class="background-link">
-					<a href="/thinking" class="button white">Read Our Thinking</a>
-				</div>
+				<?php $link = get_field('thinking_link'); ?>
+				<?php if( $link ): ?>
+					<div class="background-link">
+						<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="button white">
+							<?php echo $link['title']; ?>
+						</a>
+					</div>	
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>

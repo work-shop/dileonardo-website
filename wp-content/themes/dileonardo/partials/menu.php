@@ -35,7 +35,7 @@
 				Awards
 			</a>
 		</li>
-		<li>
+<!-- 		<li>
 			<a href="/press">
 				Press
 			</a>
@@ -44,7 +44,7 @@
 			<a href="/careers">
 				Careers
 			</a>
-		</li>
+		</li> -->
 		<li>
 			<a href="/contact">
 				Contact
