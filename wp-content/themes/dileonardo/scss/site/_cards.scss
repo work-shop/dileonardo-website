@@ -5,7 +5,7 @@
 	position: relative;
 
 	&.card-project{
-		margin-bottom: 20px;
+		//margin-bottom: 20px;
 
 		.card-project-title{
 			position: absolute;
@@ -14,15 +14,16 @@
 			width: 100%;
 			height: 50px;
 			margin-bottom: 0;
-			font-size: 21px;
+			font-size: 25px;
 			display: none;
 			color: white;
-			padding: 10px;
+			text-shadow: 0px 0px 1px transparentize($dark,.3);
+			padding: 8px 15px;
 			@extend .align-items-end;
 			@extend .justify-content-end;
-			background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,.1) 50%, rgba(0,0,0,0.25) 100%);
-			background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,.1) 50%,rgba(0,0,0,0.25) 100%);
-			background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,.1) 50%,rgba(0,0,0,0.25) 100%);
+			background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,.15) 50%, rgba(0,0,0,0.25) 100%);
+			background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,.15) 50%,rgba(0,0,0,0.25) 100%);
+			background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,.15) 50%,rgba(0,0,0,0.25) 100%);
 			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
 		}
 
@@ -34,29 +35,44 @@
 	}
 
 	&.card-project-related{
-		.card-project-title{
+		.project-title{
 			position: static;
 			background: none;
 			color: $dark;
 			height: auto;
 			display: flex;
+			margin-top: 1em;
+			font-size: 19px;
 		}
 	}
 
 	&.card-news{
-		margin-bottom: 6vh;
+		//margin-bottom: 6vh;
+
+		.card-news-image{
+			//border-bottom: 5px solid $brand;
+		}
+
+		.card-news-title{
+			margin-bottom: 0;
+		}
 
 		.card-news-date,.card-news-author{
 			display: inline-block;
 		}
 
 		.card-news-date{
-			margin-right: 1em;
+			margin-right: 15px;
 		}
 
 		.card-news-author{
-			padding-left: 1em;
+			padding-left: 15px;
 			border-left: 1px solid $medium;
+		}
+
+		.card-news-excerpt{
+			@extend .italic;
+			font-style: italic;
 		}
 	}
 }

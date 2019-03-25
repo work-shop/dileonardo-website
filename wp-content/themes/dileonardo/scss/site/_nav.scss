@@ -28,7 +28,7 @@ $nav-padding-mobile: $container-fluid-padding-mobile;
 	}
 
 	&.absolute{
-		position: absolute; 
+		position: fixed; 
 	}
 
 	@media screen and (max-width: $sm) {
@@ -94,7 +94,13 @@ $nav-padding-mobile: $container-fluid-padding-mobile;
 	float: left;
 	position: relative;
 	z-index: 2;
+	//left: $container-fluid-padding;
 	//filter: drop-shadow(0px 0px 10px white);
+
+	.st0{
+		fill: $medium;
+		//display: none;
+	}
 
 	@media screen and (max-width: $md) {
 		width: 130px;

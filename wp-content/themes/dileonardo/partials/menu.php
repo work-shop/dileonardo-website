@@ -1,53 +1,41 @@
+<div id="menu-button">
+	<a href="#menu" class="menu-toggle"><span style="background-image: url('<?php bloginfo('template_directory');?>/images/menu-button.png');">Menu</span></a>
+</div>
 <menu id="menu">
 	<ul class="menu-items">
 		<li>
 			<a href="/">
-				Home
+				<span>Home</span>
 			</a>
 		</li>
 		<li>
 			<a href="/projects">
-				Projects
+				<span>Projects</span>
 			</a>
 		</li>		
 		<li>
 			<a href="/practice">
-				Practice
+				<span>Practice</span>
 			</a>
 		</li>
 		<li>
 			<a href="/about">
-				About
+				<span>About</span>
 			</a>
 		</li>
 		<li>
 			<a href="/thinking">
-				Thinking
+				<span>Thinking</span>
 			</a>
 		</li>
 		<li>
 			<a href="/news">
-				News
+				<span>News</span>
 			</a>
 		</li>
-		<li>
-			<a href="/awards">
-				Awards
-			</a>
-		</li>
-<!-- 		<li>
-			<a href="/press">
-				Press
-			</a>
-		</li>		
-		<li>
-			<a href="/careers">
-				Careers
-			</a>
-		</li> -->
 		<li>
 			<a href="/contact">
-				Contact
+				<span>Contact</span>
 			</a>
 		</li>
 	</ul>

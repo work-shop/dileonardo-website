@@ -10,10 +10,10 @@
 	$page = 'page';
 } ?>
 
-<div class="page-sidebar page-sidebar-sticky before shown" id="page-sidebar-<?php echo $page; ?>">
+<div class="page-sidebar page-sidebar-sticky sticky-nav before shown" id="page-sidebar-<?php echo $page; ?>">
 	<div class="page-sidebar-header">
 		<h1 class="page-title">
-			<?php the_title(); ?>
+			<span class=""><?php the_title(); ?></span>
 		</h1>
 	</div>
 	<div class="page-sidebar-body">

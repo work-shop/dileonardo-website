@@ -28,7 +28,7 @@ endif;
 				By Lia DiLeonardo
 			</h4>
 			<h4 class="card-news-excerpt">
-				Veniam nulla esse consequat dolor consequat duis eu officia laboris in tempor ut. Veniam nulla esse consequat dolor consequat duis eu officia laboris in tempor ut.
+				Veniam nulla esse consequat dolor consequat duis eu officia laboris in tempor ut. Veniam nulla esse consequat dolor consequat duis eu officia laboris.
 			</h4>
 		</a>
 	</div>

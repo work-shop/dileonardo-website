@@ -1,4 +1,4 @@
-<section class="block filters pt2 pb3" id="filters">
+<section class="block filters sticky-nav before" id="filters">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-4">

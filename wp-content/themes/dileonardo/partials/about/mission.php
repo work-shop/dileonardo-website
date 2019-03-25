@@ -5,6 +5,11 @@
 				<h2 class="page-section-intro-text mb2">
 					<?php the_field('mission_text'); ?>
 				</h2>
+				<?php if( get_field('mission_text_secondary')){ ?>
+					<h4 class="page-section-intro-text-2">
+						<?php the_field('mission_text_secondary'); ?>
+					</h4>
+				<?php  } ?>
 			</div>
 		</div>
 	</div>

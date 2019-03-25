@@ -1,4 +1,4 @@
-<nav id="nav" class="fixed before">
+<nav id="nav" class="absolute before">
 	<div class="container-fluid">
 		<div id="logo" class="logo">
 			<a href="/" title="Home">
@@ -7,6 +7,3 @@
 		</div>
 	</div>
 </nav>
-<div id="menu-button">
-	<a href="#menu" class="menu-toggle">Menu</a>
-</div>

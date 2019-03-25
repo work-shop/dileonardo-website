@@ -1,4 +1,4 @@
-<section class="block page-section vh100 spy-target" id="history">
+<section class="block page-section vh100 bg-light spy-target" id="history">
 	<div class="container-fluid height-100 flex-center-vertical">
 		<div class="row">
 			<div class="col-right offset">
@@ -25,6 +25,11 @@
 								<?php } ?>
 							</div>
 						<?php endwhile; ?>
+					</div>
+					<div id="history-arrows">
+						<div class="history-arrow" id="history-arrow-next">
+							<span class="icon" data-icon="Ú"></span>
+						</div>
 					</div>
 				<?php } ?>
 			</div>

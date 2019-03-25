@@ -1,8 +1,25 @@
 
-$hero-height: 61vh;
+$hero-height: 69vh;
 
-.page-hero{
+.page-hero,.project-hero{
 	height: $hero-height;
+
+	.page-hero-image{
+		//border: $container-fluid-padding solid white;
+		width: calc(100% - #{$container-fluid-padding * 2});
+		height: calc(100% - #{$container-fluid-padding});
+		left: $container-fluid-padding;
+		top: $container-fluid-padding;
+		overflow: hidden;
+
+		&:after{
+			//background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 90%, rgba(255,255,255,0.5) 100%);
+			//background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,.3) 90%,rgba(255,255,255,0.5) 100%);
+			//background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,.3) 90%,rgba(255,255,255,0.5) 100%);
+			//filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
+
+		}
+	}
 }
 
 
@@ -11,8 +28,15 @@ $hero-height: 61vh;
 	@extend .uppercase;
 	margin-top: 125px;
 	@extend .bold;
-	@extend .medium;
+	color: $medium;
 	@extend .tracked-less;
+
+	span{
+		@extend .bold;
+		color: $medium;
+		//background: white;
+		//padding: 15px 5px;
+	}
 
 	@media screen and (max-width: $sm) {
 		font-size: 17px;
@@ -32,19 +56,20 @@ $hero-height: 61vh;
 }
 
 
-$sidebar-fixed-top: 100px;
+$sidebar-fixed-top: $container-fluid-padding;
 
 .page-sidebar{
 	position: absolute;
-	top: $hero-height;
-	margin-top: -65px;
+	top: calc( #{$hero-height} + #{$sidebar-fixed-top});
+	margin-top: 0;
+	//margin-top: -65px;
 	z-index: 3;
 	left: $container-fluid-padding;
 	width: calc( ( ( 100% - #{$container-fluid-sum} ) / 4 ) - 40px );
 	max-width: 300px;
-	padding: 25px 20px;
+	//padding: 25px 20px;
 	//background: white;
-	padding: 25px 0;
+	//padding: 25px 0;
 	//border: 1px solid $medium;
 
 	&.after{
@@ -81,6 +106,11 @@ $sidebar-fixed-top: 100px;
 	.page-title{
 		margin-top: 0;
 		margin-bottom: 40px;
+		//color: $dark;
+
+		span{
+			//color: $dark;
+		}
 
 		@media screen and (max-width: $sm) {
 			margin-bottom: 20px;
@@ -89,17 +119,19 @@ $sidebar-fixed-top: 100px;
 
 	li{
 		margin-bottom: 18px;
+		//text-indent: 5px;
 
 		a{
-			font-size: 18px;
+			font-size: 20px;
 			border-bottom: 2px solid transparent;
+			color: lighten($dark,7%);
 
 			@media screen and (max-width: $sm) {
 				font-size: 14px;
 			}
 
 			&.spy-active{
-				border-bottom: 2px solid $medium;
+				border-bottom: 2px solid lighten($dark,7%);
 			}
 
 			&:hover{
@@ -114,4 +146,6 @@ $sidebar-fixed-top: 100px;
 .page-section{
 	padding-top: $sidebar-fixed-top;
 	padding-bottom: $sidebar-fixed-top;
+	//padding-top: 100px;
+	//padding-bottom: 100px;
 }

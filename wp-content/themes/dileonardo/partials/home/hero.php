@@ -1,7 +1,7 @@
 <?php 
 $hero_type = get_field('hero_type'); 
 ?>
-<section class="block page-hero vh100" id="home-hero">
+<section class="block page-hero spy-target spy-first vh100" id="home-hero">
 	<?php if( $hero_type === 'slideshow' ){ ?>
 		<?php
 		$slides = get_field('hero_slideshow');
@@ -26,18 +26,21 @@ $hero_type = get_field('hero_type');
 	<?php } else{ ?>
 		<?php 
 		$hero_image = get_field('hero_image');
-		$hero_image = $hero_image['sizes']['page_hero'];
+		$hero_image = $hero_image['sizes']['xl_cropped'];
 		?>
-		<div class="block-background page-hero-image" style="background-image: url('<?php echo $hero_image; ?>');">
+		<div class="home-hero-image-container">
+			<div class="block-background page-hero-image" style="background-image: url('<?php echo $hero_image; ?>');">
+			</div>
 		</div>
 	<?php } ?>
 	<div id="scrolly">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-left">
-					<a href="#home-intro" class="jump">
-						<span class="icon large white" data-icon="”">
-						</span>
+					<a href="#home-intro" class="" id="scrolly-link">
+						<!-- <span class="icon large white" data-icon="”">
+						</span> -->
+						<?php get_template_part('partials/scrolly' ); ?>
 					</a>
 				</div>
 			</div>

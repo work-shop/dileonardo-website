@@ -1,13 +1,23 @@
-<section class="block padded-top bg-light" id="home-projects">
+<section class="block padded-more-top spy-target" id="home-projects">
 	<div class="container-fluid">
-		<div class="row mb2">
+		<div class="row mb4">
 			<div class="col">
-				<h3 class="section-heading bold">
-					<?php the_field('home_projects_heading'); ?>
+				<h3 class="section-heading mb0">
+					<span class="brand-underline medium"><?php the_field('home_projects_heading'); ?></span>
 				</h3>
+				<div id="projects-link" class="">
+					<a href="/projects" class="">
+						See All
+					</a>
+				</div>
 			</div>
 		</div>
 		<div id="grid" class="grid grid-project">
+			<article class="card card-project grid-item card-project-featured hidden">
+				<h3 class="section-heading bold">
+					<span class="brand-underline bold"><?php the_field('home_projects_heading'); ?></span>
+				</h3>
+			</article>
 			<?php for ($i=0; $i < 1; $i++) { ?>
 				<?php 
 				$count = 0;

@@ -1,13 +1,13 @@
-<footer id="footer" class="block padded-top pb1 pt5 bg-medium">
+<footer id="footer" class="block pb1 pt5 bg-medium">
 	<?php 
 	$background_image = get_field('background_image');
 	$background_image = $background_image['sizes']['page_hero'];
-	$background_image = get_bloginfo( 'stylesheet_directory' ) . '/images/wireframe2.jpg';
+	$background_image = get_bloginfo( 'stylesheet_directory' ) . '/images/footer-test.jpg';
 	?>
 	<div class="footer-background" style="background-image: url('<?php echo $background_image; ?>');">
 	</div>
 	<div class="container-fluid">
-		<div class="row">
+		<div class="row hidden">
 			<div class="col-3">
 				<div class="logo mb2" id="footer-logo">
 					<img src="<?php echo get_bloginfo( 'stylesheet_directory' ); ?>/images/logo-footer.jpg" />

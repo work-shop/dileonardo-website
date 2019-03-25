@@ -1,10 +1,15 @@
-<section class="block padded bg-light" id="home-ne">
+<section class="block padded-more spy-target" id="home-news">
 	<div class="container-fluid">
 		<div class="row" id="news">
 			<div class="col-left">
-				<h3 class="section-heading bold">
-					<?php the_field('news_heading'); ?>
+				<h3 class="section-heading medium">
+					<span class="brand-underline medium"><?php the_field('home_news_heading'); ?></span>
 				</h3>
+				<div id="news-link" class="">
+					<a href="/news" class="">
+						See All
+					</a>
+				</div>
 			</div>
 			<div class="col-right">
 				<div class="row">

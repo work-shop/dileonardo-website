@@ -27,7 +27,7 @@ var config = {
         activeOnMobile: true        
     },
     stickyNav: {
-        selector: '.page-sidebar',
+        selector: '.sticky-nav',
         navHeight: global_config.navHeight,
         mobileNavHeight: global_config.mobileNavHeight,
         mobileBreakpoint: global_config.mobileBreakpoint,

@@ -11,7 +11,7 @@ $images = get_field('project_images');
 			</div>
 		</div>
 		<div class="project-images-container container-fluid">
-			<?php for ($i=0; $i < 2; $i++) { ?>
+			<?php for ($i=0; $i < 1; $i++) { ?>
 				<?php foreach ($images as $image): ?> 
 					<div class="project-image">
 						<a href="#" class="modal-toggle" data-modal-target="modal-project-images">

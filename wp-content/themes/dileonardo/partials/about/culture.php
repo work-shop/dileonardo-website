@@ -7,14 +7,14 @@ $slides = get_field('culture_slideshow');
 			<?php foreach ($slides as $image): ?> 
 				<div class="slick-slide">
 					<div class="slide-image-container">
-						<div class="slide-image vh70" style="background-image: url('<?php echo $image['sizes']['page_hero']; ?>');">
+						<div class="slide-image vh100" style="background-image: url('<?php echo $image['sizes']['page_hero']; ?>');">
 						</div>
 					</div>
 					<div class="slide-caption-container container-fluid">
 						<div class="row">
 							<div class="col-right offset">
 								<?php if( $image['caption'] ): ?>
-									<h2 class="slide-caption white bold"><?php echo $image['caption']; ?></h2>
+									<h2 class="slide-caption bold"><?php echo $image['caption']; ?></h2>
 								<?php endif; ?>
 							</div>
 						</div>

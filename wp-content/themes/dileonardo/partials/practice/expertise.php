@@ -2,37 +2,38 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-right offset">
-				<h2 class="page-section-intro-text mb2">
-				We are a full-service interior architectural design firm with a 40 year history. You can expect meticulous plans, beautifully rendered images, detailed schematic budgets, 24-hour service, and an expertly coordinated project, from concept to completion.
+				<h2 class="page-section-intro-text mb1">
+					<?php the_field('expertise_statement'); ?>
 				</h2>
+				<?php if( get_field('expertise_secondary_statement')){ ?>
+					<h4 class="page-section-intro-text-2 mb4">
+						<?php the_field('expertise_secondary_statement'); ?>
+					</h4>
+				<?php  } ?>
 				<div class="expertise-lists row">
 					<div class="col-5">
-						<h4 class="bold uppercase">Services</h4>
-						<ul>
-							<li><a href="#">Interior Architectural</a></li>
-							<li><a href="#">Lighting</a></li>
-							<li><a href="#">Signage</a></li>
-							<li><a href="#">Architecture</a></li>
-							<li><a href="#">Furnishing</a></li>
-							<li><a href="#">Art / Accessories</a></li>
-							<li><a href="#">Project Supervision</a></li>
-							<li><a href="#">Peer Review</a></li>
-						</ul>
+						<h4 class="bold uppercase mb1">Services</h4>
+						<?php if( have_rows('services_list') ): ?>
+							<ul class="services-list">
+								<?php  while ( have_rows('services_list') ) : the_row(); ?>
+									<li>
+										<?php the_sub_field('service'); ?>
+									</li>
+								<?php endwhile; ?>
+							</ul>
+						<?php endif; ?>
 					</div>
 					<div class="col">
-						<h4 class="bold uppercase">Sectors</h4>
-						<ul>
-							<li><a href="#">Hotels</a></li>
-							<li><a href="#">Resorts</a></li>
-							<li><a href="#">Spas</a></li>
-							<li><a href="#">Casinos</a></li>
-							<li><a href="#">Restaurants</a></li>
-							<li><a href="#">Fractional Ownership / Timeshare</a></li>
-							<li><a href="#">Entertainment / Sports Facilities</a></li>
-							<li><a href="#">Clubhouses</a></li>
-							<li><a href="#">Conference Centers</a></li>
-							<li><a href="#">Residential / Condominiums</a></li>
-						</ul>
+						<h4 class="bold uppercase mb1">Sectors</h4>
+						<?php 
+						$terms = get_field('sectors_list');
+						if( $terms ): ?>
+							<ul>
+								<?php foreach( $terms as $term ): ?>
+									<li><a href="/projects?category=<?php echo $term->slug; ?>"><?php echo $term->name; ?></a></li>
+								<?php endforeach; ?>
+							</ul>
+						<?php endif; ?>
 					</div>
 				</div>
 			</div>

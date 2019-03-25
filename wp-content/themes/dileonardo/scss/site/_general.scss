@@ -15,6 +15,8 @@ img,.block-background,.slick-slide,.page_hero,.card{
 
 body{
 	background-color: $body-background-color;
+	background: white;
+	//opacity: .99
 }
 
 
@@ -125,6 +127,19 @@ body{
 	padding-bottom: 6vh;
 }
 
+.padded-more{
+	padding-top: 20vh;
+	padding-bottom: 18vh;
+}
+
+.padded-more-top{
+	padding-top: 20vh;
+}
+
+.padded-more-bottom{
+	padding-bottom: 18vh;
+}
+
 
 /* MISC */
 
@@ -154,6 +169,27 @@ input{
 }
 
 
+.brand-underline{
+	//border-top: 3px solid $brand;
+	padding-top: 20px;
+
+	position: relative;
+
+	&:before{
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 3px;
+		background: $brand;
+		margin-bottom: 10px;
+		transition: all 1s;
+	}
+}
+
+
 /* sitewide button styles */
 
 $text-button: (
@@ -161,11 +197,11 @@ $text-button: (
 	sm: (13px, 12px),
 	md: (14px, 12px),
 	lg: (15px, 12px),
-	xl: (16px, 12px)
+	xl: (17px, 12px)
 	);
 
 .button{
-	padding: 10px 0;
+	padding: 20px 0;
 	font-family: $font-main;
 	color: $medium;
 	@extend .bold;
@@ -174,16 +210,16 @@ $text-button: (
 	display: inline-block;
 	text-align: center;
 	@include text-size($text-button);	
-	border-bottom: 3px solid $brand;
+	border-top: 3px solid transparent;
 
 	&.white{
 		color: white;
-		border-color: white;
+		//border-color: white;
 
 		&:hover{
 			//background: $dark;
 			color: white;
-			border-color: white;
+			border-color: $brand;
 		}
 	}
 

@@ -10,7 +10,7 @@ function stickyNav( config ) {
 
 	$(document).ready( function() {
 
-		if( $('.page-sidebar-sticky').length ){
+		if( $('.sticky-nav').length ){
 			//console.log('page nav present');
 
 			stickyNavProperties.selector = config.selector || '#nav';
@@ -19,7 +19,12 @@ function stickyNav( config ) {
 			stickyNavProperties.element = $(stickyNavProperties.selector);
 			stickyNavProperties.mobileBreakpoint = config.mobileBreakpoint;
 			stickyNavProperties.activeOnMobile = config.activeOnMobile;
-			stickyNavProperties.top = 100;
+
+			if( $('body').hasClass('page-id-21')){
+				stickyNavProperties.top = 0;
+			} else{
+				stickyNavProperties.top = 105;
+			}
 
 			calculatePositions();
 
@@ -54,7 +59,7 @@ function stickyNav( config ) {
 function calculatePositions(){
 	stickyNavProperties.offset = stickyNavProperties.element.offset();
 	stickyNavProperties.triggerPosition = stickyNavProperties.offset.top - stickyNavProperties.top;
-	//console.log('stickyNavProperties.triggerPosition: ' + stickyNavProperties.triggerPosition);
+	console.log('stickyNavProperties.triggerPosition: ' + stickyNavProperties.triggerPosition);
 }
 
 
@@ -63,7 +68,7 @@ function checkNavPosition(){
 	if( $(window).width() > stickyNavProperties.mobileBreakpoint || stickyNavProperties.activeOnMobile ){
 
 		//var footerTrigger = $('#footer').offset().top - ( $(window).height() * 1 );
-		var footerTrigger = $('#footer').offset().top - ( $(window).height() * 1 ) + 300;
+		var footerTrigger = $('#footer').offset().top - ( $(window).height() * 1 ) + 100;
 
 		if ( $(window).scrollTop() >= stickyNavProperties.triggerPosition && stickyNavProperties.element.hasClass('before') ){
 			toggleNav();

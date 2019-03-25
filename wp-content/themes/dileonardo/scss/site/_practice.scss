@@ -1,6 +1,39 @@
 
+
+
+.expertise-lists,.clients-list{
+	li{
+		margin-bottom: .5em;
+	}
+}
+
+
+.process-step-col{
+	&:nth-child(even){
+		@extend .offset-1;
+	}
+}
+
+
+.impact-statistic{
+	margin-bottom: 11vh;
+
+	.impact-statistic-number{
+		@extend .bold;
+		color: $brand-dark;
+	}
+
+	.impact-statistic-label{
+		color: $medium;
+		//@extend .bold;
+		//font-size: 22px;
+	}
+}
+
+
 #distudio-logo{
 	img{
 		width: 130px;
 	}
 }
+

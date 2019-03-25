@@ -34,7 +34,7 @@ function menuToggle( config ) {
 			$(config.menuSelector).removeClass('closed').addClass('open');
 			$(config.blanketSelector).removeClass('off').addClass('on');						
 			$('body').removeClass(config.bodyOffClass).addClass(config.bodyOnClass);
-			$('#menu-button a').text('’');
+			$('#menu-button span').text('’');
 		}
 		else if($('body').hasClass(config.bodyOnClass)){
 			$(config.menuSelector).removeClass('open').addClass('closed');
@@ -42,7 +42,7 @@ function menuToggle( config ) {
 			$('body').removeClass(config.bodyOnClass).addClass(config.bodyOffClass);
 			// $('body').removeClass('dropdown-on').addClass('dropdown-off');
 			// $('.has-sub-menu').removeClass('open').addClass('closed');
-			$('#menu-button a').text('Menu');
+			$('#menu-button span').text('Menu');
 		}
 
 	}	

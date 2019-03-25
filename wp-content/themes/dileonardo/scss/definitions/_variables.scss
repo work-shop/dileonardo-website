@@ -4,8 +4,8 @@
 //brand colors
 $brand: #62cae3;
 $brand-dark: #132828;
-$brand-dark: darken($brand,30%);
-$brand-dark: desaturate($brand-dark, 50%);
+$brand-dark: darken($brand,17%);
+//$brand-dark: desaturate($brand-dark, 50%);
 
 
 
@@ -15,6 +15,7 @@ $ultra-light: #F5F5F5;
 $light: #efefef;
 $medium-light: #9B9B9B;
 $medium: #777777;
+$medium: desaturate($brand-dark, 60%);
 $medium-dark: #555555;
 $tan: #F7F5F2;
 
@@ -31,7 +32,8 @@ $nav-drop-after: $nav-height - 1px;
 $nav-height-mobile: 60px;
 $sitewide-alert-height: 50px;
 $container-fluid-max-width: none;
-$container-fluid-padding: 110px;
+$container-fluid-padding: 105px;
+//$container-fluid-padding: 110px;
 $container-fluid-padding-md: 60px;
 $container-fluid-padding-mobile: 20px;
 $container-fluid-sum: $container-fluid-padding * 2;
@@ -78,8 +80,8 @@ $font-secondary-bold-italic: $font-bold-italic;
 
 
 *{
-	//font-weight: normal !important;
-	//font-family: 'Post Grotesk Trial',Georgia !important;
+	font-weight: normal !important;
+	font-family: 'Post Grotesk Trial',Georgia !important;
 	//font-family: Comic Sans MS !important;
 }
 

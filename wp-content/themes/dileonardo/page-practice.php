@@ -7,6 +7,8 @@
 
 <?php get_template_part('partials/practice/expertise' ); ?>
 
+<?php get_template_part('partials/practice/clients' ); ?>
+
 <?php get_template_part('partials/practice/impact' ); ?>
 
 <?php get_template_part('partials/practice/design_philosophy' ); ?>

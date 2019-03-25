@@ -1,10 +1,26 @@
 
 #culture{
 
+	.slide-image{
+		background-size: cover;
+
+		&:after{
+			
+		}
+	}
+
 	.slide-caption-container{
 		position: absolute;
 		top: $sidebar-fixed-top;
 		z-index: 3;
+	}
+
+	.slick-arrow{
+
+		&:after{
+			//color: yellow;
+			filter: drop-shadow(0px 0px 1px black);
+		}
 	}
 }
 
@@ -55,13 +71,13 @@
 	}
 
 	.modal.modal-person{
-		height: 300px;
-		bottom: -300px;
+		height: 60vh;
+		bottom: -60vh;
 		top: auto;
 		left: -100%;
 		width: 100%;
-		background: white;
-		border-top: 1px solid $medium;
+		background: $light;
+		border-top: 1px solid $light;
 		transition: opacity $modal-transition, bottom $modal-transition, left 0s linear $modal-transition;
 
 		&.on{
@@ -70,15 +86,25 @@
 			left: 0;
 		}
 
+		.person-linkedin{
+			a{
+				text-decoration: underline;
+			}
+		}
+
+		.person-secondary-image{
+			width: 80%;
+		}
+
 	}
 
 }
 
 .page-id-9{
 	#modal-close{
-		bottom: 240px;
+		bottom: calc(60vh - 110px);
 		top: auto;
-		left: $container-fluid-padding;
+		right: $container-fluid-padding - 10px;
 	}
 
 	#blanket{
@@ -103,13 +129,15 @@
 			width: calc(100% + #{$container-fluid-padding});
 			left: 20px;
 			background: $medium;
-			z-index: -1;
+			z-index: 0;
 		}
 	}
 
 	.history-event{
 		padding-top: 20px;
 		padding-bottom: 30px;
+		position: relative;
+		z-index: 1;
 
 		&:before{
 			content: '';
@@ -119,7 +147,7 @@
 			border-radius: 10px;
 			background: $brand;
 			position: relative;
-			top: -27px;
+			top: -26px;
 		}
 
 		&:nth-child(even){
@@ -127,7 +155,7 @@
 
 			&:before{
 				top: auto;
-				top: calc(100% + 23px);
+				top: calc(100% + 24px);
 			}
 		}
 
@@ -139,6 +167,28 @@
 			font-size: 16px;
 			line-height: 1.2 !important;
 		}
+	}
+
+	.history-arrow{
+		position: absolute;
+		//background: yellow;
+		width: 50px;
+		height: 50px;
+		z-index: 3;
+		right: -50px;
+		top: 50%;
+		margin-top: -100px;
+		text-align: center;
+
+		&:hover{
+			cursor: pointer;
+		}
+		
+		.icon:before{
+			font-size: 70px;
+			color: $medium;
+		}
+
 	}
 
 }

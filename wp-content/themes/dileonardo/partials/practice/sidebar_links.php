@@ -4,6 +4,11 @@
 	</a>
 </li>
 <li>
+	<a href="#clients" class="jump spy-link">
+		Clients
+	</a>
+</li>
+<li>
 	<a href="#impact" class="jump spy-link">
 		Impact
 	</a>

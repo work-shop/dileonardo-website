@@ -3,9 +3,16 @@
 #footer{
 	position: relative;
 	z-index: 2;
+	background: white;
+	margin-bottom: 32px;
+	margin-top: 32px;
 
 	.footer-background{
+		width: calc(100% - 64px);
+		left: 32px;
 		@extend .background;
+		background-size: cover;
+		background-position: center center;
 		//width: 50%;
 		//left: 50%;
 		//opacity: .5;

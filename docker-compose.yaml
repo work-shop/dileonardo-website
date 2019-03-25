@@ -19,6 +19,8 @@ services:
       - database:/var/lib/mysql
 
   wordpress:
+    build:
+        context: ./wordpress
     depends_on:
       - database
     container_name: ${DOCKER_WORDPRESS_CONTAINER}

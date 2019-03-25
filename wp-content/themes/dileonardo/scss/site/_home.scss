@@ -9,13 +9,71 @@
 		//margin-top: -60px;
 	}
 
+	.section-heading {
+		opacity: 0;
+		transition: opacity 1s;
+
+		span{
+			display: inline-block;
+		}
+	}
+
+	.brand-underline{
+		&:before{
+			transition: all 1.5s;
+			width: 0;
+		}
+	}
+
+	#tagline-text, #intro-link,#projects-link,#news-link{
+		opacity: 0;
+		transition: opacity 2s;
+	}
+
+	.activated{
+		
+		.section-heading,#tagline-text, #intro-link,#projects-link,#news-link{
+			opacity: 1;
+		}
+
+		.brand-underline{
+			&:before{
+				width: 100%;
+			}
+		}
+
+	}
+
+	#projects-link,#news-link{
+		a{
+			color: $medium;
+			font-size: 16px;
+		}
+	}
+
+	.section-heading{
+		margin-top: 5px;
+	}
+
 }
+
+
+@keyframes kenburns {
+	0% {
+		transform: scale3d(1, 1, 1) translate3d(0px, 0px, 0px);
+	}
+	50% {
+		transform: scale3d(1.1, 1.1, 1.1) translate3d(-30px, -20px, 0px);
+		animation-timing-function: ease-in;
+	}
+	100% {
+		transform: scale3d(1, 1, 1) translate3d(0px, 0px, 0px);
+	}
+}
+
 
 #home-hero{
 	height: 100vh;
-}
-
-#home-hero{
 
 	video{
 		min-height: 100%;
@@ -47,25 +105,108 @@
 		background-size: cover;
 		background-position: center center;
 		background-repeat: no-repeat;
+
+
+	}
+
+	.home-hero-image-container{
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		height: inherit;
+		border: $container-fluid-padding solid white;
+	}
+
+	.page-hero-image{
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		animation: kenburns 20s infinite;
+
+		&:after{
+			display: none;
+		}
 	}
 }
 
 
 #scrolly{
 	position: absolute;
-	bottom: 0;
-	height: 80px;
+	bottom: 0px;
+	height: $container-fluid-padding;
 	left: 0;
 	width: 100%;
+	//background: yellow;
+
 
 	a{
 		display: block;
-		text-indent: 50px;
+		//text-indent: 78px;
+		display: flex;
+		@extend .align-items-center;
 
 		.icon:before{
-			font-size: 90px;
+			font-size: 110px;
+			color: $medium;
+			text-shadow: 0px 0px 7px white;
+		}
+
+		svg{
+			width: 50px;
+			margin-top: 45px;
+			//height: 100%;
+
+			path{
+				fill: $medium;
+			}
 		}
 	}
+}
+
+
+
+.home-intro-container{
+	//background: -webkit-linear-gradient(35deg, $brand-dark 0%, darken($brand-dark,10%) 100%);
+	background: #aaa;
+	//background: -webkit-linear-gradient(40deg, #ddd 0%, #aaa 45%);
+	background: $medium;
+	background: transparentize(darken($medium,7%), .4);
+	background: -webkit-linear-gradient(40deg, transparentize($dark, .93) 0%, transparentize($dark, .87) 40%);
+	position: relative;
+	border-radius: 3px;
+
+	&:before{
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: url('../images/marble.jpg');
+		z-index: -1;
+		opacity: .7;
+		border-radius: 3px;
+	}
+}
+
+
+#tagline-text{
+	font-size: 3.3vw;
+	padding-right: $container-fluid-padding;
+}
+
+
+#home-thinking{
+	.block-background{
+		border-radius: 3px;
+		&:after{
+			background: -webkit-linear-gradient(35deg, transparentize($dark, .4) 0%, transparentize($dark, .3) 100%);
+			border-radius: 3px;
+		}
+	}
+
 }
 
 
