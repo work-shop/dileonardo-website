@@ -7,6 +7,8 @@
 
 <?php get_template_part('partials/news/news' ); ?>
 
+<?php get_template_part('partials/_library/pagination' ); ?>
+
 <?php get_template_part('partials/news/newsletter' ); ?>
 
 <?php get_template_part('partials/footer' ); ?>

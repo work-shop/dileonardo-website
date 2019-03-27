@@ -21,14 +21,18 @@ endif;
 			<h3 class="card-news-title mt1">
 				<?php the_title(); ?>
 			</h3>
-			<h4 class="card-news-date">
-				January 18, 2019
-			</h4>
-			<h4 class="card-news-author mb1">
-				By Lia DiLeonardo
-			</h4>
+			<?php if( get_field('article_date') ){ ?>
+				<h4 class="card-news-date">
+					<?php the_field('article_date') ?>
+				</h4>
+			<?php } ?>
+			<?php if( get_field('author') ){ ?>
+				<h4 class="card-news-author mb1">
+					By <?php the_field('author') ?>
+				</h4>
+			<?php } ?>
 			<h4 class="card-news-excerpt">
-				Veniam nulla esse consequat dolor consequat duis eu officia laboris in tempor ut. Veniam nulla esse consequat dolor consequat duis eu officia laboris.
+				<?php the_field('excerpt'); ?>			
 			</h4>
 		</a>
 	</div>

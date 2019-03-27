@@ -1,10 +1,10 @@
 
-$menu-width: 400px;
+$menu-width: 350px;
 //$button-offset: $menu-width + 10px;
 $menu-transition: .5s;
 $menu-padding: 60px;
 
-#nav,#content,#footer{
+#nav,#content,#footer,#brand-bar{
 	//transform: translateX(0);
 	transition: transform $menu-transition;
 }
@@ -17,14 +17,8 @@ $menu-padding: 60px;
 	top: 0px;
 	top: 8px;
 	position: fixed;
-	right: 12px;
-	//right: $container-fluid-padding;
-	//right: 0;
+	right: 5px;
 	z-index: 10;
-	
-	// top:0;
-	// right: 0;
-
 
 	@media screen and (max-width: $md) {
 		right: $container-fluid-padding-md;
@@ -40,32 +34,15 @@ $menu-padding: 60px;
 		text-align: right;
 		font-size: 19px;
 		@extend .tracked-less;
-		//height: inherit;
-		// @extend .align-items-center;
-		// @extend .d-flex;
-		// @extend .justify-content-end;
 		
-
 		span{
 			background-image: none !important;
-			//background: transparentize(white, 0);
 			background: white;
 			padding: 5px 15px;
 			color: darken($medium,10%);
 			border-radius: 2px;
 			position: relative;
 			display: inline-block;
-
-			//transform: rotate(90deg) translate(100px,-25px);
-			
-			//mix-blend-mode: difference;
-			// width: 60px;
-			// height: 20px;
-			// display: block;
-			// float: right;
-			// //background-image: url('./../images/menu-button.png');
-			// background-size: 60px 20px;
-			// background-repeat: no-repeat;
 		}
 
 		&:hover{
@@ -85,12 +62,11 @@ $menu-padding: 60px;
 		top: 0;
 		width: $menu-width;
 		z-index: 9;
-		background: darken($ultra-light, 2%);
-		border-left: 1px solid $light;
+		background: lighten($ultra-light, 1%);
+		border-left: 1px solid darken($ultra-light, 5%);
 		right: -$menu-width + 0px;
 		transition: right $menu-transition;
 		padding: $menu-padding; 
-		border-left: 1px solid #efefef;
 		margin-top: 0;
 
 		&.open{
@@ -99,7 +75,7 @@ $menu-padding: 60px;
 		}
 
 		ul{
-			margin-top: 20px;
+			margin-top: 27px;
 		}
 
 		li{
@@ -107,11 +83,15 @@ $menu-padding: 60px;
 			a{
 				display: block;
 				padding: 10px 0;
-				margin-bottom: 15px;
+				margin-bottom: 17px;
 
 				span{
-					font-size: 27px;
-					border-bottom: 3px solid transparent;
+					font-size: 21px;
+					border-top: 3px solid transparent;
+					padding: 5px 0;
+					text-transform: uppercase;
+					@extend .tracked-less;
+					color: lighten($dark, 4%);
 				}
 
 				&:hover{
@@ -140,7 +120,6 @@ $menu-padding: 60px;
 		left: 200%;
 		@include transition(opacity .1s);
 		opacity: 0;
-	//background: transparentize($ultra-light, .5);
 
 	&:hover{
 		cursor: url("../images/close.png"), auto;
@@ -179,7 +158,7 @@ body.menu-open{
 		opacity: 1;
 	}
 
-	#nav,#content,#footer{
+	#nav,#content,#footer,#brand-bar{
 		transition: transform $menu-transition;
 		transform: translateX(-$menu-width);
 	}

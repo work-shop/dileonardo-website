@@ -31,7 +31,7 @@ function slickSlideshows( config ) {
 			slidesToShow: config.slidesToShow,
 			dots: config.dots,
 			arrows: config.arrows,
-			autoplay: true,
+			autoplay: false,
 			fade: config.fade,
 			autoplaySpeed: config.autoplaySpeed,
 			speed: config.speed

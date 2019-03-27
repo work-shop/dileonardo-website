@@ -18,35 +18,81 @@
 						endforeach;
 					endif;
 					?>
-					<article class="row card-thought align-items-stretch thoughts-loop-<?php echo $count; ?> <?php echo $thought_categories_classes; ?> " >
-						<div class="col-7 card-thought-left bg-brand-dark">
-							<a href="<?php the_permalink(); ?>" class="post-link">
-								<div class="card-thought-text ">
-									<h2 class="card-thought-title white">
-										<?php the_title(); ?>
-									</h2>
-									<h4 class="card-thought-author white">
-										By Lia DiLeonardo
-									</h4>
-									<h3 class="card-thought-excerpt white">
-										Veniam nulla esse consequat dolor consequat duis eu officia laboris in tempor ut. Veniam nulla esse consequat dolor consequat duis eu officia laboris in tempor ut.
-									</h3>
-								</div>
-							</a>
-						</div>
-						<div class="col-5 card-thought-right">
-							<a href="<?php the_permalink(); ?>" class="post-link">
+					<?php if(false){ ?>
+						<article class="card-thought align-items-stretch-broken vh80 thoughts-loop-<?php echo $count; ?> <?php echo $thought_categories_classes; ?> " >
+							<div class="block-background card-thought-background-image" >
 								<?php if ( has_post_thumbnail() ) { ?>
 									<?php the_post_thumbnail('md'); ?>
 								<?php } else { ?>
-									<img src="<?php echo get_bloginfo( 'stylesheet_directory' ); ?>/images/wireframe.jpg" />
+									<img src="<?php echo get_bloginfo( 'stylesheet_directory' ); ?>/images/default.png" />
 								<?php } ?>
-							</a>
-						</div>
-						<div class="card-thought-background-image" style="background-image: url('<?php echo get_bloginfo( 'stylesheet_directory' ); ?>/images/wireframe2.jpg');">
-						</div>
-					</article>
-					<?php $count++; ?>
+							</div>
+							<div class="container-fluid height-100 flex-center-vertical">
+								<div class="row">
+									<div class="col-left">
+										<a href="<?php the_permalink(); ?>" class="post-link">
+											<div class="card-thought-text ">
+												<h2 class="card-thought-title white">
+													<span>
+														<?php the_title(); ?>
+													</span>
+												</h2>
+											</div>
+										</a>
+									</div>
+									<div class="col-right card-thought-right">
+										<a href="<?php the_permalink(); ?>" class="post-link">
+											<h3 class="card-thought-excerpt white">
+												<?php the_field('excerpt'); ?>
+											</h3>
+											<h4 class="card-thought-author white">
+												By <?php the_field('author'); ?>
+											</h4>
+										</a>
+									</div>
+								</div>
+							</div>
+						</article>
+						<?php $count++; ?>
+					<?php } ?>
+					<?php if( true ){ ?>
+						<article class="card-thought align-items-stretch-broken thoughts-loop-<?php echo $count; ?> <?php echo $thought_categories_classes; ?> " >
+							<div class="card-thought-image row vh50 crop mb1">
+								<div class="col">
+									<?php if ( has_post_thumbnail() ) { ?>
+										<?php the_post_thumbnail('lg_cropped'); ?>
+									<?php } else { ?>
+										<img src="<?php echo get_bloginfo( 'stylesheet_directory' ); ?>/images/default.png" />
+									<?php } ?>
+								</div>
+							</div>
+							<div class="row mb2">
+								<div class="col-left">
+									<a href="<?php the_permalink(); ?>" class="post-link">
+										<div class="card-thought-text ">
+											<h2 class="card-thought-title">
+												<span>
+													<?php the_title(); ?>
+												</span>
+											</h2>
+										</div>
+									</a>
+								</div>
+								<div class="col-right card-thought-right">
+									<a href="<?php the_permalink(); ?>" class="post-link">
+										<h3 class="card-thought-excerpt">
+											<?php the_field('excerpt'); ?>
+										</h3>
+										<h4 class="card-thought-author">
+											By <?php the_field('author'); ?>
+										</h4>
+									</a>
+								</div>
+							</div>
+
+						</article>
+						<?php $count++; ?>
+					<?php } ?>
 				<?php endwhile; ?>
 				<?php wp_reset_postdata(); ?>
 			<?php  } ?>

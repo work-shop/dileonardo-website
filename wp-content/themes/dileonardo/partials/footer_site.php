@@ -2,7 +2,7 @@
 	<?php 
 	$background_image = get_field('background_image');
 	$background_image = $background_image['sizes']['page_hero'];
-	$background_image = get_bloginfo( 'stylesheet_directory' ) . '/images/footer-test.jpg';
+	$background_image = get_bloginfo( 'stylesheet_directory' ) . '/images/footer-test.JPG';
 	?>
 	<div class="footer-background" style="background-image: url('<?php echo $background_image; ?>');">
 	</div>
@@ -68,37 +68,37 @@
 						</a>
 					</li>
 					<li>
-						<a href="/projects">
+						<a href="/practice">
 							Practice
 						</a>
 					</li>
 					<li>
-						<a href="/projects">
+						<a href="/about">
 							About
 						</a>
 					</li>
 					<li>
-						<a href="/projects">
+						<a href="/thinking">
 							Thinking
 						</a>
 					</li>
 					<li>
-						<a href="/projects">
+						<a href="/news">
 							News
 						</a>
 					</li>
 					<li>
-						<a href="/projects">
+						<a href="/awards">
 							Awards
 						</a>
 					</li>
 					<li>
-						<a href="/projects">
+						<a href="/press">
 							Press
 						</a>
 					</li>
 					<li>
-						<a href="/projects">
+						<a href="/careers">
 							Careers
 						</a>
 					</li>

@@ -1,0 +1,40 @@
+
+#dots{
+	position: fixed;
+	bottom: $container-fluid-padding;
+	left: $container-fluid-padding / 2;
+	width: 20px;
+	//background: yellow;
+	z-index: 9;
+
+	li{
+		
+		
+		a{
+			display: block;
+			width: 15px;
+			height: 15px;
+			margin-top: 15px;
+			//background: $light;
+			border-left: 3px solid darken($light,6%);
+			//transform: rotate(45deg);
+			transition: border 2s;
+
+			&.spy-active{
+				border-color: $medium;
+			}
+
+		}	
+	}
+
+}
+
+#scrolly{
+	display: none;
+	//left: - $container-fluid-padding / 1.4 !important;
+	//transform: scale(.5);
+}
+
+#dots{
+	//display: none;
+}

@@ -1,12 +1,10 @@
 <section class="block spy-target vh70" id="apply">
 	<?php 
-	$background_image = get_field('background_image');
-	$background_image = $background_image['sizes']['page_hero'];
-	$background_image = get_bloginfo( 'stylesheet_directory' ) . '/images/wireframe2.jpg';
-	$background_text = get_field('background_text'); 
-	$background_text = 'Exercitation esse velit elit ut pariatur ad in ex culpa aliqua aute eiusmod laborum magna culpa cupidatat anim in.'; 
+	$background_image = get_field('bamboo_section_background_image');
+	$background_image = $background_image['sizes']['xl'];
+	$background_text = get_field('bamboo_section_text'); 
 	?>
-	<div class="block-background page-hero-image" style="background-image: url('<?php echo $background_image; ?>');">
+	<div class="block-background mask-dark" style="background-image: url('<?php echo $background_image; ?>');">
 	</div>
 	<div class="container-fluid height-100 flex-center-vertical">
 		<div class="row">
@@ -14,9 +12,14 @@
 				<h2 class="white mb1">
 					<?php echo $background_text; ?>
 				</h2>
-				<div class="background-link">
-					<a href="/thinking" class="button white">See Open Positions</a>
-				</div>
+				<?php $link = get_field('bamboo_link'); ?>
+				<?php if( $link ): ?>
+					<div class="link-container">
+						<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="button white">
+							<?php echo $link['title']; ?>
+						</a>
+					</div>	
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>

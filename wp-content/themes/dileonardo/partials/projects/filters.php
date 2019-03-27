@@ -7,9 +7,10 @@
 						<div class="row filter-content-row">
 							<div class="col">
 								<h4 class="medium filter-title filter-menu-toggle" data-toggle-target="#filter-buttons-categories">
-									Type
+									Category
 									<span class="icon ml1" data-icon="”"></span>
 								</h4>
+								<h5 class="filter-current">Featured</h5>
 								<?php
 								$terms = get_terms( array(
 									'taxonomy' => 'project-categories',

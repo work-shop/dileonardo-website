@@ -35,6 +35,16 @@
 		//max-width: 480px;
 	}
 
+	#field_1_2,#field_1_3{
+		float: left;
+		clear: none;
+		width: 50%;
+
+		input{
+			width: 100%;
+		}
+	}
+
 	textarea{
 		min-height: 200px;
 	}

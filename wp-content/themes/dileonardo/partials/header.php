@@ -80,5 +80,6 @@
 	<?php get_template_part('partials/sitewide_alert'); ?>
 	<?php get_template_part('partials/nav'); ?>
 	<?php get_template_part('partials/menu'); ?>
+	<?php get_template_part('partials/home/dots'); ?>
 
 	<main id="content">

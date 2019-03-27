@@ -210,7 +210,17 @@ $text-button: (
 	display: inline-block;
 	text-align: center;
 	@include text-size($text-button);	
-	border-top: 3px solid transparent;
+	position: relative;
+	border: 0;
+	//border-top: 3px solid transparent;
+
+	&:before{
+		@extend .psuedo;
+		height: 0;
+		border-top: 3px solid $brand;
+		width: 0;
+		transition: width .25s;
+	}
 
 	&.white{
 		color: white;
@@ -219,7 +229,11 @@ $text-button: (
 		&:hover{
 			//background: $dark;
 			color: white;
-			border-color: $brand;
+			//border-color: $brand;
+
+			&:before{
+				width: 100%;
+			}
 		}
 	}
 

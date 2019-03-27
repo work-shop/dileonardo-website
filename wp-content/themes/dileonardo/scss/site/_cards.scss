@@ -47,10 +47,28 @@
 	}
 
 	&.card-news{
-		//margin-bottom: 6vh;
+
+		&:hover{
+			// .card-news-image{
+			// 	&:after{
+			// 		transition: width .75s;
+			// 		width: 100%;
+			// 	}
+			// }
+		}
 
 		.card-news-image{
-			//border-bottom: 5px solid $brand;
+			// position: relative;
+
+			// &:after{
+			// 	@extend .psuedo;
+			// 	width: 0;
+			// 	bottom: 0;
+			// 	top: auto;
+			// 	background: $brand;
+			// 	height: 5px;
+			// }
+			
 		}
 
 		.card-news-title{

@@ -26,7 +26,7 @@ function jumpLinks(config){
 
 		});
 
-		$('#scrolly-link').click(function(e){
+		$('.jump-home').click(function(e){
 
 			e.preventDefault();
 

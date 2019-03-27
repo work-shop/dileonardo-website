@@ -149,3 +149,19 @@ $sidebar-fixed-top: $container-fluid-padding;
 	//padding-top: 100px;
 	//padding-bottom: 100px;
 }
+
+
+#single-intro{
+
+	&.no-hero{
+		margin-top: $container-fluid-padding;
+		//margin-top: 0;
+
+		.single-title-container{
+			margin-top: 0;
+		}
+	}
+}
+
+
+

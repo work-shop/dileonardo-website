@@ -11,7 +11,7 @@
 						<div class="row team-list">
 							<?php for ($i=0; $i < 2; $i++) { ?>
 								<?php while ( have_rows('partners') ) : the_row(); ?>
-									<div class="col-6 col-sm-6 col-md-6 mb3 person person-loop-<?php echo $count; ?>">
+									<div class="col-6 col-sm-6 col-md-3 mb3 person person-loop-<?php echo $count; ?>">
 										<div class="person-image">
 											<a href="#" class="modal-toggle" data-modal-target="modal-person-partners-<?php echo $count; ?>">
 												<?php $image = get_sub_field('person_image');

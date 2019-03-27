@@ -28,7 +28,7 @@ $nav-padding-mobile: $container-fluid-padding-mobile;
 	}
 
 	&.absolute{
-		position: fixed; 
+		position: absolute; 
 	}
 
 	@media screen and (max-width: $sm) {
@@ -70,6 +70,18 @@ $nav-padding-mobile: $container-fluid-padding-mobile;
 	}
 
 }//#nav
+
+
+#brand-bar{
+	position: fixed;
+	width: 150px;
+	left: $container-fluid-padding;
+	top: 0;
+	height: 4px;
+	background: $brand;
+	z-index: 8;
+	//opacity: 0;
+}
 
 
 
