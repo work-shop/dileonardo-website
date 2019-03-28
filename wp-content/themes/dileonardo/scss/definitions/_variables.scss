@@ -3,8 +3,9 @@
 
 //brand colors
 $brand: #62cae3;
+$brand-secondary: darken($brand,17%);
 $brand-dark: #132828;
-$brand-dark: darken($brand,17%);
+$brand-dark: darken($brand,40%);
 //$brand-dark: desaturate($brand-dark, 50%);
 
 
@@ -22,6 +23,18 @@ $tan: #F7F5F2;
 
 //utility colors
 $error: lighten(#ea4444,5%);
+
+
+//add key variables to the DOM for JS access, and ACF api functions for flexible content
+:root{
+
+	--brand: #{$brand};
+	--brand-secondary: #{$brand-secondary};
+	--dark:  #{$dark};
+	--light:  #{$light};
+	--medium:  #{$medium};
+
+}
 
 
 //sizes

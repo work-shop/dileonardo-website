@@ -7,6 +7,7 @@ class WS_Site_Admin {
         add_action('admin_menu', array( $this, 'manage_admin_menu_options' ) );
         add_action('acf/init', array($this, 'add_options_pages'));
         add_action( 'admin_head', array( $this, 'admin_css'));
+        add_action( 'admin_head', array( $this, 'admin_js'));
 
         add_action('wp_dashboard_setup', array($this, 'remove_dashboard_widgets') );
         add_action('wp_before_admin_bar_render', array($this, 'remove_admin_bar_items'));
@@ -73,6 +74,9 @@ class WS_Site_Admin {
         wp_enqueue_style( 'admin_css', get_template_directory_uri() . '/bundles/admin-bundle.css' );
     }
 
+    public function admin_js() {
+        wp_enqueue_script( 'admin', get_template_directory_uri() . '/js/admin.js');
+    }
 
     /**
      * Removes comments icon from the admin bar.

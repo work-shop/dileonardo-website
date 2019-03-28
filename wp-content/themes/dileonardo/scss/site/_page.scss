@@ -3,7 +3,7 @@ $hero-height: 69vh;
 
 .page-hero,.project-hero{
 	height: $hero-height;
-
+	
 	.page-hero-image{
 		//border: $container-fluid-padding solid white;
 		width: calc(100% - #{$container-fluid-padding * 2});
@@ -19,6 +19,17 @@ $hero-height: 69vh;
 			//filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
 
 		}
+	}
+}
+
+.page-template-default{
+
+	#content{
+		margin-top: $container-fluid-padding;
+	}
+
+	.page-hero{
+		//margin-bottom: $container-fluid-padding;
 	}
 }
 
