@@ -5,6 +5,10 @@
 		@extend .bold;
 		margin-top: 3.5em;
 	}
+
+	strong span{
+		@extend .bold;
+	}
 	
 	ol,ul{
 		-webkit-padding-start: 0px;
@@ -38,7 +42,7 @@
 
 	p{
 		margin-bottom: 2em;
-	
+
 		a{
 			color: inherit;
 			text-decoration: underline;
@@ -99,7 +103,7 @@
 
 	.wp-caption {
 		margin-bottom: 0em;
-		padding-top: 7px;
+		//padding-top: 7px;
 	}
 
 	.wp-caption img {
@@ -110,9 +114,10 @@
 	}
 
 	.wp-caption-text{
-		font-size: .7em;
+		font-size: .8em;
 		color: $medium;
 		margin-bottom: 0;
+		margin-top: 15px;
 	}
 
 	.wp-smiley {

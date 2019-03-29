@@ -283,6 +283,7 @@ class MetaSeoOpenGraph
         $meta_fbimage = get_post_meta($id, '_metaseo_metaopengraph-image', true);
 
         $default_image = wp_get_attachment_image_src(get_post_thumbnail_id($id), 'single-post-thumbnail');
+
         if (empty($meta_twimage) && isset($default_image[0])) {
             $meta_twimage = $default_image[0];
         }

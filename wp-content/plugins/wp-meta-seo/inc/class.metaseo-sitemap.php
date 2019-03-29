@@ -1864,51 +1864,19 @@ ORDER BY p.post_date DESC LIMIT 10', array('publish', 'post', $taxo, $cat->slug)
     {
         global $wpdb;
         $posts = array();
-        if ($post_type === 'product') {
-            $taxonomy_objects = array('product_cat');
-        } else {
-            $taxonomy_objects = get_object_taxonomies($post_type, 'names');
-        }
 
-        if (!empty($taxonomy_objects)) {
-            foreach ($taxonomy_objects as $taxo) {
-                $categorys = get_categories(array('hide_empty' => true, 'taxonomy' => $taxo));
-                foreach ($categorys as $cat) {
-                    $results = $wpdb->get_results($wpdb->prepare('SELECT p.ID as ID,p.post_title as post_title   
-FROM ' . $wpdb->posts . ' AS p
-INNER JOIN ' . $wpdb->term_relationships . ' AS tr ON (p.ID = tr.object_id)
-INNER JOIN ' . $wpdb->term_taxonomy . ' AS tt ON (tr.term_taxonomy_id = tt.term_taxonomy_id)
-INNER JOIN ' . $wpdb->terms . ' AS t ON (t.term_id = tt.term_id)
-WHERE   p.post_status = %s 
-    AND p.post_type = %s
-    AND tt.taxonomy = %s AND t.slug=%s  
-ORDER BY p.post_date DESC', array('publish', $post_type, $taxo, $cat->slug)));
-
-                    if (!empty($results)) {
-                        $obj           = new StdClass();
-                        $obj->cat_name = $cat->cat_name;
-                        $obj->cat_ID   = $cat->cat_ID;
-                        $obj->taxo     = $taxo;
-                        $obj->slug     = $cat->slug;
-                        $obj->results  = $results;
-                        $posts[]       = $obj;
-                    }
-                }
-            }
-        } else {
-            $results = $wpdb->get_results($wpdb->prepare('SELECT p.ID as ID,p.post_title as post_title   
+        $results = $wpdb->get_results($wpdb->prepare('SELECT p.ID as ID,p.post_title as post_title   
 FROM ' . $wpdb->posts . ' AS p
 WHERE   p.post_status = "publish" AND p.post_type = %s   
 ORDER BY p.post_date DESC', array($post_type)));
-            if (!empty($results)) {
-                $obj           = new StdClass();
-                $obj->cat_name = '';
-                $obj->cat_ID   = '';
-                $obj->taxo     = '';
-                $obj->slug     = '';
-                $obj->results  = $results;
-                $posts[]       = $obj;
-            }
+        if (!empty($results)) {
+            $obj = new StdClass();
+            $obj->cat_name = '';
+            $obj->cat_ID = '';
+            $obj->taxo = '';
+            $obj->slug = '';
+            $obj->results = $results;
+            $posts[] = $obj;
         }
 
         return $posts;

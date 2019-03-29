@@ -753,3 +753,7 @@
         width: 100%;
     }
 }
+
+.tablenav .tablenav-pages .material-icons{
+    vertical-align: middle;
+}

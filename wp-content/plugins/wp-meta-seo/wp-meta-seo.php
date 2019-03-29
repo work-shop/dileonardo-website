@@ -4,7 +4,7 @@
  * Plugin Name: WP Meta SEO
  * Plugin URI: http://www.joomunited.com/wordpress-products/wp-meta-seo
  * Description: WP Meta SEO is a plugin for WordPress to fill meta for content, images and main SEO info in a single view.
- * Version: 4.0.3
+ * Version: 4.0.4
  * Text Domain: wp-meta-seo
  * Domain Path: /languages
  * Author: JoomUnited
@@ -121,7 +121,7 @@ if (!defined('WPMSEO_VERSION')) {
     /**
      * Plugin version
      */
-    define('WPMSEO_VERSION', '4.0.3');
+    define('WPMSEO_VERSION', '4.0.4');
 }
 
 if (!defined('WPMS_CLIENTID')) {
@@ -142,14 +142,14 @@ if (!defined('MPMSCAT_TITLE_LENGTH')) {
     /**
      * Default meta title length
      */
-    define('MPMSCAT_TITLE_LENGTH', 69);
+    define('MPMSCAT_TITLE_LENGTH', 60);
 }
 
 if (!defined('MPMSCAT_DESC_LENGTH')) {
     /**
      * Default meta description length
      */
-    define('MPMSCAT_DESC_LENGTH', 320);
+    define('MPMSCAT_DESC_LENGTH', 158);
 }
 
 if (!defined('MPMSCAT_KEYWORDS_LENGTH')) {
@@ -616,7 +616,7 @@ if (is_admin()) {
         }
     }
 
-    add_action('wp_head', 'wpmshead', 1);
+    add_action('wp_head', 'wpmshead', 30);
     /**
      * WPMS frontend head
      *
@@ -636,7 +636,7 @@ if (is_admin()) {
         do_action('wpmsseo_head');
 
         if (!empty($old_wp_query)) {
-            // phpcs:ignore WordPress.WP.GlobalVariablesOverride.OverrideProhibited -- This combines all the output on the frontend
+            // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- This combines all the output on the frontend
             $GLOBALS['wp_query'] = $old_wp_query;
             unset($old_wp_query);
         }
@@ -708,6 +708,7 @@ if (is_admin()) {
             } else {
                 $meta_title = get_metadata('term', $term->term_id, 'wpms_category_metatitle', true);
             }
+            $meta_title = $opengraph->replaceSnippet($meta_title, null);
         }
         return esc_html($meta_title);
     }

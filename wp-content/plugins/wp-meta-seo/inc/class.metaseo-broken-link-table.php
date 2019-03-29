@@ -290,7 +290,7 @@ class MetaSeoBrokenLinkTable extends WP_List_Table
         $current_url = set_url_scheme('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
         $current_url = remove_query_arg('paged', $current_url);
 
-        // phpcs:disable WordPress.Security.NonceVerification.NoNonceVerification -- No action, nonce is not required
+        // phpcs:disable WordPress.Security.NonceVerification.Recommended -- No action, nonce is not required
         if (isset($_GET['orderby'])) {
             $current_orderby = $_GET['orderby'];
         } else {
@@ -369,7 +369,7 @@ class MetaSeoBrokenLinkTable extends WP_List_Table
     {
         global $wpdb;
         $where = array('1=1');
-        // phpcs:disable WordPress.Security.NonceVerification.NoNonceVerification -- No action, nonce is not required
+        // phpcs:disable WordPress.Security.NonceVerification.Recommended -- No action, nonce is not required
         $where[]  = "type IN ('url', 'comment', '404_automaticaly', 'add_custom')";
         $where_or = array();
         if (!empty($_REQUEST['sl_broken'])) {
@@ -491,7 +491,7 @@ class MetaSeoBrokenLinkTable extends WP_List_Table
         if (is_plugin_active(WPMSEO_ADDON_FILENAME)) {
             require_once(WPMETASEO_ADDON_PLUGIN_DIR . 'inc/page/custom_redirect_form.php');
         }
-        // phpcs:disable WordPress.Security.NonceVerification.NoNonceVerification -- No action, nonce is not required
+        // phpcs:disable WordPress.Security.NonceVerification.Recommended -- No action, nonce is not required
         $txtkeyword = (!empty($_REQUEST['txtkeyword'])) ? urldecode(stripslashes($_REQUEST['txtkeyword'])) : '';
         if (!empty($_REQUEST['orderby'])) {
             echo '<input type="hidden" name="orderby" value="' . esc_attr($_REQUEST['orderby']) . '" />';
@@ -541,7 +541,7 @@ class MetaSeoBrokenLinkTable extends WP_List_Table
         }
         $brokens['valid_links']      = esc_html__('Valid links', 'wp-meta-seo');
         $brokens['not_yet_redirect'] = esc_html__('Not yet redirected', 'wp-meta-seo');
-        // phpcs:disable WordPress.Security.NonceVerification.NoNonceVerification -- No action, nonce is not required
+        // phpcs:disable WordPress.Security.NonceVerification.Recommended -- No action, nonce is not required
         if (empty($_REQUEST['sl_broken'])) {
             $selected = array('automaticaly_indexed', 'internal_broken_links', 'not_yet_redirect');
         } else {
@@ -992,7 +992,7 @@ class MetaSeoBrokenLinkTable extends WP_List_Table
     {
         $current_url = set_url_scheme('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
         $redirect    = false;
-        // phpcs:disable WordPress.Security.NonceVerification.NoNonceVerification -- No action, nonce is not required
+        // phpcs:disable WordPress.Security.NonceVerification.Missing -- No action, nonce is not required
         if (isset($_POST['txtkeyword'])) {
             $current_url = add_query_arg(
                 array(
@@ -1423,6 +1423,12 @@ class MetaSeoBrokenLinkTable extends WP_List_Table
         global $wpdb;
         $post         = $post_after;
         $linkscontent = array();
+
+        if (isset($post->post_content)) {
+            $seoClass = new MetaSeoAdmin();
+            $post->post_content = $seoClass->injectAcfField($post->post_content, $post->ID);
+        }
+
         if ($post->post_excerpt !== 'metaseo_404_page') {
             if ($post->post_status === 'publish') {
                 if (isset($post->post_content) && $post->post_content !== '') {

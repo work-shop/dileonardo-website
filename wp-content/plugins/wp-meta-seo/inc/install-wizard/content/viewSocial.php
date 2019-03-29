@@ -2,7 +2,7 @@
 /* Prohibit direct script loading */
 defined('ABSPATH') || die('No direct script access allowed!');
 $wizard = new WpmsInstallWizard();
-// phpcs:ignore WordPress.Security.NonceVerification.NoNonceVerification -- View request, no action
+// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- View request, no action
 $step      = isset($_GET['step']) ? sanitize_key($_GET['step']) : '';
 $next_link = $wizard->getNextLink($step);
 ?>

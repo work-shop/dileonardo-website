@@ -16,7 +16,7 @@
 		</div>
 		<div class="row mb5">
 			<div class="col-3 footer-col">
-				<ul class="footer-locations mb2">
+				<ul class="footer-locations mb1">
 					<li>
 						<a href="/contact">
 							Providence, RI
@@ -38,12 +38,12 @@
 						</a>
 					</li>
 				</ul>
-				<div class="footer-contact-button mb1">
+				<div class="footer-contact-button">
 					<a href="/contact" class="button">
 						Contact Us
 					</a>
 				</div>
-				<div class="footer-portal-buttion mb1">
+				<div class="footer-portal-button">
 					<a href="/" class="button">
 						Client Portal
 					</a>

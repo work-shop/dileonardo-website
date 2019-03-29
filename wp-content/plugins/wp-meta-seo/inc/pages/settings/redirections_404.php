@@ -59,9 +59,9 @@ defined('ABSPATH') || die('No direct script access allowed!');
                     <select name="wpms_redirect[wpms_page_redirected]"
                             class="wpms_page_redirected" <?php echo esc_attr($disable) ?>>
                         <option value="none"><?php esc_html_e('— Select —', 'wp-meta-seo') ?></option>
-                        <?php foreach ($posts as $post) : ?>
-                            <option <?php selected($defaul_settings_404['wpms_page_redirected'], $post->ID) ?>
-                                    value="<?php echo esc_attr($post->ID) ?>"><?php echo esc_html($post->post_title) ?></option>
+                        <?php foreach ($posts as $value) : ?>
+                            <option <?php selected($defaul_settings_404['wpms_page_redirected'], $value->ID) ?>
+                                    value="<?php echo esc_attr($value->ID) ?>"><?php echo esc_html($value->post_title) ?></option>
                         <?php endforeach; ?>
                     </select>
                 </label>

@@ -13,13 +13,11 @@
 		@extend .background;
 		background-size: cover;
 		background-position: center center;
-		//width: 50%;
-		//left: 50%;
-		//opacity: .5;
 	}
 	
 	*{
 		color: white;
+		text-shadow: 1px 1px 0px transparentize(black, .9);
 	}
 
 	#footer-logo{
@@ -27,7 +25,7 @@
 	}
 
 	.footer-social-links{
-		margin-top: 1.5em;
+		margin-top: .75em;
 
 		img{
 			width: 25px;

@@ -73,9 +73,9 @@
 					<?php if( have_rows('leadership') ): ?>
 						<?php $count = 0; ?>
 						<div class="row team-list">
-							<?php for ($i=0; $i < 9; $i++) { ?>
+							<?php for ($i=0; $i < 8; $i++) { ?>
 								<?php while ( have_rows('leadership') ) : the_row(); ?>
-									<div class="col-6 col-md-4 mb3 person person-loop-<?php echo $count; ?>">
+									<div class="col-6 col-md-3 mb3 person person-loop-<?php echo $count; ?>">
 										<div class="person-image">
 											<a href="#" class="modal-toggle" data-modal-target="modal-person-leadership-<?php echo $count; ?>">
 												<?php $image = get_sub_field('person_image');

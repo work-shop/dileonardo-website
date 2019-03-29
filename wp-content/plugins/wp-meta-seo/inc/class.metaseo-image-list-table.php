@@ -55,7 +55,7 @@ class MetaSeoImageListTable extends WP_List_Table
                     if (is_plugin_active(WPMSEO_ADDON_FILENAME)
                         && (is_plugin_active('sitepress-multilingual-cms/sitepress.php')
                             || is_plugin_active('polylang/polylang.php'))) {
-                        // phpcs:ignore WordPress.Security.NonceVerification.NoNonceVerification -- No action, nonce is not required
+                        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- No action, nonce is not required
                         $lang    = !empty($_REQUEST['wpms_lang_list']) ? $_REQUEST['wpms_lang_list'] : '0';
                         $sl_lang = apply_filters('wpms_get_languagesList', '', $lang);
                         // phpcs:ignore WordPress.Security.EscapeOutput -- Content escaped in the method MetaSeoAddonAdmin::listLanguageSelect
@@ -95,7 +95,7 @@ class MetaSeoImageListTable extends WP_List_Table
             <?php endif ?>
 
             <input type="hidden" name="page" value="metaseo_image_meta"/>
-            <?php // phpcs:disable WordPress.Security.NonceVerification.NoNonceVerification -- No action, nonce is not required
+            <?php // phpcs:disable WordPress.Security.NonceVerification.Recommended -- No action, nonce is not required
             ?>
             <?php if (!empty($_REQUEST['post_status'])) : ?>
                 <input type="hidden" name="post_status" value="<?php echo esc_attr($_REQUEST['post_status']); ?>"/>
@@ -310,7 +310,7 @@ class MetaSeoImageListTable extends WP_List_Table
         list($columns, $hidden, $sortable) = $this->get_column_info();
         $current_url = set_url_scheme('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
         $current_url = remove_query_arg('paged', $current_url);
-        // phpcs:disable WordPress.Security.NonceVerification.NoNonceVerification -- No action, nonce is not required
+        // phpcs:disable WordPress.Security.NonceVerification.Recommended -- No action, nonce is not required
         if (isset($_GET['orderby'])) {
             $current_orderby = $_GET['orderby'];
         } else {
@@ -416,7 +416,7 @@ class MetaSeoImageListTable extends WP_List_Table
         global $wpdb;
         $this->months = $this->getMonths();
         $where        = array();
-        // phpcs:disable WordPress.Security.NonceVerification.NoNonceVerification -- No action, nonce is not required
+        // phpcs:disable WordPress.Security.NonceVerification.Recommended -- No action, nonce is not required
         $where[] = ' post_type="attachment" AND ((post_mime_type="image/jpeg") OR (post_mime_type="image/jpg")
          OR (post_mime_type="image/png") OR (post_mime_type="image/gif")) ';
         if (!empty($_REQUEST['search'])) {
@@ -507,7 +507,7 @@ class MetaSeoImageListTable extends WP_List_Table
             add_user_meta(get_current_user_id(), 'metaseo_imgs_per_page', $per_page);
         }
 
-        // phpcs:ignore WordPress.Security.NonceVerification.NoNonceVerification -- No action, nonce is not required
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- No action, nonce is not required
         $paged = !empty($_GET['paged']) ? ($_GET['paged']) : '';
 
         if (empty($paged) || !is_numeric($paged) || $paged <= 0) {
@@ -533,7 +533,7 @@ class MetaSeoImageListTable extends WP_List_Table
         $this->_column_headers = array($columns, $hidden, $sortable);
         // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Variable has been prepare
         $this->items = $wpdb->get_results($query);
-        // phpcs:ignore WordPress.Security.NonceVerification.NoNonceVerification -- No action, nonce is not required
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- No action, nonce is not required
         if (isset($_GET['slmeta']) && ($_GET['slmeta'] === 'missing_information' || $_GET['slmeta'] === 'resizeimages')) {
             foreach ($this->items as $item) {
                 $item->alt = get_post_meta($item->ID, '_wp_attachment_image_alt', true);
@@ -548,7 +548,7 @@ class MetaSeoImageListTable extends WP_List_Table
      */
     public function searchBox1()
     {
-        // phpcs:disable WordPress.Security.NonceVerification.NoNonceVerification -- No action, nonce is not required
+        // phpcs:disable WordPress.Security.NonceVerification.Recommended -- No action, nonce is not required
         if (empty($_REQUEST['txtkeyword']) && !$this->has_items()) {
             return;
         }
@@ -595,7 +595,7 @@ class MetaSeoImageListTable extends WP_List_Table
             return;
         }
 
-        // phpcs:ignore WordPress.Security.NonceVerification.NoNonceVerification -- No action, nonce is not required
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- No action, nonce is not required
         $m = isset($_REQUEST['sldate']) ? $_REQUEST['sldate'] : 0;
         ?>
         <label for="filter-by-date"
@@ -636,7 +636,7 @@ class MetaSeoImageListTable extends WP_List_Table
      */
     public function metaFilter($name)
     {
-        // phpcs:ignore WordPress.Security.NonceVerification.NoNonceVerification -- No action, nonce is not required
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- No action, nonce is not required
         $m = isset($_REQUEST['slmeta']) ? $_REQUEST['slmeta'] : 0;
         ?>
         <label>
@@ -1178,7 +1178,7 @@ class MetaSeoImageListTable extends WP_List_Table
     {
         $current_url = set_url_scheme('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
         $redirect    = false;
-        // phpcs:disable WordPress.Security.NonceVerification.NoNonceVerification -- No action, nonce is not required
+        // phpcs:disable WordPress.Security.NonceVerification.Missing -- No action, nonce is not required
         if (isset($_POST['txtkeyword'])) {
             $current_url = add_query_arg(
                 array(
@@ -1772,6 +1772,10 @@ class MetaSeoImageListTable extends WP_List_Table
                             $response->updated = true;
                             $response->msg     = esc_html__('Image name was changed', 'wp-meta-seo');
                         } else {
+                            //Revert image if false
+                            if (!file_exists($upload_dir . '/' . $linkold)) {
+                                rename($upload_dir . '/' . $newFileName, $upload_dir . '/' . $linkold);
+                            }
                             $response->iname = $old_name;
                             $response->msg   = esc_html__('There is a problem when update image name', 'wp-meta-seo');
                         }
@@ -1824,7 +1828,8 @@ class MetaSeoImageListTable extends WP_List_Table
         //Update new value for meta info of this image in wp_postmeta
         $meta[$post_id]['meta'][$meta_order]['type'][$meta_type] = wpmsUtf8($meta_value);
         update_post_meta($img_post_id, $meta_key, $meta);
-
+        //Update alt in light box
+        update_post_meta($img_post_id, '_wp_attachment_image_alt', wpmsUtf8($meta_value));
         //Then we must update this meta info in the appropriate post content
         $post = get_post($post_id);
         if (!$post) {
@@ -1869,12 +1874,18 @@ class MetaSeoImageListTable extends WP_List_Table
 
                     remove_action('post_updated', array('MetaSeoBrokenLinkTable', 'updatePost'));
 
+                    $is_elementor_edit = (! !get_post_meta($post->ID, '_elementor_edit_mode', true));
+
                     //Update content of this post.
                     if (!wp_update_post(array('ID' => $post->ID, 'post_content' => $post_content))) {
                         $response->msg = esc_html__('The post haven\'t been updated, please check again!', 'wp-meta-seo');
                     } else {
                         // compatible with elementor plugin (alt tag not display on frontend)
                         delete_post_meta($post->ID, '_elementor_edit_mode');
+                        // Fix elementor change when edit alt image
+                        if ($is_elementor_edit) {
+                            update_post_meta($post->ID, '_elementor_edit_mode', 'builder');
+                        }
                         update_option('wpms_last_update_post', time());
                         $response->updated = true;
                         $response->msg     = ucfirst($meta_type) . esc_html__(' was saved', 'wp-meta-seo');

@@ -251,7 +251,7 @@ function metaseo_status_length(len, id, number) {
     var check = 0;
     var mclass = '';
     if (id === '#metaseo_wpmseo_title-length') {
-        num = 46;
+        num = 50;
         check = wpmseoMetaboxL10n.wpmseo_meta_title_length - len;
         mclass = 'word-74B6FC';
     } else if (id === '#metaseo_wpmseo_desc-length') {

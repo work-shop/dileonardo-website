@@ -7,15 +7,25 @@
 				$limited = false;
 				$limit = 8;
 				if( is_page(9) ){
-					$limited = true;
-				} 
-				?>
+					$limited = true; ?>
+					<div class="row mb1">
+						<div class="press-list-title col-6">
+							<h3 class="">
+								Selected press
+							</h3>
+						</div>
+						<div class="press-list-link righted col-6">
+							<a href="/press" class="medium">
+								See All
+							</a>
+						</div>
+					</div>
+				<?php } ?>
 				<?php if( have_rows('press', 19) ){ ?>
 					<div class="press-list row">
 						<?php  while ( have_rows('press', 19) ) : the_row(); ?>
 							<?php if ( ($limited && $count < $limit) || $limited === false ){ ?>
 								<div class="press mb2 press-loop-<?php echo $count; ?> <?php if( is_page(9) ){ ?> col-3 <?php } else{ ?> col-2 <?php } ?>">
-
 									<?php if( get_sub_field('press_link')) { ?>
 										<a href="<?php the_sub_field('press_link'); ?>">
 										<?php } ?>
@@ -34,13 +44,6 @@
 								<?php $count++; ?>
 							<?php } ?>
 						<?php endwhile; ?>
-					</div>
-				<?php } ?>
-				<?php if( is_page(9) ){ ?>
-					<div class="press-link righted mt3 mb2">
-						<a href="/press" class="button">
-							See All Press
-						</a>
 					</div>
 				<?php } ?>
 			</div>

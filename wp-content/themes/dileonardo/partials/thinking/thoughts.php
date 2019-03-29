@@ -18,7 +18,7 @@
 						endforeach;
 					endif;
 					?>
-					<?php if(false){ ?>
+					<?php if(true){ ?>
 						<article class="card-thought align-items-stretch-broken vh80 thoughts-loop-<?php echo $count; ?> <?php echo $thought_categories_classes; ?> " >
 							<div class="block-background card-thought-background-image" >
 								<?php if ( has_post_thumbnail() ) { ?>
@@ -55,7 +55,7 @@
 						</article>
 						<?php $count++; ?>
 					<?php } ?>
-					<?php if( true ){ ?>
+					<?php if( false ){ ?>
 						<article class="card-thought align-items-stretch-broken thoughts-loop-<?php echo $count; ?> <?php echo $thought_categories_classes; ?> " >
 							<div class="card-thought-image row vh50 crop mb1">
 								<div class="col">

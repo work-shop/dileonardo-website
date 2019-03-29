@@ -2,11 +2,11 @@
 	<div class="container-fluid">
 		<div class="row">
 			<?php if( is_page(17) ){ ?>
-			<div class="col-left">
-				<h1 class="page-title">
-					<?php the_title(); ?>
-				</h1>
-			</div>
+				<div class="col-left">
+					<h1 class="page-title">
+						<?php the_title(); ?>
+					</h1>
+				</div>
 			<?php } ?>
 			<div class="<?php if( is_page(9) || false ){ ?> col-right offset <?php } else{ ?> col-right <?php } ?>">
 				<?php 
@@ -14,9 +14,20 @@
 				$limited = false;
 				$limit = 8;
 				if( is_page(9) ){
-					$limited = true;
-				} 
-				?>
+					$limited = true; ?>
+					<div class="row mb1">
+						<div class="awards-list-title award-col col-6">
+							<h3 class="">
+							Selected Awards
+						</h3>
+						</div>
+						<div class="awards-list-link award-col righted col-6">
+							<a href="/awards" class="medium">
+								See All
+							</a>
+						</div>
+					</div>
+				<?php } ?>
 				<?php if( have_rows('awards', 17) ){ ?>
 					<div class="awards-list">
 						<?php  while ( have_rows('awards', 17) ) : the_row(); ?>
@@ -42,13 +53,6 @@
 								<?php $count++; ?>
 							<?php } ?>
 						<?php endwhile; ?>
-					</div>
-				<?php } ?>
-				<?php if( is_page(9) ){ ?>
-					<div class="awards-link righted mt3 mb2">
-						<a href="/awards" class="button">
-							See All Awards
-						</a>
 					</div>
 				<?php } ?>
 			</div>

@@ -140,7 +140,7 @@ class WPMSEOMetabox extends WPMSEOMeta
         );
         self::$meta_fields['general']['title']['help']        = esc_attr__('This is the title of your content that may be displayed
          in search engine results (meta title). By default it’s the content title (page title, post title…).
-          69 characters max allowed.', 'wp-meta-seo');
+          60 characters max allowed.', 'wp-meta-seo');
 
         $settings = get_option('_metaseo_settings');
         if (isset($settings['metaseo_showkeywords']) && (int) $settings['metaseo_showkeywords'] === 1) {
@@ -162,7 +162,7 @@ class WPMSEOMetabox extends WPMSEOMeta
         self::$meta_fields['general']['desc']['help']        = esc_attr__('The description of your content that may be displayed
          in search engine results aka meta description.
           By default search engine take an excerpt from your content (depending on the search query).
-          320 characters max allowed.', 'wp-meta-seo');
+          158 characters max allowed.', 'wp-meta-seo');
 
         self::$meta_fields['social']['facebook']['opengraph-title']['title']       = esc_html__('Facebook Title', 'wp-meta-seo');
         self::$meta_fields['social']['facebook']['opengraph-title']['description'] = esc_html__('Custom title to display when
@@ -742,7 +742,7 @@ class WPMSEOMetabox extends WPMSEOMeta
      */
     private function getMetaboxPost()
     {
-        // phpcs:ignore WordPress.Security.NonceVerification.NoNonceVerification -- No action, nonce is not required
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- No action, nonce is not required
         if (isset($_GET['post'])) {
             $post_id = (int) $_GET['post'];
             $post    = get_post($post_id);

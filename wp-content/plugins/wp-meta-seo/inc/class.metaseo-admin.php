@@ -20,13 +20,13 @@ class MetaSeoAdmin
      *
      * @var integer
      */
-    public static $desc_length = 320;
+    public static $desc_length = 158;
     /**
      * Max length meta title
      *
      * @var integer
      */
-    public static $title_length = 69;
+    public static $title_length = 60;
     /**
      * Google client
      *
@@ -283,8 +283,8 @@ class MetaSeoAdmin
     public function saveCategoryMeta($term_id)
     {
         global $pagenow;
-        // phpcs:ignore WordPress.Security.NonceVerification.NoNonceVerification -- Nonce used in next lines
-        if ($pagenow === 'edit-tags.php' || (isset($_POST['action'], $_POST['screen']) && $_POST['action'] === 'add-tag' && $_POST['screen'] === 'edit-category')) {
+        // phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce used in next lines
+        if ($pagenow === 'edit-tags.php' || (isset($_POST['action'], $_POST['screen']) && $_POST['action'] === 'add-tag' && ($_POST['screen'] === 'edit-category' || $_POST['screen'] === 'edit-product_cat'))) {
             if (empty($_POST['wpms_nonce'])
                 || !wp_verify_nonce($_POST['wpms_nonce'], 'wpms_nonce')) {
                 die();
@@ -762,7 +762,7 @@ class MetaSeoAdmin
         // Disable all admin notice for page belong to plugin
         add_action('admin_print_scripts', function () {
             global $wp_filter;
-            // phpcs:ignore WordPress.Security.NonceVerification.NoNonceVerification -- No action, nonce is not required
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- No action, nonce is not required
             if ((!empty($_GET['page']) && in_array($_GET['page'], array('wpms-setup', 'metaseo_settings','metaseo_console')))) {
                 if (is_user_admin()) {
                     if (isset($wp_filter['user_admin_notices'])) {
@@ -779,7 +779,7 @@ class MetaSeoAdmin
 
         // Setup wizard redirect
         if (is_null(get_option('_wpmf_activation_redirect', null)) && is_null(get_option('wpms_version', null))) {
-            // phpcs:ignore WordPress.Security.NonceVerification.NoNonceVerification -- View request, no action
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- View request, no action
             if ((!empty($_GET['page']) && in_array($_GET['page'], array('wpms-setup')))) {
                 return;
             }
@@ -796,9 +796,9 @@ class MetaSeoAdmin
      */
     public function install()
     {
-        // phpcs:ignore WordPress.Security.NonceVerification.NoNonceVerification -- View request, no action
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- View request, no action
         if (!empty($_GET['page'])) {
-            // phpcs:ignore WordPress.Security.NonceVerification.NoNonceVerification -- View request, no action
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- View request, no action
             switch ($_GET['page']) {
                 case 'wpms-setup':
                     require_once WPMETASEO_PLUGIN_DIR . '/inc/install-wizard/install-wizard.php';
@@ -860,6 +860,137 @@ class MetaSeoAdmin
     }
 
     /**
+     * Get all the values of an array
+     *
+     * @param array $array List array to get value
+     *
+     * @return array|string
+     */
+    public function getValues($array)
+    {
+        if (is_array($array)) {
+            $array = array_values($array);
+        }
+
+        return $array;
+    }
+
+    /**
+     * Check strpos with list array
+     *
+     * @param string  $haystack String to compare
+     * @param array   $needle   List array need compare
+     * @param integer $offset   Offset value
+     *
+     * @return boolean
+     */
+    public function strPosArray($haystack, $needle, $offset = 0)
+    {
+        if (!is_array($needle)) {
+            $needle = array($needle);
+        }
+        foreach ($needle as $query) {
+            // stop on first true result
+            if (strpos($haystack, $query, $offset) !== false) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Recursion to get specific value of file
+     *
+     * @param array $fields List specific value of field
+     *
+     * @return string
+     */
+    public function getACFData($fields)
+    {
+        $values = $this->getValues($fields);
+        $data = '';
+
+        if (is_array($values)) {
+            foreach ($values as $item) {
+                switch (gettype($item)) {
+                    case 'array':
+                        $data .= $this->getACFData($item);
+                        break;
+                    case 'string':
+                        // Check link
+                        if (filter_var($item, FILTER_VALIDATE_URL)) {
+                            $checkImageLink = $this->strPosArray($item, array('.jpg', '.png', '.jpeg', 'svg', 'gif'));
+                            if (!$checkImageLink) {
+                                $item = '<a href="' . $item . '">' . $item . '</a>';
+                            }
+                        }
+                        $data .= ' ' . $item;
+                        break;
+                }
+            }
+        }
+        if (is_string($values)) {
+            $data .= ' '. $values;
+        }
+        return $data;
+    }
+
+    /**
+     * Inject ACF field to content
+     *
+     * @param string  $content Post content
+     * @param integer $post_id Post ID
+     *
+     * @return string
+     */
+    public function injectAcfField($content, $post_id)
+    {
+        if (class_exists('ACF')) {
+            $fields = get_field_objects($post_id);
+
+            if (!empty($fields)) {
+                $inject = '';
+                foreach ($fields as $name => $field) {
+                    if ($field['type'] === 'image') {
+                        $size = $field['preview_size'];
+                        if (is_array($field['value'])) {
+                            $caption = $field['value']['caption'];
+                            // Get image link if field is array
+                            if ($caption) {
+                                $inject .= '<div class="wp-caption">';
+                            }
+                                $inject = '<a href="'.$field['value']['url'].'" title="'.$field['value']['title'].'">';
+                                $inject .=  '<img src="'.$field['value']['sizes'][ $size ].'" alt="'.$field['value']['alt'].'" width="'.$field['value']['sizes'][ $size . '-width' ].'" height="'.$field['value']['sizes'][ $size . '-height' ].'" />';
+                                $inject .= '</a>';
+                            if ($caption) {
+                                $inject .= '<p class="wp-caption-text">'. $caption.'</p>';
+                            }
+                                $inject .= '</div>';
+                        } elseif (is_string($field['value'])) {
+                            $inject = '<img src="'.$field['value'].'" />';
+                        } else {
+                            $inject = wp_get_attachment_image($field['value'], $size);
+                        }
+                    } elseif ($field['type'] === 'link') {
+                        // Get link if field is array
+                        if (is_array($field['value'])) {
+                            $inject = '<a class="link-url" href="'.$field['value']['url'].'" target="'.($field['value']['target'] ? $field['value']['target'] : '_self').'">'.esc_html($field['value']['title']).'</a>';
+                        } else {
+                            $inject = '<a class="link-url" href="'.$field['value'].'">'.esc_html($field['value']).'</a>';
+                        }
+                    } else {
+                        $inject = $this->getACFData($field['value']);
+                    }
+
+                    $content .= ' '.$inject;
+                }
+            }
+        }
+
+        return $content;
+    }
+
+    /**
      * Ajax load page analysis
      *
      * @return void
@@ -911,16 +1042,12 @@ class MetaSeoAdmin
         }
 
         $content = apply_filters(
-            'the_content',
-            '<div>' . html_entity_decode(stripcslashes($content)) . '</div>',
-            $post_id
-        );
-
-        $content = apply_filters(
             'wpms_the_content',
             '<div>' . html_entity_decode(stripcslashes($_POST['datas']['content'])) . '</div>',
             $_POST['datas']['post_id']
         );
+
+        $content = $this->injectAcfField($content, $_POST['datas']['post_id']);
 
         if (isset($_POST['datas']['first_load']) && !empty($meta_analysis) && !empty($meta_analysis['heading_title'])) {
             $output .= $this->createFieldAnalysis(
@@ -2192,6 +2319,15 @@ class MetaSeoAdmin
                 array(),
                 WPMSEO_VERSION
             );
+
+            if (class_exists('MetaSeoAddonAdmin')) {
+                wp_enqueue_style(
+                    'msaddon-style-dashboard',
+                    WPMETASEO_ADDON_PLUGIN_URL . 'assets/css/dashboard.css',
+                    array(),
+                    WPMSEO_ADDON_VERSION
+                );
+            }
         }
 
         if ($current_screen->base === 'wp-meta-seo_page_metaseo_better_ranking') {
@@ -2751,7 +2887,7 @@ class MetaSeoAdmin
     public function loadPage()
     {
         if (isset($_GET['page'])) {
-            // phpcs:ignore WordPress.Security.NonceVerification.NoNonceVerification -- No action, nonce is not required
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- No action, nonce is not required
             switch ($_GET['page']) {
                 case 'metaseo_google_analytics':
                     echo "<div class='error wpms_msg_ublock'><p>";

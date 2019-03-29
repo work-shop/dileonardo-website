@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-var title_max_len = 69;
-var desc_max_len = 320;
+var title_max_len = 60;
+var desc_max_len = 158;
 var keywords_max_len = 256;
 var metaseoValueHolder = {};
 
@@ -59,7 +59,7 @@ function metaseo_titlelength(metatitle_id, updateSnippet) {
     jQuery('#' + counter_id).text(title_max_len - title.length);
     if (title.length >= title_max_len) {
         jQuery('#' + counter_id).removeClass('word-74B6FC').addClass('word-exceed');//#FEFB04
-    } else if (title.length <= 46) {
+    } else if (title.length <= 50) {
         jQuery('#' + counter_id).removeClass('word-exceed').addClass('word-74B6FC');//#74B6FC
     } else {
         jQuery('#' + counter_id).removeClass('word-exceed word-74B6FC');

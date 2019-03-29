@@ -13,13 +13,13 @@ class MetaSeoDashboard
      *
      * @var integer
      */
-    public static $meta_title_length = 69;
+    public static $meta_title_length = 60;
     /**
      * Max length meta description
      *
      * @var integer
      */
-    public static $meta_desc_length = 320;
+    public static $meta_desc_length = 158;
 
     /**
      * Get image optimize
