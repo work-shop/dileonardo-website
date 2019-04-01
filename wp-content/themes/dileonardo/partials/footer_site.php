@@ -1,8 +1,7 @@
 <footer id="footer" class="block pb1 pt5 bg-medium">
 	<?php 
-	$background_image = get_field('background_image');
-	$background_image = $background_image['sizes']['page_hero'];
-	$background_image = get_bloginfo( 'stylesheet_directory' ) . '/images/footer-test.JPG';
+	$background_image = get_field('footer_background_image','option');
+	$background_image = $background_image['sizes']['xl'];
 	?>
 	<div class="footer-background" style="background-image: url('<?php echo $background_image; ?>');">
 	</div>

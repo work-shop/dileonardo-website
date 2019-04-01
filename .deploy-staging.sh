@@ -36,6 +36,6 @@ source ./.env
 scp -r wp-content/themes/dileonardo $GODADDY_STAGING_USER@$GODADDY_STAGING_IP:./html/wp-content/themes
 
 # flush godaddy wp cache
-curl -L $GODADDY_STAGING_URL/?nocache=1&wpaas_action=flush_cache
+curl --silent --output nul --show-error --fail $GODADDY_STAGING_URL/?nocache=1&wpaas_action=flush_cache
 
 
