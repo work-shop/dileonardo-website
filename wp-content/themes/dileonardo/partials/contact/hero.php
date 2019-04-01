@@ -1,45 +1,46 @@
-<section class="block vh60 bg-light" id="map">
-	<?php
-	$count = 0;
-	$mapOptions = array( 'data' => array() );
-	?>
-	<?php if( have_rows('locations') ){ ?>
-		<?php  while ( have_rows('locations') ) : the_row(); ?>
-			<?php 
-			$title = get_sub_field('location_title');
-			$address = get_sub_field('location_address');
-			$phone = get_sub_field('location_phone');
-			$fax = get_sub_field('location_fax');
-			$summary = $address . $phone . $fax;
+<section class="block vh60 page-hero" id="map">
+	<div class="page-hero-image position-relative">
+		<?php
+		$count = 0;
+		$mapOptions = array( 'data' => array() );
+		?>
+		<?php if( have_rows('locations') ){ ?>
+			<?php  while ( have_rows('locations') ) : the_row(); ?>
+				<?php 
+				$title = get_sub_field('location_title');
+				$address = get_sub_field('location_address');
+				$phone = get_sub_field('location_phone');
+				$fax = get_sub_field('location_fax');
+				$summary = $address . $phone . $fax;
 			//$summary = 'summary';
-			$location = get_sub_field('location_location');
-			$link = '';
-			$id = 'marker-' . $count;
+				$location = get_sub_field('location_location');
+				$link = '';
+				$id = 'marker-' . $count;
 
-			if ( $location && ($location['lat'] && $location['lng']) ) {
+				if ( $location && ($location['lat'] && $location['lng']) ) {
 
-				$location = array(
-					'marker' => array(
-						'title' => $title,
-						'position' => $location,
-						'link' => $link,
-						'popup' => array(
-							'id' => $id,
-							'summary' => $summary
+					$location = array(
+						'marker' => array(
+							'title' => $title,
+							'position' => $location,
+							'link' => $link,
+							'popup' => array(
+								'id' => $id,
+								'summary' => $summary
+							)
 						)
-					)
-				);
+					);
 
-				$mapOptions['data'][] = $location;
+					$mapOptions['data'][] = $location;
 
-			}
-			?>
-			<?php $count++; ?>
-		<?php endwhile; ?>
-	<?php } ?>
+				}
+				?>
+				<?php $count++; ?>
+			<?php endwhile; ?>
+		<?php } ?>
 
-	<script>
-		var mapOptions = <?php echo json_encode( $mapOptions, JSON_UNESCAPED_SLASHES ); ?>;
+		<script>
+			var mapOptions = <?php echo json_encode( $mapOptions, JSON_UNESCAPED_SLASHES ); ?>;
 
         // Okay, we got the data. Now we just need to build the html, and parse
         // the latitude and longitude as integers.
@@ -54,6 +55,7 @@
 
     </script>
 
-     <script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyBBurwCtrQ2a4q-CrpB-Wa6cdLO-sR1Zxw" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyBBurwCtrQ2a4q-CrpB-Wa6cdLO-sR1Zxw" async defer></script>
     <div class="ws-map" data-options="mapOptions"></div>
+</div>
 </section>
