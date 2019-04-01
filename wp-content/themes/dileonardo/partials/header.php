@@ -74,8 +74,14 @@
 	// endif;
 	?>
 
+	<?php 
+	$hero_class = ' no-hero ';
+	if( get_field('show_hero') ){ 
+		$hero_class = ' has-hero';
+	} ?>
+
 </head>
-<body <?php body_class('loading before-scroll modal-off menu-closed dropdown-off mobile-dropdown-off curve-off ' . $sitewide_alert_class . ' '); ?>>
+<body <?php body_class('loading before-scroll modal-off menu-closed dropdown-off mobile-dropdown-off curve-off ' . $sitewide_alert_class . $hero_class . ' '); ?>>
 
 	<?php get_template_part('partials/sitewide_alert'); ?>
 	<?php get_template_part('partials/nav'); ?>

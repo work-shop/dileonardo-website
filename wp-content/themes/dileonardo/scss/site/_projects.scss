@@ -216,6 +216,13 @@ $grid-gutter-sm: 4%;
 	padding-bottom: 20px;
 }
 
+
+.no-hero{
+	.single-title-container{
+		margin-top: $container-fluid-padding;
+	}
+}
+
 .single-title{
 	font-size: 36px;
 	//padding: 20px 40px;

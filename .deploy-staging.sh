@@ -8,7 +8,7 @@ source ./.env
 #scp -P $KINSTA_STAGING_PORT -r wp-content/uploads $KINSTA_STAGING_USER@$KINSTA_STAGING_IP:./public/wp-content/
 
 # Custom Theme
-scp -P $KINSTA_STAGING_PORT -r wp-content/themes/custom $KINSTA_STAGING_USER@$KINSTA_STAGING_IP:./public/wp-content/themes
+#scp -P $KINSTA_STAGING_PORT -r wp-content/themes/custom $KINSTA_STAGING_USER@$KINSTA_STAGING_IP:./public/wp-content/themes
 
 # Bundles only
 #scp -P $KINSTA_STAGING_PORT -r wp-content/themes/custom/bundles $KINSTA_STAGING_USER@$KINSTA_STAGING_IP:./public/wp-content/themes/custom
@@ -26,5 +26,15 @@ scp -P $KINSTA_STAGING_PORT -r wp-content/themes/custom $KINSTA_STAGING_USER@$KI
 #functions.php
 #scp -P $KINSTA_STAGING_PORT wp-content/themes/custom/functions.php $KINSTA_STAGING_USER@$KINSTA_STAGING_IP:./public/wp-content/themes/custom/
 
+#curl -L $STAGING_SITE_URL/kinsta-clear-cache-all/
 
-curl -L $STAGING_SITE_URL/kinsta-clear-cache-all/
+
+
+#GODADDY DEPLOYMENT
+
+# Site Theme
+scp -r wp-content/themes/dileonardo $GODADDY_STAGING_USER@$GODADDY_STAGING_IP:./html/wp-content/themes
+
+
+#wp godaddy cache flush
+
