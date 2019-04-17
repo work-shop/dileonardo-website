@@ -22,9 +22,10 @@ function slickSlideshows( config ) {
 			dots: true,
 			arrows: false,
 			autoplay: true,
-			fade: true,
+			fade: false,
 			autoplaySpeed: config.autoplaySpeed,
-			speed: config.speed
+			speed: config.speed,
+			vertical: true
 		});
 
 		$('.slick-project-modal').slick({
@@ -48,11 +49,11 @@ function slickSlideshows( config ) {
 		});
 
 		$('.slick-history').slick({
-			slidesToShow: 1,
+			slidesToShow: 3,
 			dots: false,
-			arrows: config.arrows,
+			arrows: true,
 			autoplay: false,
-			fade: config.fade,
+			fade: false,
 			autoplaySpeed: config.autoplaySpeed,
 			speed: config.speed
 		});

@@ -13,7 +13,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="row mb5">
+		<div class="row mb3">
 			<div class="col-3 footer-col">
 				<ul class="footer-locations mb1">
 					<li>
@@ -47,7 +47,12 @@
 						Client Portal
 					</a>
 				</div>
-				<div class="footer-social-links">
+				<div class="footer-distudio-button">
+					<a href="/" class="button distudio">
+						<img src="<?php bloginfo( 'template_directory' );?>/images/distudio-logo.png" id="footer-distudio-logo-small"> DiStudio
+					</a>
+				</div>
+				<div class="footer-social-links mb3">
 					<a href="https://www.facebook.com/dileonardo/" target="_blank">
 						<img src="<?php bloginfo( 'template_directory' );?>/images/fb.png" class="social-icon">
 					</a> 
@@ -57,6 +62,16 @@
 					<a href="https://www.instagram.com/dileonardo/" target="_blank">
 						<img src="<?php bloginfo( 'template_directory' );?>/images/ig.png" class="social-icon">
 					</a>
+				</div>
+				<div class="footer-distudio hidden">
+					<a href="https://distudio.com/" target="_blank">
+						<img src="<?php bloginfo( 'template_directory' );?>/images/distudio-logo.png" id="footer-distudio-logo">
+						<h5 id="footer-distudio-statement" class="white">
+							Learn about DiStudio,<br>
+							our new studio <br>
+							within DiLeonardo.
+						</h5>
+					</a> 
 				</div>
 			</div>
 			<div class="col-3 footer-col">
@@ -102,6 +117,9 @@
 						</a>
 					</li>
 				</ul>
+			</div>
+			<div class="col-3 footer-col">
+
 			</div>
 		</div>
 		<div class="row">

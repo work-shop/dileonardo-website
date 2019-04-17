@@ -13,10 +13,8 @@
 
 <?php get_template_part('partials/about/culture' ); ?>
 
-<?php get_template_part('partials/awards/awards' ); ?>
+<?php //get_template_part('partials/about/contact' ); ?>
 
-<?php get_template_part('partials/press/press' ); ?>
-
-<?php get_template_part('partials/about/contact' ); ?>
+<?php get_template_part('partials/about/practice' ); ?>
 
 <?php get_template_part('partials/footer' ); ?>

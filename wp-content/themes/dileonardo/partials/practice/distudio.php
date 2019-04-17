@@ -1,30 +1,35 @@
-<section class="block page-section vhmin85 spy-target" id="distudio">
+<section class="block bg-light <?php if( is_page(11) ){ ?> page-section <?php } else { ?> padded <?php } ?> spy-target" id="distudio">
 	<?php 
-	$background_image = get_field('distudio_background_image');
+	$background_image = get_field('distudio_background_image',11);
 	$background_image = $background_image['sizes']['xl'];
-	//$background_image = get_bloginfo( 'stylesheet_directory' ) . '/images/wireframe3.jpg';
-	$background_text = get_field('distudio_description'); 
+	$background_text = get_field('distudio_description',11); 
 	?>
-	<div class="block-background mask-dark" style="background-image: url('<?php echo $background_image; ?>');">
+	<div class="block-background mask-light hidden" style="background-image: url('<?php echo $background_image; ?>');">
 	</div>
 	<div class="container-fluid height-100 flex-center-vertical">
 		<div class="row">
-			<div class="col-right offset">
-				<div id="distudio-logo" class="mb2">
-					<img src="<?php echo get_bloginfo( 'stylesheet_directory' ); ?>/images/distudio-logo.png';">
+			<?php if( is_page(11) === false ){ ?>
+				<div class="col-left">
+					<div id="distudio-logo" class="mb2 distudio-logo-left">
+						<?php $image = get_field('distudio_logo',11); ?>
+						<img src="<?php echo $image['sizes']['lg'];?>">
+					</div>
 				</div>
-				<?php if( get_field('distudio_heading') ){ ?>
-					<h4 class="bold white uppercase mb2">
-						<?php the_field('distudio_heading'); ?>
-					</h4>
+			<?php } ?>
+			<div class="col-right <?php if( is_page(11) ){ ?> offset <?php } ?>">
+				<?php if( is_page(11) ){ ?> 
+					<div id="distudio-logo" class="mb2">
+						<?php $image = get_field('distudio_logo',11); ?>
+						<img src="<?php echo $image['sizes']['lg'];?>">
+					</div>
 				<?php } ?>
-				<h3 class="white mb2">
+				<h3 class="distudio mb2">
 					<?php echo $background_text; ?>
 				</h3>
-				<?php $link = get_field('distudio_link'); ?>
+				<?php $link = get_field('distudio_link',11); ?>
 				<?php if( $link ): ?>
 					<div class="distudio-link">
-						<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="button white">
+						<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="button distudio">
 							<?php echo $link['title']; ?>
 						</a>
 					</div>	

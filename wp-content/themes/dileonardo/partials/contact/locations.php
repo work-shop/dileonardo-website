@@ -11,25 +11,25 @@
 					$title = get_sub_field('location_title');
 					$address = get_sub_field('location_address');
 					$phone = get_sub_field('location_phone');
-					$fax = get_sub_field('location_fax');
+					$email = get_sub_field('location_email');
 					$id = 'location-' . $count;
 					?>
 					<div class="col-xl-3 col-lg-6 location location-col mb3">
-						<h3 class="location-title bold mb1">
+						<h4 class="location-title uppercase bold medium mb1">
 							<?php echo $title; ?>
-						</h3>
+						</h4>
 						<address class="location-address mb3">
 							<?php echo $address; ?>
 							<br>
 							<br>
 							Phone: <?php echo $phone; ?>
 							<br>
-							Fax: <?php echo $fax; ?>
+							Email: <?php echo $email; ?>
 						</address>
 						<div class="location-contacts">
 							<div class="accordion multi-collapse" data-accordion>
 								<div class="accordion-label" data-control>
-									<h4 class="bold">
+									<h4 class="">
 										Contacts
 									</h4>
 									<span class="icon" data-icon="”"></span>

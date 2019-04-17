@@ -1,6 +1,47 @@
 
-.page-id-23{
-	//background: black;
+$thinking: darken($brand,56%);
+
+.page-id-23,.single-thoughts{
+	background: $thinking; 
+
+	#menu-button{
+		span{
+			background: $thinking; 
+			color: white;
+			&:hover{
+				color: white;
+			}
+		}
+	}
+
+	&.menu-open{
+		#menu-button{
+			span{
+				color: $dark;
+				&:hover{
+					color: $dark;
+				}
+			}
+		}
+	}
+
+	*{
+		color: white;
+	}
+
+	.single-title-container{
+		background: none !important;
+	}
+
+	.related{
+		.thought-title{
+			color: white;
+		}
+	}
+
+	#footer{
+		background: $thinking;
+	}
 }
 
 
@@ -30,14 +71,14 @@
 			transition: all 1s;
 			@extend .bold;
 			//border-bottom: 5px solid $brand;
-			line-height: 1.5;
-			font-family: 'NewParis Headline Trial' !important;
+			//line-height: 1.5;
+			//font-family: 'NewParis Headline Trial' !important;
 		}
 	}
 
 	.card-thought-excerpt{
 		margin-top: 10px;
-		@extend .italic;
+		//@extend .italic;
 		font-size: 36px;
 		
 		//width: 80%;
@@ -56,7 +97,7 @@
 		&:after{
 			//background: transparentize($brand, .2);
 			transition: all 1s;
-			background: -webkit-linear-gradient(40deg, transparentize(darken($dark,30%), .33) 0%, transparentize(darken($dark,30%), .17) 50%);
+			background: -webkit-linear-gradient(40deg, transparentize(darken($dark,30%), .7) 0%, transparentize(darken($dark,30%), .5) 50%);
 		}
 	}
 
@@ -77,7 +118,7 @@
 			}
 		}
 		.card-thought-title span{
-			border-bottom: 5px solid $brand;
+			//border-bottom: 5px solid $brand;
 		}
 	}
 
@@ -91,15 +132,16 @@
 .single-thoughts{
 
 	.single-title-container{
-		margin-top: 0;
+		margin-top: 10px;
 	}
 
 	.single-title{
 		font-size: 60px;
+		@extend .bold;
 	}
 
 	.single-intro-text{
-		font-style: italic;
+		//font-style: italic;
 	}
 }
 

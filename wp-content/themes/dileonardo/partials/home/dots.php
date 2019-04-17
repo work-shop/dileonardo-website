@@ -8,6 +8,9 @@
 				<a href="#home-intro" class="jump-home spy-link"></a>
 			</li>
 			<li>
+				<a href="#impact" class="jump-home spy-link"></a>
+			</li>
+			<li>
 				<a href="#home-projects" class="jump spy-link"></a>
 			</li>
 			<li>
@@ -18,4 +21,4 @@
 			</li>
 		</ul>
 	</div>
-<?php } ?>
+	<?php } ?>

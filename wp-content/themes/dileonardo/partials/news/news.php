@@ -1,9 +1,9 @@
-<section class="block" id="news-grid">
+<section class="block padded-bottom" id="news-grid">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-right offset">
 				<div class="news-grid row">
-					<?php for ($i=0; $i < 5; $i++) { ?>
+					<?php for ($i=0; $i < 2; $i++) { ?>
 						<?php 
 						$count = 0;
 						$news_query = new WP_Query( array(

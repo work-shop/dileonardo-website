@@ -1,4 +1,4 @@
-<section class="block padded related" id="project-related">
+<section class="block padded related" id="thought-related">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-left">
@@ -29,9 +29,9 @@
 								<?php if ( has_post_thumbnail() ) : ?>
 									<?php the_post_thumbnail('sm_cropped'); ?>
 									<?php else: ?>
-										<img src="<?php echo get_bloginfo( 'stylesheet_directory' ); ?>/images/wireframe.jpg" />
+										<img src="<?php echo get_bloginfo( 'stylesheet_directory' ); ?>/images/default.png" />
 									<?php endif; ?>
-									<h3 class="thought-title">
+									<h3 class="thought-title white">
 										<?php the_title(); ?>
 									</h3>
 								</a>

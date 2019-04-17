@@ -23,7 +23,8 @@ function stickyNav( config ) {
 			if( $('body').hasClass('page-id-21')){
 				stickyNavProperties.top = 0;
 			} else{
-				stickyNavProperties.top = 105;
+				stickyNavProperties.top = 90;//container fluid x 1
+				//stickyNavProperties.top = 180;//container fluid x 2
 			}
 
 			calculatePositions();
@@ -59,7 +60,7 @@ function stickyNav( config ) {
 function calculatePositions(){
 	stickyNavProperties.offset = stickyNavProperties.element.offset();
 	stickyNavProperties.triggerPosition = stickyNavProperties.offset.top - stickyNavProperties.top;
-	console.log('stickyNavProperties.triggerPosition: ' + stickyNavProperties.triggerPosition);
+	//console.log('stickyNavProperties.triggerPosition: ' + stickyNavProperties.triggerPosition);
 }
 
 
@@ -68,7 +69,7 @@ function checkNavPosition(){
 	if( $(window).width() > stickyNavProperties.mobileBreakpoint || stickyNavProperties.activeOnMobile ){
 
 		//var footerTrigger = $('#footer').offset().top - ( $(window).height() * 1 );
-		var footerTrigger = $('#footer').offset().top - ( $(window).height() * 1 ) + 100;
+		var footerTrigger = $('#footer').offset().top - ( $(window).height() * 1 ) - 100;
 
 		if ( $(window).scrollTop() >= stickyNavProperties.triggerPosition && stickyNavProperties.element.hasClass('before') ){
 			toggleNav();
@@ -77,11 +78,11 @@ function checkNavPosition(){
 		}
 
 		if( $(window).scrollTop() >= footerTrigger && stickyNavProperties.element.hasClass('shown') ){
-			console.log('footer hiding');
-			stickyNavProperties.element.addClass('hidden');		
-		} else if( $(window).scrollTop() < footerTrigger && stickyNavProperties.element.hasClass('hidden') ){
-			console.log('footer showing');
-			stickyNavProperties.element.removeClass('hidden');
+			//console.log('footer hiding');
+			stickyNavProperties.element.addClass('sticky-hidden');		
+		} else if( $(window).scrollTop() < footerTrigger && stickyNavProperties.element.hasClass('sticky-hidden') ){
+			//console.log('footer showing');
+			stickyNavProperties.element.removeClass('sticky-hidden');
 		}
 
 	}

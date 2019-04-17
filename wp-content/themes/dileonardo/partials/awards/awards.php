@@ -1,4 +1,4 @@
-<section class="block page-section <?php if( is_page(9) ){ ?> bg-light <?php } ?> spy-target" id="awards">
+<section class="block page-section <?php if( is_page(11) ){ ?> bg-light <?php } ?> spy-target" id="awards">
 	<div class="container-fluid">
 		<div class="row">
 			<?php if( is_page(17) ){ ?>
@@ -8,12 +8,12 @@
 					</h1>
 				</div>
 			<?php } ?>
-			<div class="<?php if( is_page(9) || false ){ ?> col-right offset <?php } else{ ?> col-right <?php } ?>">
+			<div class="<?php if( is_page(11) || false ){ ?> col-right offset <?php } else{ ?> col-right <?php } ?>">
 				<?php 
 				$count = 0;
 				$limited = false;
 				$limit = 8;
-				if( is_page(9) ){
+				if( is_page(11) ){
 					$limited = true; ?>
 					<div class="row mb1">
 						<div class="awards-list-title award-col col-6">

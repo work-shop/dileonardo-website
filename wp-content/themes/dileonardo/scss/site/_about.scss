@@ -3,16 +3,30 @@
 
 	.slide-image{
 		background-size: cover;
+		position: relative;
 
 		&:after{
-			
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,.25) 50%,rgba(0,0,0,0.35) 100%);
 		}
 	}
 
 	.slide-caption-container{
 		position: absolute;
-		top: $sidebar-fixed-top;
+		//top: $sidebar-fixed-top;
+		top: 0;
+		padding-bottom: 100px;
 		z-index: 3;
+
+		.slide-caption{
+			color: white;
+		}
 	}
 
 	.slick-arrow{
@@ -27,9 +41,11 @@
 
 #team{
 
-	.team-list{
-		columns: 6;
-		column-gap: 10px;
+	#team-team{
+		.team-list{
+			margin-left: -5px;
+			margin-right: -5px;
+		}
 	}
 
 	.person{
@@ -40,9 +56,9 @@
 
 		&.person-small{
 			margin-bottom: 10px;
-			//flex: 0 0 20%;
-			//max-width: 20%;
-			//padding: 0 5px;
+			flex: 0 0 12.5%;
+			max-width: 12.5%;
+			padding: 0 5px;
 			position: relative;
 
 			&:hover{
@@ -67,6 +83,30 @@
 				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
 			}
 		}
+
+		&.person-final{
+			.person-image{
+				height: 100%;
+				background: $brand;
+			}
+
+			h4{
+				display: block;
+				background: none;
+				font-size: 17px;
+			}
+
+			&:hover{
+				.person-image{
+					background: $dark;
+				}
+			}
+
+		}
+
+	}
+
+	.team-final-text{
 
 	}
 
@@ -113,32 +153,173 @@
 }
 
 
+// #history{
+// 	overflow: hidden;
+// 	//border: 2px solid blue;
+// 	//@extend .page-section;
+
+// 	.history-top{
+// 		height: 90vh;
+// 		display: flex;
+// 		@extend .align-items-center;
+// 		//@extend .flex-center-vertical;
+// 	}
+
+// 	//events container
+// 	.history-events{
+// 		//border: 2px solid teal;
+// 		//position: relative;
+// 		width: 66.667%;
+// 		margin-left: 33.333%;
+// 		//height: 100%;
+		
+// 		//line
+// 		&:after{
+// 			content: '';
+// 			display: block;
+// 			position: absolute;
+// 			top: 50%;
+// 			height: 2px;
+// 			width: 100vw;
+// 			//left: 20px;
+// 			left: 0;
+// 			background: $medium;
+// 			z-index: 0;
+// 			//transform: translateX(-40vw);
+// 		}
+// 	}
+
+// 	//track
+// 	.history-events-track{
+// 		height: 100%;
+// 		display: flex;
+// 		width: 10000px;
+// 		max-width: none;
+// 		transition: transform 1s;
+// 		transform: translateX(0vw);
+// 	}
+
+// 	//individual event
+// 	.history-event{
+// 		padding: 20px 10px 30px 10px;
+// 		position: relative;
+// 		z-index: 1;
+// 		flex: 0 0 20vw;
+// 		max-width: 20vw;
+// 		//height: 50vh;
+// 		//overflow: hidden;
+
+// 		//lower events
+// 		&:nth-child(odd){
+// 			transform: translateY(50%);
+// 			padding-bottom: 0;
+// 			//border: 2px solid $distudio;
+// 		}
+
+// 		//upper events
+// 		&:nth-child(even){
+// 			transform: translateY(-50%);
+// 			padding-top: 0;
+// 			//border: 2px solid $brand;
+
+// 			&:before{
+// 				top: auto;
+// 				top: calc(100% - 6px);
+// 			}
+// 		}
+
+
+// 		//dot
+// 		&:before{
+// 			content: '';
+// 			display: block;
+// 			height: 14px;
+// 			width: 14px;
+// 			border-radius: 10px;
+// 			background: $brand;
+// 			position: absolute;
+// 			top: -6px;
+// 			z-index: 2;
+// 			//flex: 1 100%;
+// 		}
+
+// 		.history-event-year{
+			
+// 		}
+
+// 		//event text
+// 		.history-event-description{
+// 			//flex: 1 100%;
+// 			font-size: 16px;
+// 			line-height: 1.2 !important;
+// 		}
+
+// 		//event image
+// 		.history-event-image-container{
+// 			//flex: 1 100%;
+// 		}
+// 	}
+
+// 	//advance arrow
+// 	#history-arrows{
+// 		//border: 3px solid yellow;
+// 		height: 10vh;
+
+// 		.history-arrow{
+// 			padding: 10px;
+// 			//border: 1px solid red;
+// 		}
+
+// 		&:hover{
+// 			cursor: pointer;
+// 		}
+		
+// 		.icon:before{
+// 			font-size: 70px;
+// 			color: $medium;
+// 		}
+
+// 	}
+
+// }
+
 #history{
 	overflow: hidden;
+	//border: 2px solid blue;
+	//@extend .page-section;
 
-	.history-events{
-		//border: 1px solid gray;
-		position: relative;
+	$history-height: 100vh;
 
-		&:after{
-			content: '';
-			display: block;
-			position: absolute;
-			top: 50%;
-			height: 2px;
-			width: calc(100% + #{$container-fluid-padding});
-			left: 20px;
-			background: $medium;
-			z-index: 0;
-		}
+	.history-top{
+		height: $history-height;
 	}
 
-	.history-event{
-		padding-top: 20px;
-		padding-bottom: 30px;
-		position: relative;
-		z-index: 1;
 
+	//line
+	.history-line{
+		content: '';
+		display: block;
+		position: relative;
+		top: 50%;
+		height: 2px;
+		width: 100vw;
+		//left: 20px;
+		left: 0;
+		background: $medium;
+		z-index: 0;
+	}
+
+
+	//events container
+	.history-events{
+		height: 100%;
+	}
+
+	//slides
+	.slick-slide{
+		height: $history-height;
+
+		//dot
 		&:before{
 			content: '';
 			display: block;
@@ -146,49 +327,69 @@
 			width: 14px;
 			border-radius: 10px;
 			background: $brand;
-			position: relative;
-			top: -26px;
+			position: absolute;
+			top: calc(50% - 6px);
+			z-index: 2;
 		}
 
-		&:nth-child(even){
-			transform: translateY(-50%);
+		&>div{
+			//background: pink;
+			height: 50%;
+			display: flex !important;
+			@extend .align-items-end;
+		}
 
-			&:before{
-				top: auto;
-				top: calc(100% + 24px);
+		//lower events
+		&:nth-child(even){
+			&>div{
+				margin-top: $history-height / 2;
+				@extend .align-items-start;
 			}
 		}
 
+
+		//upper events
 		&:nth-child(odd){
-			transform: translateY(50%);
+			
 		}
-		
-		p{
-			font-size: 16px;
-			line-height: 1.2 !important;
-		}
+
 	}
 
-	.history-arrow{
-		position: absolute;
-		//background: yellow;
-		width: 50px;
-		height: 50px;
-		z-index: 3;
-		right: -50px;
-		top: 50%;
+	.slick-arrow{
 		margin-top: -100px;
-		text-align: center;
+		left: -70px;
 
-		&:hover{
-			cursor: pointer;
-		}
-		
-		.icon:before{
-			font-size: 70px;
+		&:after{
 			color: $medium;
 		}
 
+		&.slick-next{
+			left: auto;
+			right: -70px;
+		}
+
+	}
+
+	//individual event
+	.history-event{
+		padding: 20px 10px 30px 10px;
+		position: relative;
+		z-index: 1;
+
+		.history-event-year{
+
+		}
+
+		//event text
+		.history-event-description{
+			font-size: 16px;
+			line-height: 1.2 !important;
+		}
+
+		//event image
+		.history-event-image-container{
+		}
 	}
 
 }
+

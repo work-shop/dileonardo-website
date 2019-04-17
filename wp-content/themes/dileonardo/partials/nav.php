@@ -7,4 +7,10 @@
 		</div>
 	</div>
 </nav>
-<div id="brand-bar"></div>
+<div id="brand-bar">
+	<div id="brand-bar-bar">
+	</div>
+	<a href="/" id="brand-bar-logo">
+		<?php get_template_part('partials/logo'); ?>
+	</a>
+</div>

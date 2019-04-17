@@ -4,23 +4,23 @@
 	</a>
 </li>
 <li>
+	<a href="#design-philosophy" class="jump spy-link">
+		Design<br class="br-medium"> Philosophy
+	</a>
+</li>
+<li>
 	<a href="#clients" class="jump spy-link">
 		Clients
 	</a>
 </li>
 <li>
-	<a href="#impact" class="jump spy-link">
-		Impact
+	<a href="#awards" class="jump spy-link">
+		Awards
 	</a>
 </li>
 <li>
-	<a href="#design-philosophy" class="jump spy-link">
-		Design Philosophy
-	</a>
-</li>
-<li>
-	<a href="#process" class="jump spy-link">
-		Process
+	<a href="#press" class="jump spy-link">
+		Press
 	</a>
 </li>
 <li>

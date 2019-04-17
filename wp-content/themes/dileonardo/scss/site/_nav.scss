@@ -15,7 +15,6 @@ $nav-padding-mobile: $container-fluid-padding-mobile;
 	left: 0;
 	width: 100%;
 	height: $nav-height;
-	//padding: 0 $nav-padding;
 	z-index: 7;
 	transition: background 1s;
 
@@ -33,28 +32,9 @@ $nav-padding-mobile: $container-fluid-padding-mobile;
 
 	@media screen and (max-width: $sm) {
 		height: $nav-height-mobile;
-		//padding-left: $nav-padding-mobile;
-		//padding-right: $nav-padding-mobile;
 		overflow: hidden;
 	}
 
-	// #nav-menus{
-	// 	float: left;
-	// 	margin-left: 30px;
-	// 	position: relative;
-	// 	z-index: 1;
-	// 	@extend .clearfix;
-
-	// 	@media screen and (max-width: $md) {
-	// 		margin-left: 10px;
-	// 	}
-
-	// 	@media screen and (max-width: $sm) {
-	// 		clear: left;
-	// 		width: 100%;
-	// 		margin-left: 0;
-	// 	}
-	// }
 
 	&.after{
 		height: $nav-height-after;
@@ -77,10 +57,43 @@ $nav-padding-mobile: $container-fluid-padding-mobile;
 	width: 150px;
 	left: $container-fluid-padding;
 	top: 0;
-	height: 4px;
-	background: $brand;
 	z-index: 8;
+	height: $container-fluid-padding;
 	//opacity: 0;
+
+	@media screen and (max-width: $md) {
+		width: 130px;
+		left: $container-fluid-padding-md;
+	}
+
+	&:hover{
+		cursor: pointer;
+		#brand-bar-logo{
+
+			transition: opacity .2s;
+			opacity: 1;
+		}
+	}
+
+	#brand-bar-bar{
+		height: 4px;
+		background: $brand;
+	}
+
+	#brand-bar-logo{
+		top: -4px;
+		transition: opacity .2s;
+		opacity: 0;
+	}
+}
+
+
+//projects page
+.page-id-21.sticky-nav-after{
+	#brand-bar{
+		height: 4px;
+		overflow: hidden;
+	}
 }
 
 
@@ -101,7 +114,7 @@ $nav-padding-mobile: $container-fluid-padding-mobile;
 //LOGOS
 
 
-#logo{
+#logo,#brand-bar-logo{
 	width: 150px;
 	float: left;
 	position: relative;

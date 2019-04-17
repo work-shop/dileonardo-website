@@ -1,7 +1,7 @@
 <section class="block single-intro project-intro" id="project-intro">
 	<div class="single-title-container container-fluid bg-white">
 		<div class="row mb4 single-title-row">
-			<div class="col-left">
+			<div class="col">
 				<h1 class="single-title project-title">
 					<?php the_title(); ?>
 				</h1>

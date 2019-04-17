@@ -10,7 +10,7 @@ $slides = get_field('culture_slideshow');
 						<div class="slide-image vh100" style="background-image: url('<?php echo $image['sizes']['page_hero']; ?>');">
 						</div>
 					</div>
-					<div class="slide-caption-container container-fluid">
+					<div class="slide-caption-container container-fluid height-100 d-flex align-items-end">
 						<div class="row">
 							<div class="col-right offset">
 								<?php if( $image['caption'] ): ?>

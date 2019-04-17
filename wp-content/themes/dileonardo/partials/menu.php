@@ -4,37 +4,42 @@
 <menu id="menu">
 	<ul class="menu-items">
 		<li>
-			<a href="/">
+			<a href="/" class="<?php if(is_front_page()){ echo 'active'; } ?>">
 				<span>Home</span>
 			</a>
 		</li>
 		<li>
-			<a href="/projects">
+			<a href="/projects" class="<?php if( is_page(21) ){ echo 'active'; } ?>">
 				<span>Projects</span>
 			</a>
 		</li>		
 		<li>
-			<a href="/practice">
+			<a href="/practice" class="<?php if( is_page(11) ){ echo 'active'; } ?>">
 				<span>Practice</span>
 			</a>
 		</li>
 		<li>
-			<a href="/about">
-				<span>About</span>
+			<a href="/about" class="<?php if( is_page(9) ){ echo 'active'; } ?>">
+				<span>People</span>
 			</a>
 		</li>
 		<li>
-			<a href="/thinking">
+			<a href="/thinking" class="<?php if( is_page(23) ){ echo 'active'; } ?>">
 				<span>Thinking</span>
 			</a>
 		</li>
 		<li>
-			<a href="/news">
+			<a href="/news" class="<?php if( is_page(25) ){ echo 'active'; } ?>">
 				<span>News</span>
 			</a>
 		</li>
 		<li>
-			<a href="/contact">
+			<a href="/careers" class="<?php if( is_page(13) ){ echo 'active'; } ?>">
+				<span>Careers</span>
+			</a>
+		</li>
+		<li>
+			<a href="/contact" class="<?php if( is_page(15) ){ echo 'active'; } ?>">
 				<span>Contact</span>
 			</a>
 		</li>

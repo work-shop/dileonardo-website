@@ -30,6 +30,10 @@ body{
 	&.row-full{
 		margin: 0;
 	}
+
+	&.row-100{
+		width: 100%;
+	}
 }
 
 
@@ -60,7 +64,7 @@ body{
 	padding-left: $container-fluid-padding;
 	padding-right: $container-fluid-padding;
 
-	@media screen and (max-width: $lg) {
+	@media screen and (max-width: $md) {
 		padding-left: $container-fluid-padding-md;
 		padding-right: $container-fluid-padding-md;
 	}
@@ -80,13 +84,13 @@ body{
 .col-right{
 	@extend .col-12;
 	@extend .col-sm-12;
-	@extend .col-md-9;
+	@extend .col-md-8;
 	@extend .col-lg-9;
 	@extend .col-xl-8;
 
 	&.offset{
 		@extend .offset-sm-0;
-		@extend .offset-md-3;
+		@extend .offset-md-4;
 		@extend .offset-lg-3;
 		@extend .offset-xl-4;
 	}
@@ -95,7 +99,7 @@ body{
 .col-left{
 	@extend .col-12;
 	@extend .col-sm-12;
-	@extend .col-md-3;
+	@extend .col-md-4;
 	@extend .col-lg-3;
 	@extend .col-xl-4;
 }
@@ -222,18 +226,30 @@ $text-button: (
 		transition: width .25s;
 	}
 
+	&:hover{
+
+		&:before{
+			width: 100%;
+		}
+	}
+
 	&.white{
 		color: white;
-		//border-color: white;
 
 		&:hover{
-			//background: $dark;
 			color: white;
-			//border-color: $brand;
+		}
+	}
 
-			&:before{
-				width: 100%;
-			}
+	&.distudio{
+		color: $distudio;
+				&:before{
+			border-color: $distudio;
+		}
+
+		&:hover{
+			color: $distudio;
+
 		}
 	}
 
@@ -381,12 +397,12 @@ $text-button: (
 	
 	li{
 		display: inline-block;
-		margin-right: 8px;
+		margin-right: 10px;
 
 		&.slick-active button{
 			position: relative;
 			top: -1px;
-			border-bottom: 3px solid $light;
+			height: 5px;
 		}
 	}
 
@@ -395,17 +411,12 @@ $text-button: (
 		border: none;
 		outline: none;	
 		font-size: 0;
-
 		display: block;
-		width: 20px;
-		height: 20px;
+		width: 30px;
+		height: 4px;
 		padding: 0px;
-
-		//background: $dark;
-		border-bottom: 1px solid $light;
-		filter: drop-shadow(0px 0px 1px $dark);
-		//border-radius: 10px;	
-
+		background: $light;
+		border: 1px solid darken($medium,7%);
 
 		&:hover{
 			cursor: pointer;

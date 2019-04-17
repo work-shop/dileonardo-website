@@ -1,32 +1,17 @@
-<section class="block bg-light padded" id="newsletter">
+<section class="block pt5 pb2" id="newsletter">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-right offset">
+			<div class="col-left">
 				<h3 class="section-heading mb2">
-					Sign up for our newsletter
+					<span class="brand-underline">
+						Stay up to date<br>
+						with our newsletter
+					</span>
 				</h3>
+			</div>
+			<div class="col-right">
 				<div class="newsletter-form">
-					<form method="post">
-						<div class="mb2">
-							<label>First Name</label>
-							<div>
-								<input type="text">
-							</div>
-						</div>
-						<div class="mb2">
-							<label>Last Name</label>
-							<div>
-								<input type="text">
-							</div>
-						</div>
-						<div class="mb3">
-							<label>Email</label>
-							<div>
-								<input type="email">
-							</div>
-						</div>
-						<input type="submit" value="Subscribe"> 
-					</form>
+					<?php gravity_form( 2, false, false, false, '', true, 1); ?>		
 				</div>
 			</div>
 		</div>

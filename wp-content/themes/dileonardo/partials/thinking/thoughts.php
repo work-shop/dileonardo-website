@@ -29,9 +29,9 @@
 							</div>
 							<div class="container-fluid height-100 flex-center-vertical">
 								<div class="row">
-									<div class="col-left">
+									<div class="col-left display-flex">
 										<a href="<?php the_permalink(); ?>" class="post-link">
-											<div class="card-thought-text ">
+											<div class="card-thought-text">
 												<h2 class="card-thought-title white">
 													<span>
 														<?php the_title(); ?>

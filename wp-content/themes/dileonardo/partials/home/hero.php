@@ -11,7 +11,7 @@ $hero_type = get_field('hero_type');
 				<?php foreach ($slides as $image): ?> 
 					<div class="slick-slide">
 						<div class="slide-image-container">
-							<div class="slide-image vh100" style="background-image: url('<?php echo $image['sizes']['page_hero']; ?>');">
+							<div class="slide-image" style="background-image: url('<?php echo $image['sizes']['page_hero']; ?>');">
 							</div>
 						</div>
 					</div>
@@ -36,8 +36,8 @@ $hero_type = get_field('hero_type');
 	<div id="scrolly">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-left">
-					<a href="#home-intro" class="home-jump" id="scrolly-link">
+				<div class="col-right offset">
+					<a href="#home-intro" class="jump" id="scrolly-link">
 						<!-- <span class="icon large white" data-icon="”">
 						</span> -->
 						<?php get_template_part('partials/scrolly' ); ?>

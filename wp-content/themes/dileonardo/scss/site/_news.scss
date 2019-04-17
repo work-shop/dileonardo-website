@@ -2,11 +2,32 @@
 .page-id-25{
 	.page-sidebar{
 		top: 150px;
+
+		li {
+			margin-bottom: 12px;
+			a{
+				font-size: 17px;
+			}
+		}
+	}
+
+	.card-news{
+		&:nth-child(3n+3){
+			@extend .col-12;
+		}
+	}
+
+	.card-news-excerpt{
+		display: none;
+	}
+
+	.filter-button:hover{
+		text-decoration: none;
 	}
 }
 
 #news-grid{
-	padding-top: 180px;
+	padding-top: 160px;
 }
 
 .news-grid{
@@ -14,7 +35,9 @@
 	column-gap: 40px;
 
 	.card-news{
-		margin-bottom: 100px;
+		display: inline-block;
+		//margin-bottom: $container-fluid-padding;
+		margin-bottom: 40px;
 	}
 }
 
@@ -25,27 +48,66 @@
 		display: block;
 	}
 
+	.pagination-previous{
+
+	}
+
 	.pagination-next{
-		.pagination-icon:before{
-			margin-right: 20px;
+
+		.pagination-text{
+			float: right;
+			text-align: right;
 		}
 	}
 
-	.pagination-previous{
-		.pagination-icon:before{
-			margin-left: 20px;
-		}
+	.pagination-text{
+		max-width: 400px;
 	}
 
 	.pagination-icon:before{
-		font-size: 60px;
+		font-size: 70px;
 	}
 
 }
 
 
 #newsletter{
+	background: darken($light, 0%);
+
+	.gform_body{
+		width: 61%;
+		float: left;
+		padding-right: 60px;
+		margin-top: 5px;
+	}
+
+	.gform_footer{
+		margin-top: 5px;
+		width: 39%;
+		float: left;
+		padding-left: 60px;
+		padding-top: 34px;
+	}
+
+	input[type="submit"]{
+		max-width: none;
+		height: 40px;
+		background: $brand;
+		border: none;
+		color: white;
+	}
+
 	input{
-		max-width: 480px;
+		//max-width: 480px;
 	}
 }
+
+
+/* SINGLE */
+
+.single-news{
+	.single-title-container{
+		margin-top: 10px;
+	}
+}
+

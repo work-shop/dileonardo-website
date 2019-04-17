@@ -7,6 +7,7 @@ $brand-secondary: darken($brand,17%);
 $brand-dark: #132828;
 $brand-dark: darken($brand,40%);
 //$brand-dark: desaturate($brand-dark, 50%);
+$distudio: #ec018c;
 
 
 
@@ -94,6 +95,7 @@ $font-secondary-bold-italic: $font-bold-italic;
 
 *{
 	//font-weight: normal !important;
+	//font-family: 'Graphik',Georgia !important;
 	//font-family: 'Post Grotesk Trial',Georgia !important;
 	//font-family: Comic Sans MS !important;
 }

@@ -3,11 +3,11 @@
 
 input,textarea,select{
 	@include transition(all .125s);
-	padding: 4px 10px;
+	padding: 5px 10px;
 	border: none;
-	border: 1px solid $medium;
+	border: 1px solid darken($light,5%);
 	border-radius: 3px;
-	background: none;
+	background: white;
 	outline: none;
 	width: 100%;
 	//max-width: 300px;
@@ -18,7 +18,7 @@ input,textarea,select{
 	&:focus{
 		outline: none;
 		border-radius: 6px;
-		border: 2px solid $brand;
+		border: 1px solid $brand;
 	}
 
 	&[type="submit"]{
@@ -26,14 +26,15 @@ input,textarea,select{
 		max-width: 300px;
 		margin: 0 auto;
 		transition: all .1s;
-		border: 2px solid $dark;
+		border: 1px solid $dark;
 		padding: 7px 15px;
-		
-		
 		background-image: none;
 		color: $dark;
-		background: white;
+		background: $brand;
 		//border-radius: 20px;
+		font-weight: normal;
+		font-family: $font-main;
+		color: white;
 
 		&:hover{
 			background-image: none;
@@ -62,7 +63,7 @@ select{
 label{
 	display: block;
 	margin-bottom: 4px;
-	font-size: 15px;
+	//font-size: 15px;
 }
 
 .gfield_label_before_complex{

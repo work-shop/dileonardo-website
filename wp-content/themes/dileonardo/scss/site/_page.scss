@@ -5,19 +5,17 @@ $hero-height: 69vh;
 	height: $hero-height;
 	
 	.page-hero-image{
-		//border: $container-fluid-padding solid white;
 		width: calc(100% - #{$container-fluid-padding * 2});
 		height: calc(100% - #{$container-fluid-padding});
 		left: $container-fluid-padding;
 		top: $container-fluid-padding;
 		overflow: hidden;
 
-		&:after{
-			//background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 90%, rgba(255,255,255,0.5) 100%);
-			//background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,.3) 90%,rgba(255,255,255,0.5) 100%);
-			//background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,.3) 90%,rgba(255,255,255,0.5) 100%);
-			//filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
-
+		@media screen and (max-width: $md) {
+			width: calc(100% - #{$container-fluid-padding-md * 2});
+			height: calc(100% - #{$container-fluid-padding-md});
+			left: $container-fluid-padding-md;
+			top: $container-fluid-padding;
 		}
 	}
 }
@@ -35,15 +33,11 @@ $hero-height: 69vh;
 	font-size: 21px;
 	@extend .uppercase;
 	margin-top: 125px;
-	@extend .bold;
 	color: $medium;
 	@extend .tracked-less;
 
 	span{
-		@extend .bold;
-		color: $medium;
-		//background: white;
-		//padding: 15px 5px;
+
 	}
 
 	@media screen and (max-width: $sm) {
@@ -53,8 +47,8 @@ $hero-height: 69vh;
 }
 
 
-.page-intro{
-
+.page-section-intro-text-2{
+	font-size: 23px;
 }
 
 
@@ -68,22 +62,23 @@ $sidebar-fixed-top: $container-fluid-padding;
 
 .page-sidebar{
 	position: absolute;
-	top: calc( #{$hero-height} + #{$sidebar-fixed-top});
+	top: calc( #{$hero-height} + #{$container-fluid-padding});
 	margin-top: 0;
-	//margin-top: -65px;
 	z-index: 3;
 	left: $container-fluid-padding;
 	width: calc( ( ( 100% - #{$container-fluid-sum} ) / 4 ) - 40px );
 	max-width: 300px;
-	//padding: 25px 20px;
-	//background: white;
-	//padding: 25px 0;
-	//border: 1px solid $medium;
+	opacity: 1;
+	transition: opacity .3s;
+
+	&.sticky-hidden{
+		transition: opacity .3s;
+		opacity: 0;
+	}
 
 	&.after{
 		position: fixed;
 		top: $sidebar-fixed-top;
-		//margin-top: -25px; //align sidebar background to section content
 		margin-top: 0; //align page title to section content
 	}
 
@@ -114,10 +109,8 @@ $sidebar-fixed-top: $container-fluid-padding;
 	.page-title{
 		margin-top: 0;
 		margin-bottom: 40px;
-		//color: $dark;
 
 		span{
-			//color: $dark;
 		}
 
 		@media screen and (max-width: $sm) {
@@ -126,13 +119,19 @@ $sidebar-fixed-top: $container-fluid-padding;
 	}
 
 	li{
-		margin-bottom: 18px;
+		margin-bottom: 20px;
 		//text-indent: 5px;
 
 		a{
 			font-size: 20px;
 			border-bottom: 2px solid transparent;
 			color: lighten($dark,7%);
+			display: inline-block;
+			line-height: 1.2;
+
+			@media screen and (max-width: $md) {
+				font-size: 16px;
+			}
 
 			@media screen and (max-width: $sm) {
 				font-size: 14px;
@@ -150,10 +149,19 @@ $sidebar-fixed-top: $container-fluid-padding;
 	}
 }
 
+.br-medium{
+	display: none;
+	@media screen and (max-width: $md) {
+		display: block;
+	}
+}
+
 
 .page-section{
-	padding-top: $sidebar-fixed-top;
-	padding-bottom: $sidebar-fixed-top;
+	padding-top: $sidebar-fixed-top / 2;
+	padding-bottom: $sidebar-fixed-top / 2;
+	padding-top: $container-fluid-padding;
+	padding-bottom: $container-fluid-padding;
 	//padding-top: 100px;
 	//padding-bottom: 100px;
 }
@@ -162,11 +170,21 @@ $sidebar-fixed-top: $container-fluid-padding;
 #single-intro{
 
 	&.no-hero{
-		margin-top: $container-fluid-padding;
+		margin-top: 125px;
 		//margin-top: 0;
 
 		.single-title-container{
 			margin-top: 0;
+		}
+	}
+}
+
+#flexible-content{
+	.fc-rich-text{
+		.fc-col-primary{
+			@extend .col-right;
+			@extend .offset;
+			//background: yellow;
 		}
 	}
 }

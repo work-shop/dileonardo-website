@@ -47,7 +47,7 @@
         	console.log(location);
         	location.marker.position.lat = parseInt(location.marker.position.lat);
         	location.marker.position.lng = parseInt(location.marker.position.lng);
-        	location.marker.popup.content = '<div class="marker-card"><h4 class="marker-card-title">' + location.marker.title + '</h4><p class="marker-card-summary">' + location.marker.popup.summary + '</p></div>';
+        	location.marker.popup.content = '<div class="marker-card"><h4 class="marker-card-title medium uppercase">' + location.marker.title + '</h4><p class="marker-card-summary">' + location.marker.popup.summary + '</p></div>';
         });
 
         mapOptions.render = { zoom: 3 };

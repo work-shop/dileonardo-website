@@ -30,7 +30,7 @@
 
 .flex-center-vertical{
 	@extend .d-flex;
-	@extend .justify-content-center;
+	//@extend .justify-content-center;
 	@extend .align-items-center;
 }
 

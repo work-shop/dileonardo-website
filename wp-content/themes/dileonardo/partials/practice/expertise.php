@@ -12,7 +12,9 @@
 				<?php  } ?>
 				<div class="expertise-lists row">
 					<div class="col-5">
-						<h4 class="bold uppercase mb1">Services</h4>
+						<h4 class="bold uppercase mb1 medium">
+							<?php the_field('services_heading'); ?>
+						</h4>
 						<?php if( have_rows('services_list') ): ?>
 							<ul class="services-list">
 								<?php  while ( have_rows('services_list') ) : the_row(); ?>
@@ -24,13 +26,19 @@
 						<?php endif; ?>
 					</div>
 					<div class="col">
-						<h4 class="bold uppercase mb1">Sectors</h4>
+						<h4 class="bold uppercase mb1 medium">
+							<?php the_field('sectors_heading'); ?>
+						</h4>
 						<?php 
 						$terms = get_field('sectors_list');
 						if( $terms ): ?>
 							<ul>
 								<?php foreach( $terms as $term ): ?>
-									<li><a href="/projects?category=<?php echo $term->slug; ?>"><?php echo $term->name; ?></a></li>
+									<li>
+										<a href="/projects?category=<?php echo $term->slug; ?>">
+											<?php echo $term->name; ?>
+										</a>
+									</li>
 								<?php endforeach; ?>
 							</ul>
 						<?php endif; ?>

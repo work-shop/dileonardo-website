@@ -1,6 +1,6 @@
-<section class="block padded-more-top spy-target" id="home-projects">
+<section class="block padded-top spy-target" id="home-projects">
 	<div class="container-fluid">
-		<div class="row mb4">
+		<div class="row mb2">
 			<div class="col">
 				<h3 class="section-heading mb0">
 					<span class="brand-underline medium"><?php the_field('home_projects_heading'); ?></span>
@@ -12,7 +12,7 @@
 				</div>
 			</div>
 		</div>
-		<div id="grid" class="grid grid-project">
+		<div id="grid-home" class="grid grid-project">
 			<article class="card card-project grid-item card-project-featured hidden">
 				<h3 class="section-heading bold">
 					<span class="brand-underline bold"><?php the_field('home_projects_heading'); ?></span>

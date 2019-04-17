@@ -7,7 +7,7 @@ function grid(){
 	$(window).on('load', function() {
 
 		setTimeout(function() {
-			$('#grid').masonry({
+			$('#grid-home').masonry({
 			// set itemSelector so .grid-sizer is not used in layout
 			itemSelector: '.grid-item',
 			// use element for option

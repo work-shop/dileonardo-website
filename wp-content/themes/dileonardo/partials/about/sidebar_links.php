@@ -18,18 +18,3 @@
 		Culture
 	</a>
 </li>
-<li>
-	<a href="#awards" class="jump spy-link">
-		Awards
-	</a>
-</li>
-<li>
-	<a href="#press" class="jump spy-link">
-		Press
-	</a>
-</li>
-<li>
-	<a href="/contact" class="">
-		Contact
-	</a>
-</li>

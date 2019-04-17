@@ -9,4 +9,6 @@
 
 <?php get_template_part('partials/news/newsletter' ); ?>
 
+<?php //get_template_part('partials/practice/distudio' ); ?>
+
 <?php get_template_part('partials/footer' ); ?>

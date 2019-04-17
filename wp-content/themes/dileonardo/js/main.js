@@ -21,10 +21,11 @@ import { livereload } from './livereload-client.js';
 import { stickyNav } from './sticky-nav.js';
 import { dropdowns } from './dropdowns.js';
 import { menuToggle } from './menu-toggle.js';
-import { filter } from './filter.js';
+import { filter2 } from './filter2.js';
 import { scrollSpy } from './scroll-spy.js';
 import { makeMap } from './map.js';
 import { grid } from './grid.js';
+import { history } from './history.js';
 
 //must use 
 livereload();
@@ -43,6 +44,7 @@ stickyNav(config.stickyNav);
 dropdowns(config.dropdowns);
 menuToggle(config.menuToggle);
 scrollSpy(config.scrollSpy);
-filter();
+filter2();
 makeMap();
 grid();
+history();

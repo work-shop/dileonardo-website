@@ -7,6 +7,20 @@
 	}
 }
 
+#process{
+	background: lighten($brand,34%);
+}
+
+#design-philosophy{
+
+	.block-background{
+		filter: brightness(.95);
+	}
+	h3,h2{
+		text-shadow: 0px 0px 90px transparentize($dark, .6);
+	}
+}
+
 
 .process-step-col{
 	&:nth-child(even){
@@ -18,9 +32,13 @@
 .impact-statistic{
 	margin-bottom: 11vh;
 
+	&:nth-child(4),&:nth-child(5),&:nth-child(6){
+		margin-bottom: 0;
+	}
+
 	.impact-statistic-number{
 		@extend .bold;
-		color: $brand-dark;
+		//color: $brand-dark;
 	}
 
 	.impact-statistic-label{
@@ -30,10 +48,24 @@
 	}
 }
 
+#distudio{
+	.block-background{
+		opacity: .3;
+	}
+}
+
 
 #distudio-logo{
 	img{
 		width: 130px;
 	}
 }
+
+.distudio-logo-left{
+	img{
+		display: block;
+		//margin: 0 auto;
+	}
+}
+
 

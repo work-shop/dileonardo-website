@@ -1,18 +1,25 @@
 
+$footer-offset: $container-fluid-padding/3;
+$footer-offset-2: $footer-offset * 2;
 
 #footer{
 	position: relative;
 	z-index: 2;
 	background: white;
-	margin-bottom: 32px;
-	margin-top: 32px;
+	margin-bottom: $footer-offset;
+	margin-top: $footer-offset;
+	//margin: $container-fluid-padding;
+	//width: calc(100% - 200px);
 
 	.footer-background{
-		width: calc(100% - 64px);
-		left: 32px;
+		width: calc(100% - #{$footer-offset-2});
+		left: $footer-offset;
 		@extend .background;
 		background-size: cover;
 		background-position: center center;
+		border-radius: 2px;
+		-webkit-filter: brightness(.95);
+		filter:  brightness(.95);
 	}
 	
 	*{
@@ -25,7 +32,7 @@
 	}
 
 	.footer-social-links{
-		margin-top: .75em;
+		margin-top: .3em;
 
 		img{
 			width: 25px;
@@ -37,13 +44,59 @@
 
 		li{
 			margin-bottom: .75em;
+
+			a{
+				font-size: 22px;
+				border-top: 2px solid transparent;
+				&:hover{
+					border-color: darken($brand,5%);
+				}
+			}
 		}
+	}
+
+	#footer-distudio-logo-small{
+		width: 18px;
+		float: left;
+		margin-right: 10px;
+		position: relative;
+		top: -4px;
+	}
+
+	.footer-distudio{
+		position: relative;
+		//left: 70px;
+		//margin-top: 60px;
+	}
+
+	#footer-distudio-logo{
+		width: 70px;
+		float: left;
+		margin-right: 30px;
+	}
+
+	#footer-distudio-statement{
+		//width: 120px;
+		font-size: 19px;
+		line-height: 1.2;
+		@extend .bold;
+		color: $distudio;
+		text-shadow: none;
+		margin-top: .5em;
 	}
 
 
 	.footer-links{
 		li{
-			margin-bottom: .75em;
+			margin-bottom: .95em;
+
+			a{
+				font-size: 22px;
+				border-top: 2px solid transparent;
+				&:hover{
+					border-color: darken($brand,5%);
+				}
+			}
 		}
 	}
 

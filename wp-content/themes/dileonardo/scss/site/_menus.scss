@@ -1,11 +1,9 @@
 
 $menu-width: 350px;
-//$button-offset: $menu-width + 10px;
 $menu-transition: .5s;
-$menu-padding: 60px;
+$menu-padding: 45px;
 
 #nav,#content,#footer,#brand-bar{
-	//transform: translateX(0);
 	transition: transform $menu-transition;
 }
 
@@ -17,11 +15,12 @@ $menu-padding: 60px;
 	top: 0px;
 	top: 8px;
 	position: fixed;
-	right: 5px;
+	right: 10px;
 	z-index: 10;
 
 	@media screen and (max-width: $md) {
-		right: $container-fluid-padding-md;
+		right: 4px;
+		top: -2px;
 	}
 
 	@media screen and (max-width: $sm) {
@@ -32,17 +31,25 @@ $menu-padding: 60px;
 		display: block;
 		width: $menu-width;
 		text-align: right;
-		font-size: 19px;
-		@extend .tracked-less;
+
 		
 		span{
 			background-image: none !important;
 			background: white;
-			padding: 5px 15px;
+			padding: 5px 10px;
 			color: darken($medium,10%);
 			border-radius: 2px;
 			position: relative;
 			display: inline-block;
+			transition: color .2s;
+			font-size: 19px;
+			@extend .tracked-less;
+
+			@media screen and (max-width: $md) {
+				font-size: 15px;
+				padding: 3px 5px;
+				//border: 1px solid red;
+			}
 		}
 
 		&:hover{
@@ -50,6 +57,8 @@ $menu-padding: 60px;
 
 		   	span{
 		   		//text-decoration: underline;
+		   		transition: color .2s;
+		   		color: $dark;
 		   	}
 		   }
 		}
@@ -63,6 +72,7 @@ $menu-padding: 60px;
 		width: $menu-width;
 		z-index: 9;
 		background: lighten($ultra-light, 1%);
+		background: white;
 		border-left: 1px solid darken($ultra-light, 5%);
 		right: -$menu-width + 0px;
 		transition: right $menu-transition;
@@ -94,6 +104,12 @@ $menu-padding: 60px;
 					color: lighten($dark, 4%);
 				}
 
+				&.active{
+					span{
+						color: $medium;
+					}
+				}
+
 				&:hover{
 
 					span{
@@ -121,14 +137,14 @@ $menu-padding: 60px;
 		@include transition(opacity .1s);
 		opacity: 0;
 
-	&:hover{
-		cursor: url("../images/close.png"), auto;
+		&:hover{
+			cursor: url("../images/close.png"), auto;
+		}
 	}
-}
 
 
-body.menu-open{
-	#menu-button{
+	body.menu-open{
+		#menu-button{
 		//transition: right 0, transform $menu-transition;
 		
 		margin-right: -3px;
