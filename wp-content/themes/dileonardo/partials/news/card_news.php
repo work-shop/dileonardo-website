@@ -18,15 +18,14 @@ endif;
 	</div>
 	<div class="card-news-text">
 		<a href="<?php the_permalink(); ?>" class="post-link">
+			<h4 class="card-news-date">
+				<?php the_field('article_date') ?>
+			</h4>
 			<h3 class="card-news-title">
 				<?php the_title(); ?>
 			</h3>
 			<?php if(false){ ?>
-				<?php if( get_field('article_date') ){ ?>
-					<h4 class="card-news-date">
-						<?php the_field('article_date') ?>
-					</h4>
-				<?php } ?>
+
 				<?php if( get_field('author') ){ ?>
 					<h4 class="card-news-author mb1">
 						By <?php the_field('author') ?>

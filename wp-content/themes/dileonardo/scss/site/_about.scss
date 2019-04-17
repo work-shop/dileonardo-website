@@ -98,7 +98,7 @@
 
 			&:hover{
 				.person-image{
-					background: $dark;
+					background: darken($brand,15%);
 				}
 			}
 

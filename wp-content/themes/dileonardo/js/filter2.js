@@ -152,6 +152,8 @@ function filter2() {
 					categoryFilteredCurrent = 'all';
 					filter(categoryFilteredCurrent,regionFilteredCurrent);
 					$(this).removeClass('active').addClass('inactive');
+					$('.filter-button-category').removeClass('filter-active');
+					$('.filter-button-all-category').addClass('filter-active');
 				}
 				if( $(this).closest('.filter-menu').hasClass('open') ){
 					var target = $(this).data('toggle-target');
@@ -165,6 +167,8 @@ function filter2() {
 					regionFilteredCurrent = 'all';
 					filter(categoryFilteredCurrent,regionFilteredCurrent);
 					$(this).removeClass('active').addClass('inactive');
+					$('.filter-button-region').removeClass('filter-active');
+					$('.filter-button-all-region').addClass('filter-active');
 				}
 				if( $(this).closest('.filter-menu').hasClass('open') ){
 					var target = $(this).data('toggle-target');
@@ -302,7 +306,7 @@ function filter2() {
 		if(initial){
 			initial = false;
 		} else{
-			//scrollToFilter();
+			scrollToFilter();
 		}
 
 		updateURL(urlCategory, urlRegion);
@@ -313,6 +317,7 @@ function filter2() {
 
 	function scrollToFilter(){
 		var offset = $('.page-intro').outerHeight();
+		offset = 0;
 		$('html,body').animate({
 			scrollTop: offset
 		}, 500);

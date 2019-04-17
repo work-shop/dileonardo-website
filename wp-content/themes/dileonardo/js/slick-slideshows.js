@@ -50,6 +50,7 @@ function slickSlideshows( config ) {
 
 		$('.slick-history').slick({
 			slidesToShow: 3,
+			slidesToScroll: 2,
 			dots: false,
 			arrows: true,
 			autoplay: false,

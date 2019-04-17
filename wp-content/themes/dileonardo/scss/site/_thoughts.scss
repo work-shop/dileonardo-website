@@ -4,6 +4,12 @@ $thinking: darken($brand,56%);
 .page-id-23,.single-thoughts{
 	background: $thinking; 
 
+	#logo {
+		.st0{
+			fill: white;
+		}
+	}
+
 	#menu-button{
 		span{
 			background: $thinking; 
@@ -40,6 +46,10 @@ $thinking: darken($brand,56%);
 	}
 
 	#footer{
+		background: $thinking;
+	}
+
+	#newsletter{
 		background: $thinking;
 	}
 }

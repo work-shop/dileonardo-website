@@ -56,12 +56,6 @@
 	&.card-news{
 
 		&:hover{
-			// .card-news-image{
-			// 	&:after{
-			// 		transition: width .75s;
-			// 		width: 100%;
-			// 	}
-			// }
 
 			*{
 				color: $brand;
@@ -69,22 +63,12 @@
 		}
 
 		.card-news-image{
-			// position: relative;
-
-			// &:after{
-			// 	@extend .psuedo;
-			// 	width: 0;
-			// 	bottom: 0;
-			// 	top: auto;
-			// 	background: $brand;
-			// 	height: 5px;
-			// }
 			
 		}
 
 		.card-news-title{
 			margin-bottom: 0;
-			margin-top: .5em;
+			margin-top: 0em;
 			font-size: 23px;
 		}
 
@@ -94,12 +78,18 @@
 
 		.card-news-date{
 			//margin-right: 15px;
+			@extend .uppercase;
+			color: lighten($medium,10%);
+			@extend .tracked-less;
+			@extend .bold;
+			font-size: 13px;
+			margin-bottom: 0;
 
 			&:after{
-				padding-left: 15px;
+				//padding-left: 15px;
 				//margin-right: 15px;
-				content: '|';
-				color: $medium;
+				//content: '|';
+				//color: $medium;
 			}
 		}
 

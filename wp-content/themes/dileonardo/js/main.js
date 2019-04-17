@@ -25,7 +25,6 @@ import { filter2 } from './filter2.js';
 import { scrollSpy } from './scroll-spy.js';
 import { makeMap } from './map.js';
 import { grid } from './grid.js';
-import { history } from './history.js';
 
 //must use 
 livereload();
@@ -47,4 +46,3 @@ scrollSpy(config.scrollSpy);
 filter2();
 makeMap();
 grid();
-history();

@@ -14,15 +14,15 @@
 		a{
 			display: block;
 			width: 15px;
-			height: 15px;
+			height: 17px;
 			margin-top: 15px;
 			//background: $light;
-			border-left: 3px solid darken($light,6%);
+			border-left: 3px solid lighten($medium,7%);
 			//transform: rotate(45deg);
 			transition: border 2s;
 
 			&.spy-active{
-				border-color: $medium;
+				border-color: $dark;
 			}
 
 		}	

@@ -106,7 +106,7 @@ $menu-padding: 45px;
 
 				&.active{
 					span{
-						color: $medium;
+						color: lighten($medium,5%);
 					}
 				}
 

@@ -30,20 +30,30 @@ $hero-height: 69vh;
 
 
 .page-title{
-	font-size: 21px;
+	font-size: 20px;
 	@extend .uppercase;
-	margin-top: 125px;
+	margin-top: 160px;
 	color: $medium;
-	@extend .tracked-less;
+	@extend .tracked;
+	@extend .bold;
 
 	span{
-
+		@extend .bold;
 	}
 
 	@media screen and (max-width: $sm) {
 		font-size: 17px;
+		margin-top: 100px;
 	}
 
+}
+
+
+.page-section-intro-text{
+	@extend .bold;
+	color: desaturate(darken($brand,40%),30%);
+	color: #444455;
+	color: darken($medium,5%);
 }
 
 
