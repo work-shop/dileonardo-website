@@ -1,5 +1,6 @@
 <?php
 $images = get_field('project_images');
+
 ?>
 <?php if( $images ): ?>
 	<section class="block padded-less-top padded-bottom" id="project-images">
@@ -11,22 +12,23 @@ $images = get_field('project_images');
 			</div>
 		</div>
 		<div class="project-images-container container-fluid">
-			<?php for ($i=0; $i < 1; $i++) { ?>
-				<?php foreach ($images as $image): ?> 
-					<div class="project-image">
-						<a href="#" class="modal-toggle" data-modal-target="modal-project-images">
-							<img src="<?php echo $image['sizes']['md']; ?>">
-						</a>
-					</div>
-				<?php endforeach; ?>
-			<?php } ?>
+			<?php $count = 0; ?>
+			<?php foreach ($images as $image): ?> 
+				<div class="project-image">
+					<a href="#" class="modal-toggle project-image-modal-toggle" data-modal-target="modal-project-images" id="project-image-link-<?php echo $count; ?>" data-index="<?php echo $count; ?>">
+						<img src="<?php echo $image['sizes']['md']; ?>">
+					</a>
+				</div>
+				<?php $count++; ?>
+			<?php endforeach; ?>
 		</div>
 		<div class="modal" id="modal-project-images">
-			<div class="slick slick-project-modal vh100">
+			<div class="slick slick-project-modal">
+				<?php $count = 0; ?>
 				<?php foreach ($images as $image): ?> 
-					<div class="slick-slide vh100">
+					<div class="slick-slide" id="project-image-slide-<?php echo $count; ?>">
 						<div class="slide-image-container">
-							<div class="slide-image vh100" style="background-image: url('<?php echo $image['sizes']['xl']; ?>');">
+							<div class="slide-image" style="background-image: url('<?php echo $image['sizes']['xl']; ?>');">
 							</div>
 						</div>
 						<div class="slide-caption-container">
@@ -35,6 +37,7 @@ $images = get_field('project_images');
 							<?php endif; ?>
 						</div>
 					</div>
+					<?php $count++; ?>
 				<?php endforeach; ?>
 			</div>
 		</div>

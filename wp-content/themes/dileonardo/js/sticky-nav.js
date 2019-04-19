@@ -21,6 +21,7 @@ function stickyNav( config ) {
 			stickyNavProperties.activeOnMobile = config.activeOnMobile;
 
 			if( $('body').hasClass('page-id-21')){
+				//projects page
 				stickyNavProperties.top = 0;
 			} else{
 				stickyNavProperties.top = 90;//container fluid x 1
@@ -58,9 +59,14 @@ function stickyNav( config ) {
 
 
 function calculatePositions(){
+
+	if( $(window).width() < 768){
+		stickyNavProperties.top = 66;
+	}
 	stickyNavProperties.offset = stickyNavProperties.element.offset();
+	console.log('stickyNavProperties.offset: ' + stickyNavProperties.offset.top);
 	stickyNavProperties.triggerPosition = stickyNavProperties.offset.top - stickyNavProperties.top;
-	//console.log('stickyNavProperties.triggerPosition: ' + stickyNavProperties.triggerPosition);
+	console.log('stickyNavProperties.triggerPosition: ' + stickyNavProperties.triggerPosition);
 }
 
 

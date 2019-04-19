@@ -1,4 +1,4 @@
-
+	
 $menu-width: 350px;
 $menu-transition: .5s;
 $menu-padding: 45px;
@@ -17,11 +17,10 @@ $menu-padding: 45px;
 	position: fixed;
 	right: 10px;
 	z-index: 10;
-	//border: 1px solid red;
 
 	@media screen and (max-width: $md) {
 		right: 4px;
-		top: -2px;
+		top: -5px;
 	}
 
 	@media screen and (max-width: $sm) {
@@ -39,7 +38,7 @@ $menu-padding: 45px;
 		width: $menu-width;
 		text-align: right;
 
-		@media screen and (max-width: $sm) {
+		@media screen and (max-width: $md) {
 			width: 150px;
 		}
 

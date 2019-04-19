@@ -28,6 +28,7 @@ $hero-height: 69vh;
 	}
 }
 
+//
 .page-id-668{
 
 	#content{
@@ -49,8 +50,13 @@ $hero-height: 69vh;
 		@extend .bold;
 	}
 
+	@media screen and (max-width: $lg) {
+		font-size: 18px;
+		margin-top: 140px;
+	}
+
 	@media screen and (max-width: $sm) {
-		font-size: 17px;
+		font-size: 15px;
 		margin-top: 100px;
 	}
 
@@ -73,6 +79,10 @@ $hero-height: 69vh;
 //projects page
 .page-id-21 .page-intro{
 	padding-bottom: 2em;
+
+	@media screen and (max-width: $lg) {
+		padding-bottom: 0em;
+	}
 }
 
 
@@ -189,7 +199,6 @@ $sidebar-fixed-top: $container-fluid-padding;
 
 	&.no-hero{
 		margin-top: 125px;
-		//margin-top: 0;
 
 		.single-title-container{
 			margin-top: 0;

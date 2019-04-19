@@ -5,8 +5,7 @@
 	position: relative;
 
 	&.card-project{
-		//margin-bottom: 20px;
-
+		
 		.card-project-title{
 			position: absolute;
 			bottom: 0px;
@@ -24,13 +23,13 @@
 			@extend .justify-content-end;
 			transition: opacity .2s;
 			display: flex;
-			//background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,.15) 50%, rgba(0,0,0,0.25) 100%);
-			//background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,.15) 50%,rgba(0,0,0,0.25) 100%);
-			//background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,.15) 50%,rgba(0,0,0,0.25) 100%);
-			//filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
+
+			@media screen and (max-width: $md) {
+				font-size: 19px;
+				padding: 7px 15px;
+			}
 
 			@media screen and (max-width: $sm) {
-				display: flex;
 				font-size: 17px;
 				padding: 5px 10px;
 			}
@@ -53,6 +52,12 @@
 			display: flex;
 			margin-top: 1em;
 			font-size: 19px;
+
+			@media screen and (max-width: $sm) {
+				font-size: 15px;
+				line-height: 1.2;
+				margin-top: .5em;
+			}
 		}
 	}
 

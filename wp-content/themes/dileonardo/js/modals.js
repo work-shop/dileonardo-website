@@ -26,7 +26,16 @@ function modals( config ) {
 		$( '.' + modalProperties.modalToggleClass ).click(function(e){
 			e.preventDefault();
 			var target = $(this).data('modal-target');
-			modalToggle(target, false);	
+
+			if( $(this).hasClass('project-image-modal-toggle') ){
+				var index = $(this).data('index');
+				$('.slick-project-modal').slick('slickGoTo', index);
+				setTimeout(function() {
+					modalToggle(target, false);	
+				}, 200);
+			} else{
+				modalToggle(target, false);	
+			}
 		});
 
 		$('.modal-swap').click(function(e){

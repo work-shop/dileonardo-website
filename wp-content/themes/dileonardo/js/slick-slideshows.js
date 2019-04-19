@@ -35,7 +35,7 @@ function slickSlideshows( config ) {
 			autoplay: false,
 			fade: config.fade,
 			autoplaySpeed: config.autoplaySpeed,
-			speed: config.speed
+			speed: 400
 		});
 
 		$('.slick-team').slick({
@@ -58,6 +58,9 @@ function slickSlideshows( config ) {
 			autoplaySpeed: config.autoplaySpeed,
 			speed: config.speed
 		});
+
+
+
 
 	});
 

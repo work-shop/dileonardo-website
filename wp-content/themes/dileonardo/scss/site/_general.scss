@@ -363,7 +363,7 @@ $text-button: (
 	padding: 0;
 
 	@media screen and (max-width: $md) {
-		left: 0px;
+		//left: 0px;
 		height: 80px;
 		width: 30px;
 		top: 50%;
@@ -402,7 +402,7 @@ $text-button: (
 		right: 10px;
 
 		@media screen and (max-width: $md) {
-			right: 0;
+			//right: 5px;
 		}			
 
 		&:after{
@@ -426,7 +426,7 @@ $text-button: (
 		&.slick-active button{
 			position: relative;
 			top: -1px;
-			height: 5px;
+			height: 6px;
 		}
 	}
 
@@ -437,10 +437,14 @@ $text-button: (
 		font-size: 0;
 		display: block;
 		width: 30px;
-		height: 4px;
+		height: 3px;
 		padding: 0px;
 		background: $light;
 		border: 1px solid darken($medium,7%);
+
+		@media screen and (max-width: $sm) {
+			width: 25px;
+		}
 
 		&:hover{
 			cursor: pointer;
