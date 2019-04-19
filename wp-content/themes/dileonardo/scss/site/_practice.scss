@@ -29,24 +29,6 @@
 }
 
 
-.impact-statistic{
-	margin-bottom: 11vh;
-
-	&:nth-child(4),&:nth-child(5),&:nth-child(6){
-		margin-bottom: 0;
-	}
-
-	.impact-statistic-number{
-		@extend .bold;
-		//color: $brand-dark;
-	}
-
-	.impact-statistic-label{
-		color: $medium;
-		//@extend .bold;
-		//font-size: 22px;
-	}
-}
 
 #distudio{
 	.block-background{

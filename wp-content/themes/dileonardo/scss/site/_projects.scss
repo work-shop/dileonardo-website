@@ -264,10 +264,15 @@ $grid-gutter-sm: 4%;
 
 	img{
 		display: block;
+		transition: all .2s;
 	}	
 
 	@media screen and (min-width: $md+1) {
 		&:hover{
+
+			img{
+				filter: brightness(.8);
+			}
 			.project-image:after{
 				//background: $tile-hover;			
 			}
@@ -316,6 +321,7 @@ $grid-gutter-sm: 4%;
 
 
 
+
 .no-hero{
 	.single-title-container{
 		margin-top: $container-fluid-padding;
@@ -323,7 +329,7 @@ $grid-gutter-sm: 4%;
 }
 
 .single-title{
-	font-size: 36px;
+	font-size: 38px;
 	//padding: 20px 40px;
 	//background: white;
 }

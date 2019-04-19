@@ -25,7 +25,7 @@ function slickSlideshows( config ) {
 			fade: false,
 			autoplaySpeed: config.autoplaySpeed,
 			speed: config.speed,
-			vertical: true
+			vertical: false
 		});
 
 		$('.slick-project-modal').slick({

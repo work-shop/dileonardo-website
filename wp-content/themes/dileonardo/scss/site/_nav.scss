@@ -17,6 +17,8 @@ $nav-padding-mobile: $container-fluid-padding-mobile;
 	height: $nav-height;
 	z-index: 7;
 	transition: background 1s;
+	position: absolute;
+	
 
 	&:hover{
 
@@ -33,21 +35,23 @@ $nav-padding-mobile: $container-fluid-padding-mobile;
 	@media screen and (max-width: $sm) {
 		height: $nav-height-mobile;
 		overflow: hidden;
+		position: fixed;
+		background: white;
 	}
 
 
-	&.after{
-		height: $nav-height-after;
+	// &.after{
+	// 	height: $nav-height-after;
 
-		@media screen and (max-width: $sm) {
-			height: $nav-height-mobile;
-		}
+	// 	@media screen and (max-width: $sm) {
+	// 		height: $nav-height-mobile;
+	// 	}
 
-		&.open{
+	// 	&.open{
 
-		}
+	// 	}
 
-	}
+	// }
 
 }//#nav
 
@@ -64,6 +68,13 @@ $nav-padding-mobile: $container-fluid-padding-mobile;
 	@media screen and (max-width: $md) {
 		width: 130px;
 		left: $container-fluid-padding-md;
+	}
+
+	@media screen and (max-width: $sm) {
+		width: 110px;
+		left: $container-fluid-padding-mobile;
+
+		display: none;
 	}
 
 	&:hover{

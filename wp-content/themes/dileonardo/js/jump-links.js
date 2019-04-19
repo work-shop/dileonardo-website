@@ -38,7 +38,7 @@ function jumpLinks(config){
 			// 	offset = config.mobileNavHeight + config.jumpPadding;	
 			// }
 
-			offset = 110; //override
+			offset = 0; //override
 
 			$('html,body').animate({
 				scrollTop: $( $(this).attr('href') ).offset().top - offset

@@ -80,6 +80,30 @@ body{
 
 }
 
+.cf-top{
+	padding-top: $container-fluid-padding;
+
+	@media screen and (max-width: $md) {
+		padding-top: $container-fluid-padding-md;
+	}
+
+	@media screen and (max-width: $sm) {
+		padding-top: $container-fluid-padding-mobile;
+	}	
+}
+
+.cf-bottom{
+	padding-bottom: $container-fluid-padding;
+
+	@media screen and (max-width: $md) {
+		padding-bottom: $container-fluid-padding-md;
+	}
+
+	@media screen and (max-width: $sm) {
+		padding-bottom: $container-fluid-padding-mobile;
+	}	
+}
+
 
 .col-right{
 	@extend .col-12;
@@ -282,7 +306,7 @@ $text-button: (
 
 	@media screen and (max-width: $sm) {
 		padding: 15px;
-		font-size: 10px;
+		//font-size: 10px;
 	}
 
 

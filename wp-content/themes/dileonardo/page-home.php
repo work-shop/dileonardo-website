@@ -7,10 +7,6 @@
 
 <?php get_template_part('partials/practice/impact' ); ?>
 
-<?php get_template_part('partials/home/projects' ); ?>
-
-<?php get_template_part('partials/home/thinking' ); ?>
-
-<?php get_template_part('partials/home/news' ); ?>
+<?php get_template_part('partials/home/updates' ); ?>
 
 <?php get_template_part('partials/footer' ); ?>

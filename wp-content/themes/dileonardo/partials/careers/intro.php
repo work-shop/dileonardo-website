@@ -19,14 +19,10 @@
 										<div class="slide-image vh50" style="background-image: url('<?php echo $image['sizes']['page_hero']; ?>');">
 										</div>
 									</div>
-									<div class="slide-caption-container container-fluid">
-										<div class="row">
-											<div class="col-right offset">
-												<?php if( $image['caption'] ): ?>
-													<h2 class="slide-caption white bold"><?php echo $image['caption']; ?></h2>
-												<?php endif; ?>
-											</div>
-										</div>
+									<div class="slide-caption-container">
+										<?php if( $image['caption'] ): ?>
+											<h4 class="slide-caption medium"><?php echo $image['caption']; ?></h4>
+										<?php endif; ?>
 									</div>
 								</div>
 							<?php endforeach; ?>

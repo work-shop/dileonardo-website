@@ -17,6 +17,14 @@ $hero-height: 69vh;
 			left: $container-fluid-padding-md;
 			top: $container-fluid-padding;
 		}
+
+
+		@media screen and (max-width: $sm) {
+			width: calc(100% - #{$container-fluid-padding-mobile * 2});
+			height: calc(100% - #{$container-fluid-padding-mobile});
+			left: $container-fluid-padding-mobile;
+			top: $nav-height-mobile;
+		}
 	}
 }
 
@@ -186,6 +194,15 @@ $sidebar-fixed-top: $container-fluid-padding;
 		.single-title-container{
 			margin-top: 0;
 		}
+	}
+
+	.category-label{
+		font-size: 16px;
+		white-space: nowrap;
+	}
+
+	.single-categories{
+		max-width: 61%;
 	}
 }
 

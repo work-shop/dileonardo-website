@@ -1,5 +1,5 @@
 <div id="menu-button">
-	<a href="#menu" class="menu-toggle"><span style="background-image: url('<?php bloginfo('template_directory');?>/images/menu-button.png');">Menu</span></a>
+	<a href="#menu" class="menu-toggle"><span>Menu</span></a>
 </div>
 <menu id="menu">
 	<ul class="menu-items">
@@ -19,7 +19,7 @@
 			</a>
 		</li>
 		<li>
-			<a href="/about" class="<?php if( is_page(9) ){ echo 'active'; } ?>">
+			<a href="/people" class="<?php if( is_page(9) ){ echo 'active'; } ?>">
 				<span>People</span>
 			</a>
 		</li>

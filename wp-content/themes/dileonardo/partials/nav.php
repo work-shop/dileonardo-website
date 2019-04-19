@@ -1,4 +1,4 @@
-<nav id="nav" class="absolute before">
+<nav id="nav" class="before">
 	<div class="container-fluid">
 		<div id="logo" class="logo">
 			<a href="/" title="Home">

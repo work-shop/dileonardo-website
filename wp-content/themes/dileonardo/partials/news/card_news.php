@@ -7,17 +7,15 @@ if( $news_categories ):
 	endforeach;
 endif;
 ?><article class="card card-news col-6 <?php if( is_page(25) ){ ?> filter-target <?php } ?> news-loop-<?php echo $count; ?> <?php echo $news_categories_classes; ?>" >
-	<div class="card-news-image">
-		<a href="<?php the_permalink(); ?>" class="post-link">
+	<a href="<?php the_permalink(); ?>" class="post-link">
+		<div class="card-news-image">
 			<?php if ( has_post_thumbnail() ) { ?>
 				<?php the_post_thumbnail('md_cropped'); ?>
 			<?php } else { ?>
 				<img src="<?php echo get_bloginfo( 'stylesheet_directory' ); ?>/images/wireframe.jpg" />
 			<?php } ?>
-		</a>
-	</div>
-	<div class="card-news-text">
-		<a href="<?php the_permalink(); ?>" class="post-link">
+		</div>
+		<div class="card-news-text">
 			<h4 class="card-news-date">
 				<?php the_field('article_date') ?>
 			</h4>
@@ -25,16 +23,15 @@ endif;
 				<?php the_title(); ?>
 			</h3>
 			<?php if(false){ ?>
-
 				<?php if( get_field('author') ){ ?>
 					<h4 class="card-news-author mb1">
 						By <?php the_field('author') ?>
 					</h4>
 				<?php } ?>
+				<h4 class="card-news-excerpt">
+					<?php the_field('excerpt'); ?>			
+				</h4>
 			<?php } ?>
-			<h4 class="card-news-excerpt">
-				<?php the_field('excerpt'); ?>			
-			</h4>
-		</a>
-	</div>
+		</div>
+	</a>
 </article>

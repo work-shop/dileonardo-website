@@ -21,7 +21,7 @@
 						<?php the_field('project_client'); ?>
 					</h4>
 				<?php } ?>
-				<div class="project-categories">
+				<div class="project-categories single-categories">
 					<?php 
 					$terms = get_the_terms( $post->ID , array( 'project-categories') );
 					// init counter
@@ -31,7 +31,7 @@
 						if( is_wp_error( $term_link ) )
 							continue;
 						?>
-						<a class="project-category-label" href="/projects/?category=filter-<?php echo $term->slug; ?>">
+						<a class="project-category-label category-label" href="/projects/?category=filter-<?php echo $term->slug; ?>">
 							<?php 
 							echo $term->name;
 							echo ($i < count($terms))? ", " : "";

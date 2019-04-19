@@ -11,13 +11,7 @@
 				<a href="#impact" class="jump-home spy-link"></a>
 			</li>
 			<li>
-				<a href="#home-projects" class="jump spy-link"></a>
-			</li>
-			<li>
-				<a href="#home-thinking" class="jump-home spy-link"></a>
-			</li>
-			<li>
-				<a href="#home-news" class="jump spy-link"></a>
+				<a href="#home-updates" class="jump spy-link"></a>
 			</li>
 		</ul>
 	</div>

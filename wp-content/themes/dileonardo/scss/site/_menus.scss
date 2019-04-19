@@ -17,6 +17,7 @@ $menu-padding: 45px;
 	position: fixed;
 	right: 10px;
 	z-index: 10;
+	//border: 1px solid red;
 
 	@media screen and (max-width: $md) {
 		right: 4px;
@@ -24,7 +25,13 @@ $menu-padding: 45px;
 	}
 
 	@media screen and (max-width: $sm) {
-		right: $container-fluid-padding-mobile;
+		right: 0;
+		top: 0;
+		height: $nav-height-mobile
+	}
+
+	@media screen and (max-height: 480px) {
+		padding-top: $container-fluid-padding-mobile;
 	}
 
 	a{
@@ -32,9 +39,11 @@ $menu-padding: 45px;
 		width: $menu-width;
 		text-align: right;
 
-		
+		@media screen and (max-width: $sm) {
+			width: 150px;
+		}
+
 		span{
-			background-image: none !important;
 			background: white;
 			padding: 5px 10px;
 			color: darken($medium,10%);
@@ -48,105 +57,144 @@ $menu-padding: 45px;
 			@media screen and (max-width: $md) {
 				font-size: 15px;
 				padding: 3px 5px;
-				//border: 1px solid red;
+			}
+
+			@media screen and (max-width: $sm) {
+				color: darken($medium,0%);
+				top: -15px;
+				padding: 3px $container-fluid-padding-mobile;
 			}
 		}
 
-		&:hover{
-		   	//cursor: context-menu;
-
-		   	span{
-		   		//text-decoration: underline;
-		   		transition: color .2s;
-		   		color: $dark;
-		   	}
-		   }
+		@media screen and (min-width: $md+1) {
+			&:hover{
+				span{
+					transition: color .2s;
+					color: $dark;
+				}
+			}
 		}
 
 	}
 
-	#menu{
-		position: fixed;
-		height: 100%;
-		top: 0;
-		width: $menu-width;
-		z-index: 9;
-		background: lighten($ultra-light, 1%);
-		background: white;
-		border-left: 1px solid darken($ultra-light, 5%);
-		right: -$menu-width + 0px;
+}
+
+#menu{
+	position: fixed;
+	height: 100%;
+	top: 0;
+	width: $menu-width;
+	z-index: 9;
+	background: lighten($ultra-light, 1%);
+	background: white;
+	border-left: 1px solid darken($ultra-light, 5%);
+	right: -$menu-width;
+	transition: right $menu-transition;
+	padding: $menu-padding; 
+	margin-top: 0;
+
+	@media screen and (max-width: 480px) {
+		width: calc(100% - 60px);
+		right: calc(-100% + 60px);
+	}
+
+	@media screen and (max-height: 567px) {
+		padding-top: $container-fluid-padding-mobile;
+	}
+
+	&.open{
 		transition: right $menu-transition;
-		padding: $menu-padding; 
-		margin-top: 0;
+		right: 0;
+	}
 
-		&.open{
-			transition: right $menu-transition;
-			right: 0;
+	ul{
+		margin-top: 27px;
+
+
+		@media screen and (max-width: $sm) {
+			margin-top: 5px;	
 		}
 
-		ul{
-			margin-top: 27px;
+
+		@media screen and (max-height: 567px) {
+			margin-top: 0px;	
 		}
+	}
 
-		li{
+	li{
 
-			a{
-				display: block;
-				padding: 10px 0;
-				margin-bottom: 17px;
+		a{
+			display: block;
+			padding: 10px 0;
+			margin-bottom: 17px;
 
-				span{
-					font-size: 21px;
-					border-top: 3px solid transparent;
-					padding: 5px 0;
-					text-transform: uppercase;
-					@extend .tracked-less;
-					color: lighten($dark, 4%);
-				}
+			@media screen and (max-width: $sm) {
+				margin-bottom: 12px;
+			}
 
-				&.active{
-					span{
-						color: lighten($medium,5%);
-					}
-				}
+			@media screen and (max-height: 567px) {
+				margin-bottom: 0px;
+				padding: 5px 0;
+			}
 
-				&:hover{
-
-					span{
-						color: $dark;
-						border-color: $brand;
-					}
-				}
+			span{
+				font-size: 21px;
+				border-top: 3px solid transparent;
+				padding: 5px 0;
+				text-transform: uppercase;
+				@extend .tracked-less;
+				color: lighten($dark, 4%);
 
 				@media screen and (max-width: $sm) {
-					font-size: 21px;
+					font-size: 17px;
 				}
 
+				@media screen and (max-height: 567px) {
+					font-size: 14px;
+				}
 			}
+
+			&.active{
+				span{
+					color: lighten($medium,5%);
+				}
+			}
+
+			&:hover{
+
+				span{
+					color: $dark;
+					border-color: $brand;
+				}
+			}
+
+			@media screen and (max-width: $sm) {
+				font-size: 21px;
+			}
+
 		}
 	}
+}
 
-	#menu-blanket{
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: 8;
-		left: 200%;
-		@include transition(opacity .1s);
-		opacity: 0;
+#menu-blanket{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 8;
+	left: 200%;
+	@include transition(opacity .1s);
+	opacity: 0;
 
-		&:hover{
-			cursor: url("../images/close.png"), auto;
-		}
+	&:hover{
+		cursor: url("../images/close.png"), auto;
 	}
+}
 
 
-	body.menu-open{
-		#menu-button{
-		//transition: right 0, transform $menu-transition;
-		
+body.menu-open{
+	#menu-button{		
 		margin-right: -3px;
 
 		a{
@@ -157,11 +205,14 @@ $menu-padding: 45px;
 				background: none;
 				font-family: 'modern_pictograms_proregular' !important;
 				font-size: 40px;
+
+				@media screen and (max-width: $sm) {
+					font-size: 35px;
+				}
 			}
 		}
 
 		@media screen and (max-width: $sm) {
-			right: -70px;
 			a{
 				font-size: 20px;
 			}
@@ -177,5 +228,10 @@ $menu-padding: 45px;
 	#nav,#content,#footer,#brand-bar{
 		transition: transform $menu-transition;
 		transform: translateX(-$menu-width);
+
+		@media screen and (max-width: 480px) {
+			transform: translateX( calc(-100% + 60px));
+			//transform: none;
+		}
 	}
 }

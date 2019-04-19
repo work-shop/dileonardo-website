@@ -87,8 +87,8 @@
 						</a>
 					</li>
 					<li>
-						<a href="/about">
-							About
+						<a href="/people">
+							People
 						</a>
 					</li>
 					<li>
