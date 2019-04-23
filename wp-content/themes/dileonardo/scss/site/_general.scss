@@ -16,7 +16,10 @@ img,.block-background,.slick-slide,.page_hero,.card{
 body{
 	background-color: $body-background-color;
 	background: white;
-	//opacity: .99
+
+	@media screen and (max-width: $sm) {
+		//padding-top: $nav-height-mobile;
+	}
 }
 
 
@@ -267,13 +270,12 @@ $text-button: (
 
 	&.distudio{
 		color: $distudio;
-				&:before{
+		&:before{
 			border-color: $distudio;
 		}
 
 		&:hover{
 			color: $distudio;
-
 		}
 	}
 
@@ -305,8 +307,7 @@ $text-button: (
 	}
 
 	@media screen and (max-width: $sm) {
-		padding: 15px;
-		//font-size: 10px;
+		padding: 15px 0;
 	}
 
 

@@ -1,4 +1,4 @@
-<section class="block page-section spy-target" id="mission">
+<section class="block page-section page-section-first spy-target" id="mission">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-right offset">

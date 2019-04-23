@@ -12,13 +12,12 @@ function jumpLinks(config){
 
 			var offset = 0;
 
-			// if( $(window).width() > config.mobileBreakpoint ){
-			// 	offset = config.navHeight + config.jumpPadding;	
-			// } else{
-			// 	offset = config.mobileNavHeight + config.jumpPadding;	
-			// }
-
-			offset = -1; //override
+			if( $(window).width() > config.mobileBreakpoint ){
+				offset = -1; 
+			} else{
+				offset = $('.page-sidebar').outerHeight() + 55;	
+			}
+			//offset = 0; //override
 
 			$('html,body').animate({
 				scrollTop: $( $(this).attr('href') ).offset().top - offset

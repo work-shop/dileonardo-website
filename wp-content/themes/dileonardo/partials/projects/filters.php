@@ -19,7 +19,6 @@
 								</li>
 								<?php while ( have_rows('project_type_filtering_menu') ) : the_row(); ?>	
 									<?php $term = get_sub_field('project_type'); ?>	
-									<?php var_dump( $term ); ?>							
 									<li>
 										<a  href="#" class="filter-button filter-button-category" data-slug="<?php echo $term->slug; ?>" data-target="filter-category-<?php echo $term->slug; ?>">
 											<?php echo $term->name; ?>

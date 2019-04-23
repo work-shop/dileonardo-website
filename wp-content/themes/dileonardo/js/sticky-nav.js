@@ -15,7 +15,7 @@ function stickyNav( config ) {
 
 			stickyNavProperties.selector = config.selector || '#nav';
 			stickyNavProperties.navHeight = config.navHeight || 75;
-			stickyNavProperties.mobileNavHeight = config.mobileNavHeight || 50;
+			stickyNavProperties.mobileNavHeight = config.mobileNavHeight || 66;
 			stickyNavProperties.element = $(stickyNavProperties.selector);
 			stickyNavProperties.mobileBreakpoint = config.mobileBreakpoint;
 			stickyNavProperties.activeOnMobile = config.activeOnMobile;

@@ -5,7 +5,7 @@
 </li>
 <li>
 	<a href="#design-philosophy" class="jump spy-link">
-		Design<br class="br-medium"> Philosophy
+		Design Philosophy
 	</a>
 </li>
 <li>
