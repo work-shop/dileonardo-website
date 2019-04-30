@@ -67,9 +67,9 @@ function calculatePositions(){
 		stickyNavProperties.triggerPosition = 0;
 	} else{
 		stickyNavProperties.offset = stickyNavProperties.element.offset();
-		console.log('stickyNavProperties.offset: ' + stickyNavProperties.offset.top);
+		//console.log('stickyNavProperties.offset: ' + stickyNavProperties.offset.top);
 		stickyNavProperties.triggerPosition = stickyNavProperties.offset.top - stickyNavProperties.top;
-		console.log('stickyNavProperties.triggerPosition: ' + stickyNavProperties.triggerPosition);
+		//console.log('stickyNavProperties.triggerPosition: ' + stickyNavProperties.triggerPosition);
 	}
 
 }

@@ -25,7 +25,11 @@ function filter2() {
 				masonry: {
 					columnWidth: '.grid-sizer',
 					gutter: '.gutter-sizer'
-				}
+				},
+				getSortData: {
+				    featured: '[data-sort]', // value of attribute
+				},
+				sortBy: 'featured'
 			});
 
 			$grid.on( 'arrangeComplete', onArrange );
@@ -332,7 +336,10 @@ function filter2() {
 			}
 		}
 
-		$grid.isotope({ filter: filterClass });
+		$grid.isotope({ 
+			filter: filterClass,
+			sortBy: 'featured'
+		});
 
 		if(initial){
 			initial = false;
@@ -365,8 +372,6 @@ function filter2() {
 		stateObj.category = urlCategory;
 		stateObj.region = urlRegion;
 		history.pushState( stateObj, '', url );
-		console.log('history.category: ' + history.state.category);
-		console.log('history.region: ' + history.state.region);
 	}
 
 

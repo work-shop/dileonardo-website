@@ -26,7 +26,7 @@
 						endforeach;
 					endif;
 					?>
-					<article class="card card-project card-project-grid grid-item project-loop-<?php echo $count; ?> filter-target <?php echo $project_categories_classes; ?> <?php echo $project_regions_classes; ?>" >
+					<article class="card card-project card-project-grid grid-item project-loop-<?php echo $count; ?> filter-target <?php echo $project_categories_classes; ?> <?php echo $project_regions_classes; ?>" data-sort="<?php if( has_term('featured','project-categories')){ echo '1'; } else { echo '2'; }?>">
 						<a href="<?php the_permalink(); ?>" class="post-link">
 							<?php if ( has_post_thumbnail() ) { ?>
 								<?php the_post_thumbnail('md'); ?>
