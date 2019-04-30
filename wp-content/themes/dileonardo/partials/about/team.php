@@ -11,7 +11,7 @@
 						<div class="row team-list">
 							<?php for ($i=0; $i < 4; $i++) { ?>
 								<?php while ( have_rows('partners') ) : the_row(); ?>
-									<div class="col-6 col-sm-6 col-md-3 mb3 person person-loop-<?php echo $count; ?>">
+									<div class="col-6 col-sm-6 col-md-4 col-lg-3 person person-loop-<?php echo $count; ?>">
 										<div class="person-image">
 											<a href="#" class="modal-toggle" data-modal-target="modal-person-partners-<?php echo $count; ?>">
 												<?php $image = get_sub_field('person_image');
@@ -95,7 +95,11 @@
 									<div class="person-image">
 										<?php $image = get_field('last_person_image');
 										$image = $image['sizes']['sm_square']; ?>
-										<img src="<?php echo $image; ?>" >
+										<?php if($image){ ?>
+											<img src="<?php echo $image; ?>" >
+										<?php } else{ ?>
+											<img src="<?php bloginfo('template_directory'); ?>/images/default.png" >
+										<?php } ?>
 									</div>
 									<div class="person-text">
 										<h4 class="team-final-text bold font-main person-name mb0 mt1">Join <br>Our<br> Team</h4>
@@ -105,18 +109,6 @@
 						</div>
 					<?php endif; ?>
 				</div>
-				<?php if(false){ ?>
-					<?php $link = get_field('team_careers_link'); ?>
-					<?php if( $link ): ?>
-						<div class="row mt3">
-							<div class="col-8 offset-2 centered">
-								<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="button">
-									<?php echo $link['title']; ?>
-								</a>
-							</div>
-						</div>	
-					<?php endif; ?>
-				<?php } ?>
 			</div>
 		</div>
 	</div>

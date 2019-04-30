@@ -11,12 +11,12 @@
 					$post = get_post( $ID, OBJECT );
 					setup_postdata( $post ); ?>
 					<div class="row">
-						<div class="col-1 d-flex justify-content-start align-items-center">
+						<div class="col-2 col-xl-1 d-flex justify-content-start align-items-center">
 							<a href="<?php the_permalink(); ?>">
 								<span class="icon pagination-icon" data-icon="‘"></span>
 							</a>
 						</div>
-						<div class="col-11 d-flex justify-content-start align-items-center">
+						<div class="col-10 col-xl-11 d-flex justify-content-start align-items-center">
 							<a href="<?php the_permalink(); ?>" class="pagination-text">
 								<span class="pagination-text-label">Previous Story</span>
 								<br>
@@ -36,14 +36,14 @@
 					$post = get_post( $ID, OBJECT );
 					setup_postdata( $post ); ?>
 					<div class="row">
-						<div class="col-11 d-flex justify-content-end align-items-center">
+						<div class="col-10 col-xl-11 d-flex justify-content-end align-items-center">
 							<a href="<?php the_permalink(); ?>" class="pagination-text">
 								<span class="pagination-text-label">Next Story</span>
 								<br>
 								<?php the_title(); ?>							
 							</a>
 						</div>
-						<div class="col-1 d-flex justify-content-end align-items-center">
+						<div class="col-2 col-xl-1 d-flex justify-content-end align-items-center">
 							<a href="<?php the_permalink(); ?>">
 								<span class="icon pagination-icon" data-icon="—"></span>
 							</a>

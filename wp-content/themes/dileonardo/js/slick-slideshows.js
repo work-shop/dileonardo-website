@@ -14,7 +14,8 @@ function slickSlideshows( config ) {
 			autoplay: true,
 			fade: config.fade,
 			autoplaySpeed: config.autoplaySpeed,
-			speed: config.speed
+			speed: config.speed,
+			pauseOnDotsHover: true
 		});
 
 		$('.slick-home-hero').slick({
@@ -25,7 +26,8 @@ function slickSlideshows( config ) {
 			fade: false,
 			autoplaySpeed: config.autoplaySpeed,
 			speed: config.speed,
-			vertical: false
+			vertical: false,
+			pauseOnDotsHover: true
 		});
 
 		$('.slick-project-modal').slick({
@@ -35,18 +37,19 @@ function slickSlideshows( config ) {
 			autoplay: false,
 			fade: config.fade,
 			autoplaySpeed: config.autoplaySpeed,
-			speed: 400
+			speed: 400,
+			pauseOnDotsHover: true,
 		});
 
-		$('.slick-team').slick({
-			slidesToShow: config.slidesToShow,
-			dots: config.dots,
-			arrows: config.arrows,
-			autoplay: true,
-			fade: config.fade,
-			autoplaySpeed: config.autoplaySpeed,
-			speed: config.speed
-		});
+		// $('.slick-team').slick({
+		// 	slidesToShow: config.slidesToShow,
+		// 	dots: config.dots,
+		// 	arrows: config.arrows,
+		// 	autoplay: true,
+		// 	fade: config.fade,
+		// 	autoplaySpeed: config.autoplaySpeed,
+		// 	speed: config.speed
+		// });
 
 		$('.slick-history').slick({
 			slidesToShow: 3,
@@ -56,12 +59,25 @@ function slickSlideshows( config ) {
 			autoplay: false,
 			fade: false,
 			autoplaySpeed: config.autoplaySpeed,
-			speed: config.speed
+			speed: config.speed,
+			pauseOnDotsHover: true,
+			responsive: [
+			{
+				breakpoint: 993,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 1
+				}
+			},
+			{
+				breakpoint: 767,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1
+				}
+			}
+			]
 		});
-
-
-
-
 	});
 
 }

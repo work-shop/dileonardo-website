@@ -16,7 +16,8 @@
 							<?php foreach ($slides as $image): ?> 
 								<div class="slick-slide">
 									<div class="slide-image-container">
-										<div class="slide-image vh50" style="background-image: url('<?php echo $image['sizes']['page_hero']; ?>');">
+										<div class="slide-image">
+											<img src="<?php echo $image['sizes']['lg']; ?>">
 										</div>
 									</div>
 									<div class="slide-caption-container">

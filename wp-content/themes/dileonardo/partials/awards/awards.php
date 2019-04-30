@@ -33,7 +33,7 @@
 						<?php  while ( have_rows('awards', 17) ) : the_row(); ?>
 							<?php if ( ($limited && $count < $limit) || $limited === false ){ ?>
 								<div class="award row award-loop-<?php echo $count; ?>">
-									<div class="col-2 award-col award-col-year">
+									<div class="col-3 col-lg-2 award-col award-col-year">
 										<h4 class="award-year">
 											<?php the_sub_field('award_year'); ?>
 										</h4>

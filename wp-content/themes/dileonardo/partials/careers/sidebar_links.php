@@ -1,6 +1,6 @@
 <li>
 	<a href="#intro" class="jump spy-link">
-		Working at DiLeonardo
+		Working at <br class="br-large">DiLeonardo
 	</a>
 </li>
 <li>

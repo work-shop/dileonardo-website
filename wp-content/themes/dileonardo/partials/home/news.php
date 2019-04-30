@@ -40,18 +40,3 @@
 		</div>
 	</section>
 <?php  } ?>
-
-<?php if(false){ ?>
-	<section class="block padded-bottom spy-target" id="home-news">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-right offset">
-					<div class="row home-news-row">
-						<div class="col">
-							<img src="<?php bloginfo('template_directory'); ?>/images/wireframe3.jpg">
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<?php  } ?>

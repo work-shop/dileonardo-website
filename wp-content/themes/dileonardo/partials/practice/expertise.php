@@ -35,7 +35,7 @@
 							<ul>
 								<?php foreach( $terms as $term ): ?>
 									<li>
-										<a href="/projects?category=<?php echo $term->slug; ?>">
+										<a href="/projects?type=<?php echo $term->slug; ?>&region=all">
 											<?php echo $term->name; ?>
 										</a>
 									</li>

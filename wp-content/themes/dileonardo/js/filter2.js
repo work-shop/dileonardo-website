@@ -7,6 +7,7 @@ function filter2() {
 	var categoryFilteredCurrent = 'all';
 	var regionFilteredCurrent = 'all';
 	var initial = true;
+	var initialUrlEmpty = true;
 	var baseUrl = '/projects/';
 	var stateObj = {};
 
@@ -14,7 +15,7 @@ function filter2() {
 	//when the window is loaded, create isotope
 	$(window).on('load', function() {
 		
-		if( $('.filters').length ){
+		if( $('body').hasClass('page-id-21') ){
 
 			//SETUP ISOTOPE
 			$grid = $('#grid').isotope({
@@ -31,11 +32,13 @@ function filter2() {
 
 
 			//INITIAL URL BASED FILTERING
-
-			var urlVars = getUrlVars();
-			var urlCategory = urlVars.type;
-			var urlRegion = urlVars.region;
+			var urlCategory = getUrlParameter('type');
+			var urlRegion = getUrlParameter('region');
 			var categoryStart, regionStart;
+
+			if( !isEmpty(urlCategory) && !isEmpty(urlRegion) ){
+				initialUrlEmpty = false;
+			}
 
 			if( !isEmpty(urlCategory) && urlCategory !== 'all' ){
 				//console.log('urlCategory: ' + urlCategory);
@@ -84,7 +87,6 @@ function filter2() {
 
 					if( !$(this).hasClass('filter-button-all') ){
 						filter('all', regionFilteredCurrent);
-						//updateURL('all',)
 						$(this).removeClass('filter-active');
 						$('.filter-button-all-category').addClass('filter-active');
 						$('.filter-current-category').removeClass('active').addClass('inactive');		
@@ -94,8 +96,6 @@ function filter2() {
 
 					var filterCategory = $(this).data('target');
 					filter(filterCategory, regionFilteredCurrent);
-					//updateURL()
-
 					$('.filter-category .filter-button').removeClass('filter-active');
 					$(this).addClass('filter-active');
 
@@ -215,6 +215,17 @@ function filter2() {
 					$('.filter-button-category').removeClass('filter-active');
 					$('.filter-button-all-category').addClass('filter-active');
 				} else{
+					var categoryButtonSelector = '.filter-button[data-target=filter-category-' + event.state.category + ']';
+					var categoryButtonCheck = $(categoryButtonSelector);
+					console.log('categoryButtonSelector: ' + categoryButtonSelector);
+					if( !isEmpty(categoryButtonCheck) ){
+						$('.filter-button-category').removeClass('filter-active');
+						$(categoryButtonSelector).addClass('filter-active');
+						var categoryTitle = $(categoryButtonSelector).text();
+						$('.filter-current-category').text(categoryTitle);
+						$('.filter-current-category').removeClass('inactive').addClass('active');
+						$('.filter-button-all-category').removeClass('filter-active');
+					}
 					category = 'filter-category-' + event.state.category;
 				}
 				if(event.state.region === 'all'){
@@ -223,10 +234,20 @@ function filter2() {
 					$('.filter-button-region').removeClass('filter-active');
 					$('.filter-button-all-region').addClass('filter-active');
 				} else{
+					var regionButtonSelector = '.filter-button[data-target=filter-region-' + event.state.region + ']';
+					var regionButtonCheck = $(regionButtonSelector);
+					if( !isEmpty(regionButtonCheck) ){
+						$('.filter-button-region').removeClass('filter-active');
+						$(regionButtonSelector).addClass('filter-active');
+						var regionTitle = $(regionButtonSelector).text();
+						$('.filter-current-region').text(regionTitle);
+						$('.filter-current-region').removeClass('inactive').addClass('active');
+						$('.filter-button-all-region').removeClass('filter-active');
+					}
 					region = 'filter-region-' + event.state.region;
 				}
 				
-				filter(category, region);
+				filter(category, region, false);
 			};
 
 		}
@@ -266,8 +287,18 @@ function filter2() {
 
 
 
-	function filter(category, region) {
-		console.log('filter: ' + category + ', ' + region);
+	function filter(category, region, updateUrlFlag) {
+		//console.log('filter: ' + category + ', ' + region);
+		if ( category === undefined ){
+			category = 'all';
+		}
+		if ( region === undefined ){
+			region = 'all';
+		}
+		if( updateUrlFlag ===  undefined){
+			updateUrlFlag = true;
+		}
+
 		var filterClass;
 		var urlCategory, urlRegion;
 
@@ -305,14 +336,18 @@ function filter2() {
 
 		if(initial){
 			initial = false;
+			var url = baseUrl + '?type=' + urlCategory + '&region=' + urlRegion;
+			stateObj.category = urlCategory;
+			stateObj.region = urlRegion;
+			history.replaceState( stateObj, '', url );
 		} else{
 			scrollToFilter();
+			if( updateUrlFlag ===  true){
+				updateURL(urlCategory, urlRegion);
+			}
 		}
 
-		updateURL(urlCategory, urlRegion);
-
 	}
-
 
 
 	function scrollToFilter(){
@@ -325,11 +360,13 @@ function filter2() {
 
 
 	function updateURL(urlCategory, urlRegion){
-		console.log('updateURL: ' + urlCategory + ', ' + urlRegion);
+		//console.log('updateURL: ' + urlCategory + ', ' + urlRegion);
 		var url = baseUrl + '?type=' + urlCategory + '&region=' + urlRegion;
 		stateObj.category = urlCategory;
 		stateObj.region = urlRegion;
 		history.pushState( stateObj, '', url );
+		console.log('history.category: ' + history.state.category);
+		console.log('history.region: ' + history.state.region);
 	}
 
 
@@ -338,28 +375,19 @@ function filter2() {
 	}
 
 
-	// Read a page's GET URL variables and return them as an associative array.
-	function getUrlVars(){
-		var vars = [], hash;
-		var url = stripTrailingSlash(window.location.href);
-		var hashes = url.slice(window.location.href.indexOf('?') + 1).split('&');
-		console.log(hashes.length);
-		if ( hashes.length > 1 ){
-			for(var i = 0; i < hashes.length; i++){
-				hash = hashes[i].split('=');
-				vars.push(hash[0]);
-				if ( isEmpty(hash[1]) ){
-					hash[1] = hash[1].replace(/[^a-zA-Z0-9\-]/g, '');
-				}
-				vars[hash[0]] = hash[1];
+	function getUrlParameter(sParam) {
+		var sPageURL = window.location.search.substring(1),
+		sURLVariables = sPageURL.split('&'),
+		sParameterName,
+		i;
+
+		for (i = 0; i < sURLVariables.length; i++) {
+			sParameterName = sURLVariables[i].split('=');
+
+			if (sParameterName[0] === sParam) {
+				return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
 			}
 		}
-		return vars;
-	}
-
-
-	function stripTrailingSlash(url){
-		return url.replace(/\/$/, "");
 	}
 
 

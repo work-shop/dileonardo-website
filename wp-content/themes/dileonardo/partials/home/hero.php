@@ -37,9 +37,7 @@ $hero_type = get_field('hero_type');
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-right offset">
-					<a href="#home-intro" class="jump" id="scrolly-link">
-						<!-- <span class="icon large white" data-icon="”">
-						</span> -->
+					<a href="#home-intro" class="jump-home" id="scrolly-link">
 						<?php get_template_part('partials/scrolly' ); ?>
 					</a>
 				</div>

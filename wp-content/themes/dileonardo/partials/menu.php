@@ -9,7 +9,7 @@
 			</a>
 		</li>
 		<li>
-			<a href="/projects" class="<?php if( is_page(21) ){ echo 'active'; } ?>">
+			<a href="/projects?type=all&region=all" class="<?php if( is_page(21) ){ echo 'active'; } ?>">
 				<span>Projects</span>
 			</a>
 		</li>		

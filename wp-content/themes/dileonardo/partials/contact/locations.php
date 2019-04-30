@@ -14,11 +14,11 @@
 					$email = get_sub_field('location_email');
 					$id = 'location-' . $count;
 					?>
-					<div class="col-xl-3 col-lg-6 location location-col mb3">
-						<h4 class="location-title uppercase bold medium mb1">
+					<div class="col-xl-3 col-md-6 location location-col mb3">
+						<h4 class="location-title bold mb1">
 							<?php echo $title; ?>
 						</h4>
-						<address class="location-address mb3">
+						<address class="location-address">
 							<?php echo $address; ?>
 							<br>
 							<br>

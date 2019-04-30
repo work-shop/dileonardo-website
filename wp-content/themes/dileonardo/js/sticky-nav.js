@@ -20,12 +20,11 @@ function stickyNav( config ) {
 			stickyNavProperties.mobileBreakpoint = config.mobileBreakpoint;
 			stickyNavProperties.activeOnMobile = config.activeOnMobile;
 
-			if( $('body').hasClass('page-id-21')){
+			if( $('body').hasClass('page-id-21') ){
 				//projects page
 				stickyNavProperties.top = 0;
 			} else{
 				stickyNavProperties.top = 90;//container fluid x 1
-				//stickyNavProperties.top = 180;//container fluid x 2
 			}
 
 			calculatePositions();
@@ -63,15 +62,21 @@ function calculatePositions(){
 	if( $(window).width() < 768){
 		stickyNavProperties.top = 66;
 	}
-	stickyNavProperties.offset = stickyNavProperties.element.offset();
-	console.log('stickyNavProperties.offset: ' + stickyNavProperties.offset.top);
-	stickyNavProperties.triggerPosition = stickyNavProperties.offset.top - stickyNavProperties.top;
-	console.log('stickyNavProperties.triggerPosition: ' + stickyNavProperties.triggerPosition);
+	if($('body').hasClass('page-id-25')){
+		//news page
+		stickyNavProperties.triggerPosition = 0;
+	} else{
+		stickyNavProperties.offset = stickyNavProperties.element.offset();
+		console.log('stickyNavProperties.offset: ' + stickyNavProperties.offset.top);
+		stickyNavProperties.triggerPosition = stickyNavProperties.offset.top - stickyNavProperties.top;
+		console.log('stickyNavProperties.triggerPosition: ' + stickyNavProperties.triggerPosition);
+	}
+
 }
 
 
 function checkNavPosition(){
-	
+
 	if( $(window).width() > stickyNavProperties.mobileBreakpoint || stickyNavProperties.activeOnMobile ){
 
 		//var footerTrigger = $('#footer').offset().top - ( $(window).height() * 1 );

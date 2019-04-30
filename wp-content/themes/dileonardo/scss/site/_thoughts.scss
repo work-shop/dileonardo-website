@@ -4,20 +4,27 @@
 .page-id-23,.single-thoughts{
 	background: $thinking; 
 
-	#logo {
-		.st0{
-			fill: white;
+	@media screen and (min-width: $sm+1) {
+		#logo {
+			.st0{
+				fill: white;
+			}
 		}
+
 	}
 
 	#menu-button{
-		span{
-			background: $thinking; 
-			color: white;
-			&:hover{
+
+		@media screen and (min-width: $sm+1) {
+			span{
+				background: $thinking; 
 				color: white;
+				&:hover{
+					color: white;
+				}
 			}
 		}
+
 	}
 
 	&.menu-open{
@@ -61,45 +68,103 @@
 }
 
 .card-thought{
-	// border: 1px solid $medium;
+	//border: 1px solid white;
 	position: relative;
 	margin-bottom: $container-fluid-padding;
 	border-radius: 4px;
 	overflow: hidden;
+	padding-top: 15vh;
+	padding-bottom: 15vh;
+
+	@media screen and (max-width: $sm) {
+		margin-bottom: 50px;
+	}
+
+	.block-background{
+
+		@media screen and (max-height: 480px) {
+			//width: 50%;
+		}
+
+		@media screen and (max-width: $sm) {
+			//position: static;
+			margin-bottom: 15px;
+			opacity: .5;
+
+			&:after{
+				display: none;
+			}
+		}
+	}
+
+	@media screen and (max-width: $sm) {
+		//height: auto;
+	}
+
+	.container-fluid{
+
+		@media screen and (max-width: $lg) {
+			padding-left: $container-fluid-padding-md;
+			padding-right: $container-fluid-padding-md;
+		}	
+
+		@media screen and (max-width: $sm) {
+			padding-left: $container-fluid-padding-mobile;
+			padding-right: $container-fluid-padding-mobile;
+		}
+	}
 
 	.card-thought-text{
-		//height: 100%;
-		//padding: 40px;
+
 	}	
 
 	.card-thought-title{
 		@extend .bold;
-		//margin-bottom: 50px;
 		font-size: 50px;
+		line-height: 1.1;
+
+		@media screen and (max-width: $lg) {
+			font-size: 33px;
+		}
+
+		@media screen and (max-width: $md) {
+			font-size: 27px;
+		}
+
+		@media screen and (max-width: $sm) {
+			font-size: 24px;
+		}
 
 		span{
 			transition: all 1s;
 			@extend .bold;
-			//border-bottom: 5px solid $brand;
-			//line-height: 1.5;
-			//font-family: 'NewParis Headline Trial' !important;
 		}
 	}
 
 	.card-thought-excerpt{
 		margin-top: 10px;
-		//@extend .italic;
 		font-size: 36px;
-		
-		//width: 80%;
-		//font-style: italic;
 		margin-bottom: 50px;
-		//font-family: 'NewParis Headline Trial' !important;
-		//@extend .bold;
+
+		@media screen and (max-width: $lg) {
+			font-size: 27px;
+			margin-top: 0;
+		}
+
+		@media screen and (max-width: $sm) {
+			font-size: 18px;
+			margin-bottom: 20px;
+		}
+
+
 	}
 
 	.card-thought-excerpt,.card-thought-author{
 		padding-left: 3vw;
+
+		@media screen and (max-width: $sm) {
+			padding-left: 0;
+		}
 	}
 
 	.card-thought-background-image{
@@ -141,6 +206,14 @@
 
 .single-thoughts{
 
+	.page-hero{
+		@media screen and (max-width: $sm) {
+			.block-background{
+				margin-top: $container-fluid-padding-mobile;
+			}
+		}
+	}
+
 	.single-title-container{
 		margin-top: 10px;
 	}
@@ -148,10 +221,34 @@
 	.single-title{
 		font-size: 60px;
 		@extend .bold;
+
+		@media screen and (max-width: $lg) {
+			font-size: 50px;
+		}
+
+		@media screen and (max-width: $md) {
+			font-size: 36px;
+		}
+
+		@media screen and (max-width: $sm) {
+			font-size: 30px;
+		}
 	}
 
 	.single-intro-text{
 		//font-style: italic;
+	}
+}
+
+#thought-related{
+	@media screen and (max-width: $sm) {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+
+	.card-thought{
+		padding-top: 0;
+		padding-bottom: 0;
 	}
 }
 

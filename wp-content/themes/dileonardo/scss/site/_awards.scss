@@ -7,11 +7,33 @@
 }
 
 .award{
-	padding: 1.25em 0;
-	border-bottom: 1px solid $medium-light;
+	//padding: 1.25em 0;
+	padding-top: 1.25em;
+	padding-bottom: 1.25em;
+	//border-bottom: 1px solid $medium-light;
+	position: relative;
+
+	&:after{
+		content: '';
+		display: block;
+		height: 1px;
+		margin-left: 20px;
+		margin-right: 20px;
+		width: calc(100% - 40px);
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: $medium-light;
+
+		@media screen and (max-width: $sm) {
+			width: calc(100% - 20px);
+			margin-left: 10px;
+			margin-right: 10px;
+		}
+	}
 
 	&:first-child{
-		border-top: 1px solid $medium-light;
+		//border-top: 1px solid $medium-light;
 	}
 
 
@@ -23,7 +45,7 @@
 
 
 .award-col{
-	padding: 0;
+	//padding: 0;
 }
 
 .awards-link{

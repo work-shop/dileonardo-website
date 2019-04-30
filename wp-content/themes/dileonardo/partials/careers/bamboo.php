@@ -1,4 +1,4 @@
-<section class="block spy-target vh70" id="apply">
+<section class="block spy-target vh100" id="apply">
 	<?php 
 	$background_image = get_field('bamboo_section_background_image');
 	$background_image = $background_image['sizes']['xl'];

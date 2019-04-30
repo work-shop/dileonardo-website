@@ -25,7 +25,7 @@
 					<div class="press-list row">
 						<?php  while ( have_rows('press', 19) ) : the_row(); ?>
 							<?php if ( ($limited && $count < $limit) || $limited === false ){ ?>
-								<div class="press mb2 press-loop-<?php echo $count; ?> <?php if( is_page(11) ){ ?> col-3 <?php } else{ ?> col-3 <?php } ?>">
+								<div class="press mb2 press-loop-<?php echo $count; ?> <?php if( is_page(11) ){ ?> col-6 col-sm-4 col-lg-3 <?php } else{ ?> col-6 col-sm-4 col-lg-3 <?php } ?>">
 									<?php if( get_sub_field('press_link')) { ?>
 										<a href="<?php the_sub_field('press_link'); ?>">
 										<?php } ?>
