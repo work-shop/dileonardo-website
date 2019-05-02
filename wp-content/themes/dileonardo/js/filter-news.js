@@ -129,9 +129,9 @@ function filterNews() {
 		if ( !isEmpty(category) ){
 
 			if(category === 'all'){
-				endpoint = baseUrl + 'news?_embed&page=' + page + '&per_page=2';
+				endpoint = baseUrl + 'news?_embed&page=' + page + '&per_page=8';
 			}else{
-				endpoint = baseUrl + 'news?news-categories=' + category + '&_embed&page=' + page + '&per_page=2';
+				endpoint = baseUrl + 'news?news-categories=' + category + '&_embed&page=' + page + '&per_page=8';
 			}
 			console.log('Request with endpoint: ' + endpoint);
 			start = new Date().getTime();

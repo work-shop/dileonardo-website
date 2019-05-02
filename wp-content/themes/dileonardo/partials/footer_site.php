@@ -8,68 +8,53 @@
 	<div class="container-fluid mt3">
 		<div class="row mb9 row-100 footer-1">
 			<div class="col-sm-12 col-md-3 footer-col footer-col-1">
-				<ul class="footer-links">
-					<li>
-						<a href="/projects">
-							Projects
-						</a>
-					</li>
-					<li>
-						<a href="/practice">
-							Practice
-						</a>
-					</li>
-					<li>
-						<a href="/people">
-							People
-						</a>
-					</li>
-					<li>
-						<a href="/careers">
-							Careers
-						</a>
-					</li>
-				</ul>
+				<?php if( have_rows('footer_column_1_links','option') ): ?>
+					<ul class="footer-links">
+						<?php  while ( have_rows('footer_column_1_links','option') ) : the_row(); ?>
+							<li>
+								<?php $link = get_sub_field('link'); ?>
+								<?php if( $link ): ?>
+									<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="">
+										<?php echo $link['title']; ?>
+									</a>
+								<?php endif; ?>
+							</li>
+						<?php endwhile; ?>
+					</ul>
+				<?php endif; ?>
 			</div>
 			<div class="col-sm-12 col-md-3 footer-col footer-col-2">
-				<ul class="footer-links">
-					<li>
-						<a href="/thinking">
-							Thinking
-						</a>
-					</li>
-					<li>
-						<a href="/news">
-							News
-						</a>
-					</li>
-					<li>
-						<a href="/awards">
-							Awards
-						</a>
-					</li>
-					<li>
-						<a href="/press">
-							Press
-						</a>
-					</li>
-
-				</ul>
+				<?php if( have_rows('footer_column_2_links','option') ): ?>
+					<ul class="footer-links">
+						<?php  while ( have_rows('footer_column_2_links','option') ) : the_row(); ?>
+							<li>
+								<?php $link = get_sub_field('link'); ?>
+								<?php if( $link ): ?>
+									<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="">
+										<?php echo $link['title']; ?>
+									</a>
+								<?php endif; ?>
+							</li>
+						<?php endwhile; ?>
+					</ul>
+				<?php endif; ?>
 			</div>
 			<div class="col-sm-12 col-md-3 footer-col footer-col-3">
 				<ul class="footer-links">
-					<li>
-						<a href="/contact">
-							Contact Us
-						</a>
-					</li>
-					<li>
-						<a href="/client-portal">
-							Client Portal
-						</a>
-					</li>
+					<?php if( have_rows('footer_column_3_links','option') ): ?>
+						<?php  while ( have_rows('footer_column_3_links','option') ) : the_row(); ?>
+							<li>
+								<?php $link = get_sub_field('link'); ?>
+								<?php if( $link ): ?>
+									<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="">
+										<?php echo $link['title']; ?>
+									</a>
+								<?php endif; ?>
+							</li>
+						<?php endwhile; ?>
+					<?php endif; ?>
 					<li class="footer-distudio-button">
-						<a href="/" class="footer-distudio">
+						<a href="https://distudio.com" target="_blank" class="footer-distudio">
 							<img src="<?php bloginfo( 'template_directory' );?>/images/distudio-logo.png" id="footer-distudio-logo-small"> DiStudio
 						</a>
 					</li>
@@ -84,43 +69,22 @@
 							<img src="<?php bloginfo( 'template_directory' );?>/images/ig.png" class="social-icon">
 						</a>
 					</li>
-					<li class="footer-distudio hidden">
-						<a href="https://distudio.com/" target="_blank">
-							<img src="<?php bloginfo( 'template_directory' );?>/images/distudio-logo.png" id="footer-distudio-logo">
-							<h5 id="footer-distudio-statement" class="white">
-								Learn about DiStudio,<br>
-								our new studio <br>
-								within DiLeonardo.
-							</h5>
-						</a> 
-					</li>
 				</ul>
 			</div>
 		</div>
 		<div class="row row-100 footer-2">
 			<div class="col-sm-12 col-md-6 footer-locations-col">
-				<ul class="footer-locations">
-					<li>
-						<a href="/contact">
-							Providence, RI
-						</a>
-					</li>
-					<li>
-						<a href="/contact">
-							Hong Kong
-						</a>
-					</li>
-					<li>
-						<a href="/contact">
-							Dubai
-						</a>
-					</li>
-					<li>
-						<a href="/contact">
-							Manila
-						</a>
-					</li>
-				</ul>
+				<?php if( have_rows('footer_locations','option') ): ?>
+					<ul class="footer-locations">
+						<?php  while ( have_rows('footer_locations','option') ) : the_row(); ?>
+							<li>
+								<a href="/contact" target="" class="">
+									<?php the_sub_field('location'); ?>
+								</a>
+							</li>
+						<?php endwhile; ?>
+					</ul>
+				<?php endif; ?>
 			</div>
 			<div class="col-sm-12 col-md-6 site-credit-container justify-content-end">
 				<h4 class="white site-credit">
