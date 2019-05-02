@@ -154,6 +154,7 @@ class WS_Site {
                 'label' => 'News Categories',
                 'show_admin_column' => true,
                 'query_var' => true,
+                'show_in_rest' => true,
                 'rewrite' => array('slug' => 'news-categories'),
                 'rest_base'          => 'news-categories',
                 'rest_controller_class' => 'WP_REST_Terms_Controller',

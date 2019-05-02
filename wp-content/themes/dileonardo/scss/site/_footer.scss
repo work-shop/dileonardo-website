@@ -99,12 +99,18 @@ $footer-offset-2-mobile: $container-fluid-padding-mobile * 2;
 
 				a{
 					padding-bottom: 10px;
+
+
 				}
 			}
 
 			a{
 				@extend .button;
 				@extend .white;
+
+						&:hover{
+						color: white !important;
+					}
 			}
 		}
 	}

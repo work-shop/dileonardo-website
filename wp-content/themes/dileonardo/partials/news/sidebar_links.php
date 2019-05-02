@@ -5,14 +5,15 @@ $terms = get_terms( array(
 ) );
 ?>
 <?php if( $terms ){ ?>
-	<li>
-		<a href="#" class="filter-button filter-button-category filter-button-all filter-button-reset" id="filter-button-all" data-target="all">
+	<li class="filter-all">
+		<a href="#" class="filter-button filter-button-category filter-button-all filter-button-reset" id="filter-button-all" data-target="all" data-target-id="all">
 			All
 		</a>
 	</li>
 	<?php foreach ( $terms as $term ) { ?>
 		<li>
-			<a  href="#" class="filter-button filter-button-category" data-target="filter-category-<?php echo $term->slug; ?>">
+			<!-- <pre><?php var_dump($term); ?></pre> -->
+			<a  href="#" class="filter-button filter-button-category" data-target="<?php echo $term->slug; ?>" data-target-id="<?php echo $term->term_id; ?>">
 				<?php echo $term->name; ?>
 			</a>
 		</li>

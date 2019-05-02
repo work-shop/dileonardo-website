@@ -1,22 +1,11 @@
-<section class="block padded-bottom" id="news-grid">
+<section class="block padded-bottom vhmin100" id="news-grid">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-right offset">
-				<div class="news-grid row">
-					<?php for ($i=0; $i < 2; $i++) { ?>
-						<?php 
-						$count = 0;
-						$news_query = new WP_Query( array(
-							'post_type' => 'news',
-							'posts_per_page' => '-1'
-						) );
-						while ( $news_query->have_posts() ) : $news_query->the_post(); ?>
-							<?php get_template_part('partials/news/card_news' ); ?>
-							<?php $count++; ?>
-						<?php endwhile; ?>
-						<?php wp_reset_postdata(); ?>
-					<?php  } ?>
+				<div id="grid-loading" class=""></div>
+				<div class="news-grid row news-grid-loading">
 				</div>
+				
 			</div>
 		</div>
 	</div>
