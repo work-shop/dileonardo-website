@@ -96,6 +96,7 @@
 	//padding-left: $container-fluid-padding;
 	//padding-top: $container-fluid-padding;
 	height: 100vh;
+	height: calc(var(--vh, 1vh) * 100);
 	padding: $container-fluid-padding;
 
 	@media screen and (max-width: $md) {
@@ -123,7 +124,7 @@
 	}
 
 	.slick-slide{
-		height: calc(100vh - #{$container-fluid-padding * 2});
+		height: calc( (var(--vh, 1vh) * 100) - #{$container-fluid-padding * 2});
 	}
 
 	.slide-image{

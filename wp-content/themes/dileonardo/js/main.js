@@ -26,6 +26,7 @@ import { scrollSpy } from './scroll-spy.js';
 import { makeMap } from './map.js';
 import { grid } from './grid.js';
 import { filterNews } from './filter-news.js';
+import { vh } from './vh.js';
 
 //must use 
 livereload();
@@ -48,3 +49,4 @@ filter2();
 makeMap();
 grid();
 filterNews();
+vh();

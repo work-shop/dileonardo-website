@@ -3,7 +3,7 @@ $menu-width: 350px;
 $menu-transition: .5s;
 $menu-padding: 45px;
 
-#nav,#content,#footer,#brand-bar{
+#nav,#content,#footer,#brand-bar,#dots{
 	transition: transform $menu-transition;
 }
 
@@ -224,7 +224,7 @@ body.menu-open{
 		opacity: 1;
 	}
 
-	#nav,#content,#footer,#brand-bar{
+	#nav,#content,#footer,#brand-bar,#dots{
 		transition: transform $menu-transition;
 		transform: translateX(-$menu-width);
 

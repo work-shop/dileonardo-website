@@ -45,9 +45,6 @@ function jumpLinks(config){
 
 		});
 
-
-
-
 	});
 
 }

@@ -138,7 +138,13 @@ function spy(){
 				$('.spy-link').removeClass('spy-active');
 
 				scrollSpyProperties.currentElement.removeClass(scrollSpyProperties.spyActiveClass);
+				$('body').removeClass (function (index, className) {
+					return (className.match (/(^|\s)spy-current-\S+/g) || []).join(' ');
+				});
 
+				var targetId = scrollSpyProperties.spyMap[i].target.attr('id');
+				console.log(targetId);
+				$('body').addClass('spy-current-' + targetId);
 				scrollSpyProperties.spyMap[i].target.addClass(scrollSpyProperties.spyActiveClass);
 				scrollSpyProperties.spyMap[i].target.addClass('activated');
 

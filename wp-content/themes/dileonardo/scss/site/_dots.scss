@@ -32,7 +32,7 @@
 				width: 3px;
 				left: 50%;
 				margin-left: -0px;
-				background: lighten($medium,8%);
+				background: lighten($medium,30%);
 				transition: background 2s;
 			}
 
@@ -43,4 +43,25 @@
 		}	
 	}
 
+}
+
+.spy-current-home-hero:not(.menu-open){
+	#dots{
+		animation: 5s ease 7s infinite nudge;
+	}
+}
+
+@keyframes nudge {
+	0% {
+		transform: translateY(0px);
+	}
+	10% {
+		transform: translateY(50px);
+	}
+	20% {
+		transform: translateY(0px);
+	}
+	100% {
+		transform: translateY(0px);
+	}
 }

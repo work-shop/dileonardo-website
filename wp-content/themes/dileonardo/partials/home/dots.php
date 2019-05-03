@@ -2,7 +2,7 @@
 	<div id="dots">
 		<ul>
 			<li>
-				<a href="#home-hero" class="jump-home spy-link"></a>
+				<a href="#home-hero" class="jump-home spy-link" id="dots-first"></a>
 			</li>
 			<li>
 				<a href="#home-intro" class="jump-home spy-link"></a>
@@ -15,4 +15,4 @@
 			</li>
 		</ul>
 	</div>
-	<?php } ?>
+<?php } ?>
