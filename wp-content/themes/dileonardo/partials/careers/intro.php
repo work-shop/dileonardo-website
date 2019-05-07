@@ -7,29 +7,35 @@
 						Our collaborative approach means we’re constantly exposed to new ideas and innovative thinking from every discipline. Our people are empowered with the freedom, opportunity and technology to exceed client expectations with inspired solutions.
 					</h2>
 				</div>
-				<div class="careers-intro-slide">
-					<?php 
-					$slides = get_field('careers_slideshow');
-					?>
-					<?php if( $slides ): ?>
-						<div class="slick slick-default">
-							<?php foreach ($slides as $image): ?> 
-								<div class="slick-slide">
-									<div class="slide-image-container">
-										<div class="slide-image">
-											<img src="<?php echo $image['sizes']['lg']; ?>">
+				<div class="row">
+					<div class="col-md-6">
+						<?php 
+						$slides = get_field('careers_slideshow');
+						?>
+						<?php if( $slides ): ?>
+							<div class="slick slick-default">
+								<?php foreach ($slides as $image): ?> 
+									<div class="slick-slide">
+										<div class="slide-image-container">
+											<div class="slide-image">
+												<img src="<?php echo $image['sizes']['lg']; ?>">
+											</div>
+										</div>
+										<div class="slide-caption-container">
+											<?php if( $image['caption'] ): ?>
+												<h4 class="slide-caption medium"><?php echo $image['caption']; ?></h4>
+											<?php endif; ?>
 										</div>
 									</div>
-									<div class="slide-caption-container">
-										<?php if( $image['caption'] ): ?>
-											<h4 class="slide-caption medium"><?php echo $image['caption']; ?></h4>
-										<?php endif; ?>
-									</div>
-								</div>
-							<?php endforeach; ?>
-						</div>
-					<?php endif; ?>
+								<?php endforeach; ?>
+							</div>
+						<?php endif; ?>
+					</div>
+					<div class="col-md-6">
+
+					</div>
 				</div>
 			</div>
 		</div>
-	</section>
+	</div>
+</section>

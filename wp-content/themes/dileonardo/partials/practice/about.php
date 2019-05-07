@@ -4,10 +4,10 @@
 			<div class="col-right offset">
 				<div class="practice-about-text">
 					<h2 class="medium mb2 pr3">
-						<?php the_field('end_of_page_about_statement'); ?>
+						<?php the_field('end_of_page_people_statement'); ?>
 					</h2>
 				</div>
-				<?php $link = get_field('end_of_page_about_link'); ?>
+				<?php $link = get_field('end_of_page_people_link'); ?>
 				<?php if( $link ): ?>
 					<div class="practice-about-link">
 						<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="button medium">

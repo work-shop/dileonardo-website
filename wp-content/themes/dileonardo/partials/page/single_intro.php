@@ -41,14 +41,14 @@
 			</div>
 			<div class="col-right">
 				<div class="row mb3">
-					<div class="col-md-8">
+					<div class="col">
 						<h3 class="single-intro-text">
 							<?php the_field('excerpt'); ?>
 						</h3>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-8">
+					<div class="col">
 						<p class="article-intro-paragraph">
 							<?php the_field('introduction_paragraph'); ?>
 						</p>

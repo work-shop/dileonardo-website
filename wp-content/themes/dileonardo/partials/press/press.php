@@ -28,6 +28,8 @@
 								<div class="press mb2 press-loop-<?php echo $count; ?> <?php if( is_page(11) ){ ?> col-6 col-sm-4 col-lg-3 <?php } else{ ?> col-6 col-sm-4 col-lg-3 <?php } ?>">
 									<?php if( get_sub_field('press_link')) { ?>
 										<a href="<?php the_sub_field('press_link'); ?>">
+										<?php } else if( get_sub_field('press_file')) {?>
+											<a href="<?php the_sub_field('press_file'); ?>" target="_blank">
 										<?php } ?>
 										<?php if( get_sub_field('press_image')) { 
 											$image = get_sub_field('press_image');
@@ -37,7 +39,7 @@
 										<h4 class="press-title">
 											<?php the_sub_field('press_title'); ?>
 										</h4>
-										<?php if( get_sub_field('press_link')){ ?>
+										<?php if( get_sub_field('press_link') || get_sub_field('press_file')){ ?>
 										</a>
 									<?php } ?>
 								</div>
