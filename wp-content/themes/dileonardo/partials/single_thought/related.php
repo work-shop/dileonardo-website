@@ -14,13 +14,6 @@
 					$related_query = new WP_Query( array(
 						'post_type' => 'thoughts',
 						'posts_per_page' => '3',
-						'tax_query' => array(
-							array(
-								'taxonomy' => 'thought-categories',
-								'field' => 'id',
-								'terms' => $customTaxonomyTerms
-							)
-						),
 						'post__not_in' => array ($post->ID),
 					) );
 					while ( $related_query->have_posts() ) : $related_query->the_post(); ?>
