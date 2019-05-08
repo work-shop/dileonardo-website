@@ -33,9 +33,12 @@ source ./.env
 #GODADDY DEPLOYMENT
 
 # Site Theme
-scp -r wp-content/themes/dileonardo $GODADDY_STAGING_USER@$GODADDY_STAGING_IP:./html/wp-content/themes
+#scp -r wp-content/themes/dileonardo $GODADDY_STAGING_USER@$GODADDY_STAGING_IP:./html/wp-content/themes
 
-# flush godaddy wp cache
-curl $GODADDY_STAGING_URL/?nocache=1&wpaas_action=flush_cache
+# Bundles only
+scp -r wp-content/themes/dileonardo/bundles $GODADDY_STAGING_USER@$GODADDY_STAGING_IP:./html/wp-content/themes/dileonardo
+
+# Specific files
+scp -r wp-content/themes/dileonardo/partials/projects/grid.php $GODADDY_STAGING_USER@$GODADDY_STAGING_IP:./html/wp-content/themes/dileonardo/partials/projects/
 
 

@@ -13,7 +13,7 @@
 								<div class="person-image">
 									<a href="#" class="modal-toggle" data-modal-target="modal-person-<?php echo $count; ?>">
 										<?php $image = get_sub_field('person_image');
-										$image = $image['sizes']['md_square']; ?>
+										$image = $image['sizes']['xs_square']; ?>
 										<img src="<?php echo $image; ?>" >
 									</div>
 									<div class="person-text">

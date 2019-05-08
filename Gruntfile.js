@@ -70,8 +70,8 @@ module.exports = function(grunt) {
             dev: {
                 options: {
                     sourceMap: true, // sourcemaps
-                    sourceComments: true,
-                    outputStyle: 'expanded',
+                    sourceComments: false, //temporarily changes
+                    outputStyle: 'compressed', //temporarily changes
                 },
                 files: [{
                     src: [ scss_main_src ],
@@ -97,10 +97,11 @@ module.exports = function(grunt) {
                 options: {
                     watch: true,
                     browserifyOptions: {
-                        debug: true // sourcemaps
+                        debug: false // sourcemaps
                     },
                     transform: [
-                        ['babelify', {presets: 'env'}]
+                        ['babelify', {presets: 'env'}],
+                        ['uglifyify', {global: true}]
                     ]
                 }
             },

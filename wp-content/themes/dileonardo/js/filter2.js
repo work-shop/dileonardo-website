@@ -8,12 +8,32 @@ function filter2() {
 	var regionFilteredCurrent = 'all';
 	var initial = true;
 	var initialUrlEmpty = true;
+	var arranged = false;
 	var baseUrl = '/projects/';
 	var stateObj = {};
+	var startTime = new Date().getTime();
+	var lastStep = startTime;
+	var totalTime;
+
+	$(document).ready( function() {
+		console.log('document.ready');
+		printTime();
+
+		if ($('body').hasClass('page-id-21')) {
+			//loadProjects();
+		}
+
+	});
 
 	//when the window is loaded, create isotope
 	$(window).on('load', function() {
+
 		if ($('body').hasClass('page-id-21')) {
+
+			console.log('window.onload');
+			
+			printTime();
+
 			//SETUP ISOTOPE
 			$grid = $('#grid').isotope({
 				itemSelector: '.grid-item',
@@ -43,9 +63,9 @@ function filter2() {
 			if (!isEmpty(urlCategory) && urlCategory !== 'all') {
 				//console.log('urlCategory: ' + urlCategory);
 				var categoryButtonSelector =
-					'.filter-button[data-target=filter-category-' +
-					urlCategory +
-					']';
+				'.filter-button[data-target=filter-category-' +
+				urlCategory +
+				']';
 				var categoryButtonCheck = $(categoryButtonSelector);
 
 				if (!isEmpty(categoryButtonCheck)) {
@@ -53,11 +73,11 @@ function filter2() {
 					var categoryTitle = $(categoryButtonSelector).text();
 					$('.filter-current-category').text(categoryTitle);
 					$('.filter-current-category')
-						.removeClass('inactive')
-						.addClass('active');
+					.removeClass('inactive')
+					.addClass('active');
 					$('.filter-button-all-category').removeClass(
 						'filter-active'
-					);
+						);
 					categoryStart = 'filter-category-' + urlCategory;
 				}
 			} else {
@@ -67,17 +87,17 @@ function filter2() {
 			if (!isEmpty(urlRegion) && urlRegion !== 'all') {
 				//console.log('urlRegion: ' + urlRegion);
 				var regionButtonSelector =
-					'.filter-button[data-target=filter-region-' +
-					urlRegion +
-					']';
+				'.filter-button[data-target=filter-region-' +
+				urlRegion +
+				']';
 				var regionButtonCheck = $(regionButtonSelector);
 				if (!isEmpty(regionButtonCheck)) {
 					$(regionButtonSelector).addClass('filter-active');
 					var regionTitle = $(regionButtonSelector).text();
 					$('.filter-current-region').text(regionTitle);
 					$('.filter-current-region')
-						.removeClass('inactive')
-						.addClass('active');
+					.removeClass('inactive')
+					.addClass('active');
 					$('.filter-button-all-region').removeClass('filter-active');
 					regionStart = 'filter-region-' + urlRegion;
 				}
@@ -102,10 +122,10 @@ function filter2() {
 						$(this).removeClass('filter-active');
 						$('.filter-button-all-category').addClass(
 							'filter-active'
-						);
+							);
 						$('.filter-current-category')
-							.removeClass('active')
-							.addClass('inactive');
+						.removeClass('active')
+						.addClass('inactive');
 					}
 				} else {
 					//turn on a filter
@@ -114,19 +134,19 @@ function filter2() {
 					filter(filterCategory, regionFilteredCurrent);
 					$('.filter-category .filter-button').removeClass(
 						'filter-active'
-					);
+						);
 					$(this).addClass('filter-active');
 
 					if ($(this).hasClass('filter-button-all')) {
 						$('.filter-current-category')
-							.removeClass('active')
-							.addClass('inactive');
+						.removeClass('active')
+						.addClass('inactive');
 					} else {
 						var categoryTitle = $(this).text();
 						$('.filter-current-category').text(categoryTitle);
 						$('.filter-current-category')
-							.removeClass('inactive')
-							.addClass('active');
+						.removeClass('inactive')
+						.addClass('active');
 					}
 				}
 			});
@@ -143,10 +163,10 @@ function filter2() {
 						$(this).removeClass('filter-active');
 						$('.filter-button-all-region').addClass(
 							'filter-active'
-						);
+							);
 						$('.filter-current-region')
-							.removeClass('active')
-							.addClass('inactive');
+						.removeClass('active')
+						.addClass('inactive');
 					}
 				} else {
 					//turn on a filter
@@ -156,19 +176,19 @@ function filter2() {
 
 					$('.filter-region .filter-button').removeClass(
 						'filter-active'
-					);
+						);
 					$(this).addClass('filter-active');
 
 					if ($(this).hasClass('filter-button-all')) {
 						$('.filter-current-region')
-							.removeClass('active')
-							.addClass('inactive');
+						.removeClass('active')
+						.addClass('inactive');
 					} else {
 						var regionTitle = $(this).text();
 						$('.filter-current-region').text(regionTitle);
 						$('.filter-current-region')
-							.removeClass('inactive')
-							.addClass('active');
+						.removeClass('inactive')
+						.addClass('active');
 					}
 				}
 			});
@@ -179,20 +199,20 @@ function filter2() {
 					categoryFilteredCurrent = 'all';
 					filter(categoryFilteredCurrent, regionFilteredCurrent);
 					$(this)
-						.removeClass('active')
-						.addClass('inactive');
+					.removeClass('active')
+					.addClass('inactive');
 					$('.filter-button-category').removeClass('filter-active');
 					$('.filter-button-all-category').addClass('filter-active');
 				}
 				if (
 					$(this)
-						.closest('.filter-menu')
-						.hasClass('open')
-				) {
+					.closest('.filter-menu')
+					.hasClass('open')
+					) {
 					var target = $(this).data('toggle-target');
-					filterMenuToggle(target);
-				}
-			});
+				filterMenuToggle(target);
+			}
+		});
 
 			$('.filter-current-region').click(function(e) {
 				e.preventDefault();
@@ -200,20 +220,20 @@ function filter2() {
 					regionFilteredCurrent = 'all';
 					filter(categoryFilteredCurrent, regionFilteredCurrent);
 					$(this)
-						.removeClass('active')
-						.addClass('inactive');
+					.removeClass('active')
+					.addClass('inactive');
 					$('.filter-button-region').removeClass('filter-active');
 					$('.filter-button-all-region').addClass('filter-active');
 				}
 				if (
 					$(this)
-						.closest('.filter-menu')
-						.hasClass('open')
-				) {
+					.closest('.filter-menu')
+					.hasClass('open')
+					) {
 					var target = $(this).data('toggle-target');
-					filterMenuToggle(target);
-				}
-			});
+				filterMenuToggle(target);
+			}
+		});
 
 			$('.filter-menu-toggle').click(function(e) {
 				var target = $(this).data('toggle-target');
@@ -249,47 +269,47 @@ function filter2() {
 				if (event.state.category === 'all') {
 					category = 'all';
 					$('.filter-current-category')
-						.removeClass('active')
-						.addClass('inactive');
+					.removeClass('active')
+					.addClass('inactive');
 					$('.filter-button-category').removeClass('filter-active');
 					$('.filter-button-all-category').addClass('filter-active');
 				} else {
 					var categoryButtonSelector =
-						'.filter-button[data-target=filter-category-' +
-						event.state.category +
-						']';
+					'.filter-button[data-target=filter-category-' +
+					event.state.category +
+					']';
 					var categoryButtonCheck = $(categoryButtonSelector);
 					console.log(
 						'categoryButtonSelector: ' + categoryButtonSelector
-					);
+						);
 					if (!isEmpty(categoryButtonCheck)) {
 						$('.filter-button-category').removeClass(
 							'filter-active'
-						);
+							);
 						$(categoryButtonSelector).addClass('filter-active');
 						var categoryTitle = $(categoryButtonSelector).text();
 						$('.filter-current-category').text(categoryTitle);
 						$('.filter-current-category')
-							.removeClass('inactive')
-							.addClass('active');
+						.removeClass('inactive')
+						.addClass('active');
 						$('.filter-button-all-category').removeClass(
 							'filter-active'
-						);
+							);
 					}
 					category = 'filter-category-' + event.state.category;
 				}
 				if (event.state.region === 'all') {
 					region = 'all';
 					$('.filter-current-region')
-						.removeClass('active')
-						.addClass('inactive');
+					.removeClass('active')
+					.addClass('inactive');
 					$('.filter-button-region').removeClass('filter-active');
 					$('.filter-button-all-region').addClass('filter-active');
 				} else {
 					var regionButtonSelector =
-						'.filter-button[data-target=filter-region-' +
-						event.state.region +
-						']';
+					'.filter-button[data-target=filter-region-' +
+					event.state.region +
+					']';
 					var regionButtonCheck = $(regionButtonSelector);
 					if (!isEmpty(regionButtonCheck)) {
 						$('.filter-button-region').removeClass('filter-active');
@@ -297,53 +317,62 @@ function filter2() {
 						var regionTitle = $(regionButtonSelector).text();
 						$('.filter-current-region').text(regionTitle);
 						$('.filter-current-region')
-							.removeClass('inactive')
-							.addClass('active');
+						.removeClass('inactive')
+						.addClass('active');
 						$('.filter-button-all-region').removeClass(
 							'filter-active'
-						);
+							);
 					}
 					region = 'filter-region-' + event.state.region;
 				}
 
 				filter(category, region, false);
 			};
+
 		}
+
 	}); //end window.onload
+
 
 	//isotope arrange event
 	function onArrange() {
 		//console.log('arrange done');
-		setTimeout(function() {
-			reveal();
-		}, 500);
+		
+		if(!arranged){
+			arranged = true;
+			progressive();
+			setTimeout(function() {
+				reveal();
+			}, 100);
+		}
+
 	}
 
 	function reveal() {
 		$('#projects-grid')
-			.removeClass('grid-loading')
-			.addClass('grid-loaded');
+		.removeClass('grid-loading')
+		.addClass('grid-loaded');
 		$('#grid-loading')
-			.removeClass('grid-loading')
-			.addClass('grid-loaded');
+		.removeClass('grid-loading')
+		.addClass('grid-loaded');
 	}
 
 	function filterMenuToggle(target) {
 		var parent = $(target).closest('.filter-menu');
 		if ($(target).hasClass('closed')) {
 			$(target)
-				.removeClass('closed')
-				.addClass('open');
+			.removeClass('closed')
+			.addClass('open');
 			$(parent)
-				.removeClass('closed')
-				.addClass('open');
+			.removeClass('closed')
+			.addClass('open');
 		} else {
 			$(target)
-				.removeClass('open')
-				.addClass('closed');
+			.removeClass('open')
+			.addClass('closed');
 			$(parent)
-				.removeClass('open')
-				.addClass('closed');
+			.removeClass('open')
+			.addClass('closed');
 		}
 	}
 
@@ -384,7 +413,7 @@ function filter2() {
 				urlCategory = categoryFilteredCurrent.replace(
 					'filter-category-',
 					''
-				);
+					);
 				urlRegion = 'all';
 			} else {
 				filterClass = '.' + category + '.' + region;
@@ -393,7 +422,7 @@ function filter2() {
 				urlCategory = categoryFilteredCurrent.replace(
 					'filter-category-',
 					''
-				);
+					);
 				urlRegion = regionFilteredCurrent.replace('filter-region-', '');
 			}
 		}
@@ -421,10 +450,10 @@ function filter2() {
 		var offset = $('.page-intro').outerHeight();
 		offset = 0;
 		$('html,body').animate(
-			{
-				scrollTop: offset
-			},
-			500
+		{
+			scrollTop: offset
+		},
+		500
 		);
 	}
 
@@ -438,55 +467,97 @@ function filter2() {
 
 	function isEmpty(val) {
 		return val === undefined || val === null || val.length <= 0
-			? true
-			: false;
+		? true
+		: false;
 	}
 
 	function getUrlParameter(sParam) {
 		var sPageURL = window.location.search.substring(1),
-			sURLVariables = sPageURL.split('&'),
-			sParameterName,
-			i;
+		sURLVariables = sPageURL.split('&'),
+		sParameterName,
+		i;
 
 		for (i = 0; i < sURLVariables.length; i++) {
 			sParameterName = sURLVariables[i].split('=');
 
 			if (sParameterName[0] === sParam) {
 				return sParameterName[1] === undefined
-					? true
-					: decodeURIComponent(sParameterName[1]);
+				? true
+				: decodeURIComponent(sParameterName[1]);
 			}
 		}
 	}
 
-	// function getProjects(){
-	// 	console.log('getProjects');
 
-	// 	var endpoint = '/wp-json/wp/v2/projects/?per_page_100&_embed=true';
 
-	// 	$.ajax({
-	// 		url: endpoint,
-	// 		dataType: 'json'
-	// 	})
-	// 	.done(function(data) {
-	// 		console.log('successful request for projects');
-	// 		console.log(data);
-	// 		renderProjects(data);
-	// 	})
-	// 	.fail(function() {
-	// 		console.log('error loading projects from API');
-	// 		throwError();
-	// 	})
-	// 	.always(function() {
-	// 		console.log('completed request for projects');
-	// 	});
+	function loadProjects(){
+		console.log('loadProjects');
+		printTime();
 
-	// }
+		var endpoint = '/wp-json/wp/v2/projects/?per_page=10&_embed=true';
 
-	// function renderProjects(data){
-	// 	console.log('renderProjects');
-	// 	reveal();
-	// }
+		$.ajax({
+			url: endpoint,
+			dataType: 'json'
+		})
+		.done(function(data) {
+			console.log('successful request for projects');
+			console.log(data);
+			printTime();
+			renderProjects(data);
+		})
+		.fail(function() {
+			console.log('error loading projects from API');
+		})
+		.always(function() {
+			//console.log('completed request for projects');
+		});
+
+	}
+
+
+	function renderProjects(data){
+		console.log('renderProjects');
+		printTime();
+		reveal();
+	}
+
+
+	function printTime(){
+		// var currentTime = new Date().getTime();
+		// totalTime = currentTime - startTime;
+		// var timeSinceLastStep = totalTime - lastStep;
+		// console.log('⏱⏱⏱⏱⏱⏱⏱⏱⏱⏱⏱⏱⏱⏱⏱');
+		// console.log('time since last step: ' + timeSinceLastStep);
+		// lastStep = timeSinceLastStep;
+		// console.log('totalTime: ' + totalTime);
+	}
+
+
+	function progressive(){
+		var images = $('.progressive');
+
+		for(var i = 0; i < images.length; i++){
+			var container = $(images[i]);
+			var img = container.children('img');
+			var src = container.data('src');
+
+			var newImg = $('<img>');
+			newImg.attr('src',src);
+			newImg.addClass('reveal');
+
+			container.append(newImg);
+
+			setTimeout(function() {
+				newImg.addClass('revealed');
+				img.remove();	
+			}, 500);
+			
+		}
+
+	}
+
+
 }
 
 export { filter2 };

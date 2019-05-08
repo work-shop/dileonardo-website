@@ -363,7 +363,7 @@ $grid-gutter-sm: 3%;
 	@media screen and (min-width: 1025px) {
 		&:hover{
 
-			img{
+			img.reveal{
 				filter: brightness(.8);
 			}
 			.project-image:after{

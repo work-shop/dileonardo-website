@@ -42,6 +42,15 @@
 
 	?>
 
+	<script>
+		var startTime = new Date().getTime();
+		var totalTime = 0;
+		var lastStep = 0;
+	</script>
+
+	<link rel="preload" href="<?php bloginfo('template_directory'); ?>/bundles/bundle.css" as="style">
+	<link rel="preload" href="<?php bloginfo('template_directory'); ?>/js/isotope.js" as="script">
+
 	<!-- Facebook Open Graph data -->
 	<meta property="og:title" content="<?php echo $social_title; ?>" />
 	<meta property="og:description" content="<?php echo $social_description; ?>" />
@@ -59,7 +68,7 @@
 
 	<meta name="description" content="<?php bloginfo('description'); ?>">
 	<meta name="author" content="Work-Shop Design Studio http://workshop.co">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<?php wp_head(); ?>
 
