@@ -19,8 +19,10 @@ $hero_type = get_field('hero_type');
 			</div>
 		<?php endif; ?>
 	<?php } else if( $hero_type === 'video' ){ ?>
+		<div class="home-hero-video-container">
 		<video muted autoplay playsinline loop class="" id="home-hero-video">
-			<source src="<?php bloginfo('template_directory'); ?>/images/video.mp4" type="video/mp4">
+			<?php $video = get_field('hero_video'); ?>
+			<source src="<?php echo $video['url']; ?>" type="video/mp4">
 			</video>
 		</div>
 	<?php } else{ ?>

@@ -10,15 +10,33 @@ $background_image = $background_image['sizes']['xl'];
 			<div class="col">
 				<?php if( have_rows('impact_statistics') ): ?>
 					<div class="row impact-statistics">
+						<?php $count = 0; ?>
 						<?php  while ( have_rows('impact_statistics') ) : the_row(); ?>
-							<div class="col-4 impact-statistic impact-statistic-<?php echo $i; ?>">
+							<?php 
+							$statistic_number = get_sub_field('statistic_number'); 
+							$statistic_number_suffix = get_sub_field('statistic_number_suffix'); 
+							$statistic_number_trimmed = trim( $statistic_number );
+							$statistic_number_trimmed = str_replace( ',', '', $statistic_number_trimmed );
+							$number_start = round($statistic_number_trimmed * .9);
+							//$number_start = $statistic_number_trimmed - 1000;
+							$number_end = $statistic_number_trimmed;
+							?>
+							<div class="col-4 impact-statistic-container">
 								<h1 class="impact-statistic-number brand centered">
-									<?php the_sub_field('statistic_number'); ?>
+									<span 
+									class="impact-statistic impact-statistic-number-text" 
+									data-number-start="<?php echo $number_start; ?>" 
+									data-number-end="<?php echo $number_end; ?>" 
+									data-number-suffix="<?php echo $statistic_number_suffix; ?>" 
+									id="impact-statistic-<?php echo $count; ?>"
+									>
+									</span><?php if($statistic_number_suffix){ ?><span class="impact-statistic-number-suffix"></span><?php } ?>
 								</h1>
 								<h3 class="impact-statistic-label centered mb0">
 									<?php the_sub_field('statistic_label'); ?>
 								</h3>
 							</div>
+							<?php $count++; ?>
 						<?php endwhile; ?>
 					</div>
 				<?php endif; ?>

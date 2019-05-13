@@ -31,7 +31,7 @@
 						if( is_wp_error( $term_link ) )
 							continue;
 						?>
-						<a class="project-category-label category-label" href="/projects/?category=filter-<?php echo $term->slug; ?>">
+						<a class="project-category-label category-label" href="/projects/?type=<?php echo $term->slug; ?>">
 							<?php 
 							echo $term->name;
 							echo ($i < count($terms))? ", " : "";

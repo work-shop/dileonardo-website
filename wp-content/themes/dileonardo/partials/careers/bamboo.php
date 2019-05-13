@@ -7,7 +7,7 @@
 	<div class="block-background mask-dark" style="background-image: url('<?php echo $background_image; ?>');">
 	</div>
 	<div class="container-fluid height-100 flex-center-vertical">
-		<div class="row">
+		<div class="row row-100">
 			<div class="col-8 offset-4">
 				<h2 class="white mb1">
 					<?php echo $background_text; ?>

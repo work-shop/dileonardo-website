@@ -5,6 +5,7 @@
 
 		.slick-dots{
 			bottom: 125px;
+			display: none;
 		}
 
 		.slick-arrow{
@@ -19,4 +20,20 @@
 			padding-top: 10px;
 		}
 	}
+}
+
+#intro{
+	padding-bottom: 0;
+}
+
+.careers-intro-images{
+
+
+	.career-intro-image{
+		height: 100%;
+		float: left;
+		width: 50%;
+	}
+
+
 }

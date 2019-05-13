@@ -73,7 +73,7 @@
 			</div>
 		</div>
 		<div class="row row-100 footer-2">
-			<div class="col-sm-12 col-md-6 footer-locations-col">
+			<div class="col-sm-12 col-md-8 footer-locations-col">
 				<?php if( have_rows('footer_locations','option') ): ?>
 					<ul class="footer-locations">
 						<?php  while ( have_rows('footer_locations','option') ) : the_row(); ?>
@@ -86,7 +86,7 @@
 					</ul>
 				<?php endif; ?>
 			</div>
-			<div class="col-sm-12 col-md-6 site-credit-container justify-content-end">
+			<div class="col-sm-12 col-md-4 site-credit-container justify-content-end">
 				<h4 class="white site-credit">
 					© <?php echo date("Y"); ?> DiLeonardo. All rights reserved.<br>
 					<a href="http://workshop.co" target="_blank" class="ml2">

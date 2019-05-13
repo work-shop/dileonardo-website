@@ -185,6 +185,7 @@ class WS_Site {
             add_image_size('acf_preview', 300, 300, false);            
             add_image_size('fb', 1200, 630, true);
             add_image_size('page_hero', 1680, 770, true);
+            add_image_size('press', 500, 650, true);
         }
     }
 

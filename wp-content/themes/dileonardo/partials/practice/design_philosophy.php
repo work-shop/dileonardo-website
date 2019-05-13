@@ -10,9 +10,9 @@
 	<div class="container-fluid height-100 flex-center-vertical">
 		<div class="row row-100">
 			<div class="col-right offset">
-				<h3 class="white mb2">
+				<h2 class="white mb2">
 					<?php the_field('design_philosophy_heading'); ?>
-				</h3>
+				</h2>
 				<h2 class="white mb1">
 					<?php echo $background_text; ?>
 				</h2>

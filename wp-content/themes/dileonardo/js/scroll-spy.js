@@ -7,6 +7,7 @@ var scrollSpyProperties = {};
 
 var activated = false;
 var firstPass = true;
+var spyChange = new Event('spyChange');
 
 function scrollSpy( config ){
 	//console.log('scroll-spy.js loaded');
@@ -143,7 +144,6 @@ function spy(){
 				});
 
 				var targetId = scrollSpyProperties.spyMap[i].target.attr('id');
-				console.log(targetId);
 				$('body').addClass('spy-current-' + targetId);
 				scrollSpyProperties.spyMap[i].target.addClass(scrollSpyProperties.spyActiveClass);
 				scrollSpyProperties.spyMap[i].target.addClass('activated');
@@ -157,6 +157,8 @@ function spy(){
 				}
 
 				scrollSpyProperties.currentElement = scrollSpyProperties.spyMap[i].target;
+
+				window.dispatchEvent(spyChange);
 
 			}
 

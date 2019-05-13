@@ -7,8 +7,7 @@
 				</h3>
 				<?php if( have_rows('clients_list') ): ?>
 					<div class="row clients-list">
-						<?php for ($i=0; $i < 2; $i++) { ?>
-							<?php  while ( have_rows('clients_list') ) : the_row(); ?>
+						<?php  while ( have_rows('clients_list') ) : the_row(); ?>
 								<div class="col-6 col-lg-3 client-col">
 									<?php if( get_sub_field('client_link')) { ?>
 										<a href="<?php echo $client_link; ?>">
@@ -20,8 +19,7 @@
 									<?php } ?>
 								</div>
 							<?php endwhile; ?>
-						<?php } ?>
-					</div>
+						</div>
 				<?php endif; ?>
 			</div>
 		</div>

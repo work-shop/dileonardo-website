@@ -7,7 +7,7 @@
 				</h1>
 			</div>
 		</div>
-		<?php if( get_field('page_introduction_text') && false ){ ?>
+		<?php if( get_field('page_introduction_text') ){ ?>
 			<div class="row">
 				<div class="col-12 col-md-8 col-lg-7">
 					<h3 class="page-intro-text">
