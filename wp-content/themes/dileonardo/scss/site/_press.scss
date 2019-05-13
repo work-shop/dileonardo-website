@@ -2,7 +2,7 @@
 //press page
 .page-id-19{
 	#page-intro{
-		.row.mb4{
+		.mb4{
 			margin-bottom: 0;
 		}
 	}
@@ -16,8 +16,26 @@
 	}
 }
 
+.press-list{
+	columns: 4;
+	column-gap: 40px;
+
+
+
+	@media screen and (max-width: $lg) {
+		columns: 3;
+		column-gap: 30px;
+	}
+
+	@media screen and (max-width: $sm) {
+		columns: 2;
+		column-gap: 20px;
+	}
+}
+
 .press{
 	position: relative;
+	display: inline-block;
 
 	&:hover{
 		.press-title{
@@ -26,20 +44,21 @@
 	}
 
 	.press-title{
-		position: absolute;
-		bottom: 0px;
-		left: 20px;
-		width: calc(100% - 40px);
+		//position: absolute;
+		//bottom: 0px;
+		//left: 20px;
+		//width: calc(100% - 40px);
 		margin-bottom: 0;
-		padding: 10px;
-		font-size: 18px;
-		color: white;
-		opacity: 0;
+		padding: 10px 10px 10px 0;
+		font-size: 16px;
+		//color: white;
+		//background: $medium;
+		//opacity: 0;
 		@extend .bold;
 		line-height: 1.2 !important;
 
 		@media screen and (max-width: $sm) {
-			opacity: 1;
+			font-size: 13px;
 		}
 	}
 }

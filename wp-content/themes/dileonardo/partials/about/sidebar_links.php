@@ -5,7 +5,7 @@
 </li>
 <li>
 	<a href="#history" class="jump spy-link">
-		History
+		Legacy
 	</a>
 </li>
 <li>

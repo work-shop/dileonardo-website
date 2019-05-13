@@ -5,6 +5,17 @@
 			display: none;
 		}
 	}
+
+
+	@media screen and (max-width: $sm) {
+		.page-hero {
+			height: calc(200px + #{$container-fluid-padding-mobile} + #{$nav-height-mobile});
+			.ws-map{
+				height: 200px;
+			}
+		}
+	}
+
 }
 
 

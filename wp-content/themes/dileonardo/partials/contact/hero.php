@@ -1,4 +1,4 @@
-<section class="block vh60 page-hero" id="map">
+<section class="block page-hero" id="map">
 	<div class="page-hero-image position-relative">
 		<?php
 		$count = 0;
@@ -15,6 +15,7 @@
 			//$summary = 'summary';
 				$location = get_sub_field('location_location');
 				$link = '';
+				$placeId =  get_sub_field('google_maps_place_id_for_directions');
 				$id = 'marker-' . $count;
 
 				if ( $location && ($location['lat'] && $location['lng']) ) {
@@ -24,6 +25,7 @@
 							'title' => $title,
 							'position' => $location,
 							'link' => $link,
+							'placeId' => $placeId, 
 							'popup' => array(
 								'id' => $id,
 								'summary' => $summary
@@ -46,12 +48,12 @@
         // the latitude and longitude as integers.
         mapOptions.data.forEach( function( location ) {
         	console.log(location);
-        	location.marker.position.lat = parseInt(location.marker.position.lat);
-        	location.marker.position.lng = parseInt(location.marker.position.lng);
-        	location.marker.popup.content = '<div class="marker-card"><h4 class="marker-card-title">' + location.marker.title + '</h4><p class="marker-card-summary">' + location.marker.popup.summary + '</p></div>';
+        	location.marker.position.lat = parseFloat(location.marker.position.lat);
+        	location.marker.position.lng = parseFloat(location.marker.position.lng);
+        	location.marker.popup.content = '<div class="marker-card"><h4 class="marker-card-title bold">' + location.marker.title + '</h4><p class="marker-card-summary">' + location.marker.popup.summary + '</p><h5 class="marker-card-directions"><a href="https://www.google.com/maps/dir/?api=1&destination_place_id=' + location.marker.placeId + '">Get Directions</a></h5></div>';
         });
 
-        mapOptions.render = { zoom: 3 };
+        //mapOptions.render = { zoom: 3 };
 
     </script>
 

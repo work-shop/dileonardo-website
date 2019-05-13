@@ -31,9 +31,9 @@
 								<?php if ( has_post_thumbnail() ) { ?>
 									<?php 
 									$featured_img_url_md = get_the_post_thumbnail_url(get_the_ID(),'md'); 
-									$featured_img_url_tiny = get_the_post_thumbnail_url(get_the_ID(),'xs'); 
+									$featured_img_url_tiny = get_the_post_thumbnail_url(get_the_ID(),'progressive'); 
 									?>
-									<div class="progressive replace" data-src="<?php echo $featured_img_url_md; ?>">
+									<div class="progressive-projects replace" data-src="<?php echo $featured_img_url_md; ?>">
 										<img src="<?php echo $featured_img_url_tiny; ?>" class="preview">
 									</div>
 								<?php } else { ?>

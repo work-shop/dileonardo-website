@@ -88,7 +88,7 @@
 			</div>
 			<div class="col-sm-12 col-md-6 site-credit-container justify-content-end">
 				<h4 class="white site-credit">
-					© 2019 DiLeonardo. All rights reserved.<br>
+					© <?php echo date("Y"); ?> DiLeonardo. All rights reserved.<br>
 					<a href="http://workshop.co" target="_blank" class="ml2">
 						Site by Work-Shop Design Studio
 					</a>

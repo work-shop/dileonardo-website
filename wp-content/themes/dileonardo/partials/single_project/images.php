@@ -16,7 +16,9 @@ $images = get_field('project_images');
 			<?php foreach ($images as $image): ?> 
 				<div class="project-image">
 					<a href="#" class="modal-toggle project-image-modal-toggle" data-modal-target="modal-project-images" id="project-image-link-<?php echo $count; ?>" data-index="<?php echo $count; ?>">
-						<img src="<?php echo $image['sizes']['md']; ?>">
+						<div class="progressive replace" data-src="<?php echo $image['sizes']['md']; ?>">
+							<img src="<?php echo $image['sizes']['xs']; ?>" class="preview">
+						</div>
 					</a>
 				</div>
 				<?php $count++; ?>
@@ -28,7 +30,7 @@ $images = get_field('project_images');
 				<?php foreach ($images as $image): ?> 
 					<div class="slick-slide" id="project-image-slide-<?php echo $count; ?>">
 						<div class="slide-image-container">
-							<div class="slide-image" style="background-image: url('<?php echo $image['sizes']['xl']; ?>');">
+							<div class="slide-image progressive-background" data-src="<?php echo $image['sizes']['xl']; ?>">
 							</div>
 						</div>
 						<div class="slide-caption-container">

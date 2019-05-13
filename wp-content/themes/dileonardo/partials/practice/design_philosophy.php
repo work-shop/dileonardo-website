@@ -8,7 +8,7 @@
 	<div class="block-background mask-dark-broken" style="background-image: url('<?php echo $background_image; ?>');">
 	</div>
 	<div class="container-fluid height-100 flex-center-vertical">
-		<div class="row">
+		<div class="row row-100">
 			<div class="col-right offset">
 				<h3 class="white mb2">
 					<?php the_field('design_philosophy_heading'); ?>

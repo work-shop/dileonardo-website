@@ -33,12 +33,13 @@ source ./.env
 #GODADDY DEPLOYMENT
 
 # Site Theme
-#scp -r wp-content/themes/dileonardo $GODADDY_STAGING_USER@$GODADDY_STAGING_IP:./html/wp-content/themes
+scp -r wp-content/themes/dileonardo $GODADDY_STAGING_USER@$GODADDY_STAGING_IP:./html/wp-content/themes
+#scp -r wp-content/themes/dileonardo c7gb42498655186@104.238.71.97:./html/wp-content/themes
 
 # Bundles only
-scp -r wp-content/themes/dileonardo/bundles $GODADDY_STAGING_USER@$GODADDY_STAGING_IP:./html/wp-content/themes/dileonardo
+#scp -r wp-content/themes/dileonardo/bundles $GODADDY_STAGING_USER@$GODADDY_STAGING_IP:./html/wp-content/themes/dileonardo
 
 # Specific files
-scp -r wp-content/themes/dileonardo/partials/projects/grid.php $GODADDY_STAGING_USER@$GODADDY_STAGING_IP:./html/wp-content/themes/dileonardo/partials/projects/
+#scp -r wp-content/themes/dileonardo/partials/projects/grid.php $GODADDY_STAGING_USER@$GODADDY_STAGING_IP:./html/wp-content/themes/dileonardo/partials/projects/
 
 

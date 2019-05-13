@@ -15,24 +15,10 @@ function filter2() {
 	var lastStep = startTime;
 	var totalTime;
 
-	$(document).ready( function() {
-		console.log('document.ready');
-		printTime();
-
-		if ($('body').hasClass('page-id-21')) {
-			//loadProjects();
-		}
-
-	});
-
 	//when the window is loaded, create isotope
 	$(window).on('load', function() {
 
 		if ($('body').hasClass('page-id-21')) {
-
-			console.log('window.onload');
-			
-			printTime();
 
 			//SETUP ISOTOPE
 			$grid = $('#grid').isotope({
@@ -489,58 +475,43 @@ function filter2() {
 	}
 
 
+	// function loadProjects(){
+	// 	console.log('loadProjects');
+	// 	printTime();
 
-	function loadProjects(){
-		console.log('loadProjects');
-		printTime();
+	// 	var endpoint = '/wp-json/wp/v2/projects/?per_page=10&_embed=true';
 
-		var endpoint = '/wp-json/wp/v2/projects/?per_page=10&_embed=true';
+	// 	$.ajax({
+	// 		url: endpoint,
+	// 		dataType: 'json'
+	// 	})
+	// 	.done(function(data) {
+	// 		console.log('successful request for projects');
+	// 		console.log(data);
+	// 		printTime();
+	// 		renderProjects(data);
+	// 	})
+	// 	.fail(function() {
+	// 		console.log('error loading projects from API');
+	// 	})
+	// 	.always(function() {
+	// 		//console.log('completed request for projects');
+	// 	});
 
-		$.ajax({
-			url: endpoint,
-			dataType: 'json'
-		})
-		.done(function(data) {
-			console.log('successful request for projects');
-			console.log(data);
-			printTime();
-			renderProjects(data);
-		})
-		.fail(function() {
-			console.log('error loading projects from API');
-		})
-		.always(function() {
-			//console.log('completed request for projects');
-		});
-
-	}
-
-
-	function renderProjects(data){
-		console.log('renderProjects');
-		printTime();
-		reveal();
-	}
+	// }
 
 
-	function printTime(){
-		// var currentTime = new Date().getTime();
-		// totalTime = currentTime - startTime;
-		// var timeSinceLastStep = totalTime - lastStep;
-		// console.log('⏱⏱⏱⏱⏱⏱⏱⏱⏱⏱⏱⏱⏱⏱⏱');
-		// console.log('time since last step: ' + timeSinceLastStep);
-		// lastStep = timeSinceLastStep;
-		// console.log('totalTime: ' + totalTime);
-	}
-
+	var progressiveLength = 0;
+	var progressiveCount = 0;
 
 	function progressive(){
-		var images = $('.progressive');
+		var images = $('.progressive-projects');
+		progressiveLength = images.length;
 
-		for(var i = 0; i < images.length; i++){
+		for(var i = 0; i < progressiveLength; i++){
 			var container = $(images[i]);
-			var img = container.children('img');
 			var src = container.data('src');
+			var img = container.find('img');
 
 			var newImg = $('<img>');
 			newImg.attr('src',src);
@@ -548,12 +519,24 @@ function filter2() {
 
 			container.append(newImg);
 
-			setTimeout(function() {
-				newImg.addClass('revealed');
-				img.remove();	
-			}, 500);
-			
+			displayProgressiveImage(newImg,img);
+
 		}
+
+	}
+
+
+	function displayProgressiveImage(_newImg,_oldImg){
+		
+		setTimeout(function() {
+			_newImg.addClass('revealed');
+			_oldImg.remove();	
+		}, 500);
+
+		progressiveCount++;
+		// if ( progressiveCount === (progressiveLength - 1) ){
+		// 	$('#grid').isotope();
+		// }
 
 	}
 

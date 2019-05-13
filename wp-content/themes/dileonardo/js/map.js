@@ -7,7 +7,7 @@ function makeMap () {
   //console.log('map.js loaded');
   
   var brandColor = '#132828';
-  var latLng = { lat: 30, lng: 0 };
+  //var latLng = { lat: 30, lng: 10 };
 
   $( document ).ready( function() {
 
@@ -17,17 +17,25 @@ function makeMap () {
       streetViewControl: false,
       fullscreenControl: false,
       styles: tileStyle,
-      center: latLng,
-      zoom: 2,
+      //center: latLng,
+      // zoom: 7,
+      // render: {
+      //   zoom: 1,
+      // },
       marker: {
-        icon: {
-          fillColor: brandColor,
-        },
-        popup: {
-          pointer: '10px',
-        }
+       icon: {
+        fillColor: brandColor//,
+        // url: '/wp-content/themes/dileonardo/images/marker.png',
+        // size: new google.maps.Size(44,68),
+        // scaledSize: new google.maps.Size(44,68),
+        // origin: new google.maps.Point( 44, 68 ),
+        // anchor: new google.maps.Point( 22, 0 )
       },
-    } );
+      popup: {
+        pointer: '10px',
+      }
+    },
+  } );
 
   } );
 

@@ -50,7 +50,7 @@
         	location.marker.popup.content = '<div class="marker-card"><h4 class="marker-card-title medium uppercase">' + location.marker.title + '</h4><p class="marker-card-summary">' + location.marker.popup.summary + '</p></div>';
         });
 
-        mapOptions.render = { zoom: 3 };
+        // mapOptions.render = { zoom: 6 };
 
     </script>
 

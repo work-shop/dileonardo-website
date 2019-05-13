@@ -27,6 +27,7 @@ import { makeMap } from './map.js';
 import { grid } from './grid.js';
 import { filterNews } from './filter-news.js';
 import { vh } from './vh.js';
+import { progressive } from './progressive.js';
 
 //must use 
 livereload();
@@ -46,7 +47,9 @@ dropdowns(config.dropdowns);
 menuToggle(config.menuToggle);
 scrollSpy(config.scrollSpy);
 filter2();
+progressive();
 makeMap();
 grid();
 filterNews();
 vh();
+
