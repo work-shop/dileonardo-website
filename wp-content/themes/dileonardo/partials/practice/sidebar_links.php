@@ -10,7 +10,7 @@
 </li>
 <li>
 	<a href="#clients" class="jump spy-link">
-		Clients
+		Brands
 	</a>
 </li>
 <li>

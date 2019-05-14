@@ -44,15 +44,22 @@
 												<h4 class="font-main person-title mb0">
 													<?php the_sub_field('person_title'); ?>
 												</h4>
-												<?php $link = get_sub_field('person_linkedin_link'); ?>
+												<?php $link = get_sub_field('person_linkedin_link'); ?>	
+												<?php if( get_sub_field('person_traits') ): ?>
+													<h4 class="font-main person-traits mb0 bold brand">
+														<?php the_sub_field('person_traits'); ?>
+													</h4>	
+												<?php endif; ?>
 												<?php if( $link ): ?>
-													<h4 class="font-main person-linkedin mb1">
+													<h4 class="font-main person-linkedin mb0">
 														<a href="<?php echo $link ?>" target="_blank" class="">
 															LinkedIn
 														</a>
 													</h4>	
 												<?php endif; ?>
-												<p class="person-bio mt2">
+
+
+												<p class="person-bio mt3">
 													<?php the_sub_field('person_bio'); ?>
 												</p>
 											</div>

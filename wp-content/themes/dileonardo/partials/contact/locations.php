@@ -13,6 +13,7 @@
 					$phone = get_sub_field('location_phone');
 					$email = get_sub_field('location_email');
 					$id = 'location-' . $count;
+					$placeId =  get_sub_field('google_maps_place_id_for_directions');
 					?>
 					<div class="col-xl-3 col-md-6 location location-col mb3">
 						<h4 class="location-title bold mb1">
@@ -20,11 +21,13 @@
 						</h4>
 						<address class="location-address">
 							<?php echo $address; ?>
-							<br>
-							<br>
+							<h5 class="location-directions mt1 mb2">
+								<a href="https://www.google.com/maps/dir/?api=1&destination=<?php echo $title; ?>&destination_place_id=<?php echo $placeId; ?>" target="_blank">GET DIRECTIONS</a></h5>
 							Phone: <?php echo $phone; ?>
-							<br>
-							Email: <?php echo $email; ?>
+							<?php if($email){ ?>
+								<br>
+								Email: <?php echo $email; ?>
+							<?php } ?>
 						</address>
 						<div class="location-contacts">
 							<div class="accordion multi-collapse" data-accordion>

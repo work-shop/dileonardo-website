@@ -2,7 +2,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-right offset">
-				<h2 class="page-section-intro-text mb2">
+				<h2 class="page-section-intro-text">
 					<?php the_field('mission_text'); ?>
 				</h2>
 				<?php if( get_field('mission_text_secondary')){ ?>

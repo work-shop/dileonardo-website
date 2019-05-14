@@ -437,14 +437,14 @@ $text-button: (
 		outline: none;	
 		font-size: 0;
 		display: block;
-		width: 30px;
+		width: 25px;
 		height: 3px;
 		padding: 0px;
 		background: $light;
 		border: 1px solid darken($medium,7%);
 
-		@media screen and (max-width: $sm) {
-			width: 25px;
+		@media screen and (max-width: $md) {
+			width: 20px;
 		}
 
 		&:hover{

@@ -2,7 +2,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-right offset">
-				<h2 class="page-section-intro-text section-header values-heading mb2">
+				<h2 class="page-section-intro-text section-header values-heading">
 					<?php the_field('values_heading'); ?>
 				</h2>
 				<h4 class="values-text page-section-intro-text-2">

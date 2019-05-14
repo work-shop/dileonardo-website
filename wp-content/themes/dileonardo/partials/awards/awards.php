@@ -18,7 +18,7 @@
 					<div class="row mb1">
 						<div class="awards-list-title award-col col-6">
 							<h3 class="">
-							Selected Awards
+							<?php the_field('awards_heading'); ?>
 						</h3>
 						</div>
 						<div class="awards-list-link award-col righted col-6">
@@ -34,7 +34,7 @@
 							<?php if ( ($limited && $count < $limit) || $limited === false ){ ?>
 								<div class="award row award-loop-<?php echo $count; ?>">
 									<div class="col-3 col-lg-2 award-col award-col-year">
-										<h4 class="award-year">
+										<h4 class="award-year brand bold">
 											<?php the_sub_field('award_year'); ?>
 										</h4>
 									</div>

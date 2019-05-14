@@ -27,6 +27,15 @@ $filter-bar-height-sm: 50px;
 			}
 		}
 	}
+
+	.page-section-intro-text{
+		margin-bottom: 0;
+
+		@media screen and (max-width: $md) {
+			margin-bottom: 1em;
+		}
+	}
+
 }
 
 

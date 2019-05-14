@@ -23,6 +23,9 @@
 						<img src="<?php echo $image['sizes']['lg'];?>">
 					</div>
 				<?php } ?>
+				<h2 class="distudio mb1">
+					<?php the_field('distudio_heading',11); ?>
+				</h2>
 				<h3 class="distudio mb2">
 					<?php echo $background_text; ?>
 				</h3>

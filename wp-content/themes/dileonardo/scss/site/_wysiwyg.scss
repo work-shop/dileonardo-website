@@ -9,6 +9,10 @@
 	strong span{
 		@extend .bold;
 	}
+
+	em, i{
+		font-style: normal;
+	}
 	
 	ol,ul{
 		-webkit-padding-start: 0px;

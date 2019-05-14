@@ -50,7 +50,7 @@
         	console.log(location);
         	location.marker.position.lat = parseFloat(location.marker.position.lat);
         	location.marker.position.lng = parseFloat(location.marker.position.lng);
-        	location.marker.popup.content = '<div class="marker-card"><h4 class="marker-card-title bold">' + location.marker.title + '</h4><p class="marker-card-summary mb1">' + location.marker.popup.summary + '</p><h5 class="marker-card-directions"><a href="https://www.google.com/maps/dir/?api=1&destination=' + location.marker.title + '&destination_place_id=' + location.marker.placeId + '" target="_blank">Get Directions</a></h5></div>';
+        	location.marker.popup.content = '<div class="marker-card"><h4 class="marker-card-title bold">' + location.marker.title + '</h4><p class="marker-card-summary mb1">' + location.marker.popup.summary + '</p><h5 class="marker-card-directions"><a href="https://www.google.com/maps/dir/?api=1&destination=' + location.marker.title + '&destination_place_id=' + location.marker.placeId + '" target="_blank">GET DIRECTIONS</a></h5></div>';
         });
 
         //mapOptions.render = { zoom: 3 };

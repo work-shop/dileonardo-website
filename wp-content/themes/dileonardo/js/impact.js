@@ -59,7 +59,7 @@ function impact(){
 					//https://github.com/inorganik/CountUp.js
 					var id = 'impact-statistic-' + index;
 					var options = {
-						duration: 2,
+						duration: 3,
 						useEasing: false,
 						startVal: numberStart
 					};

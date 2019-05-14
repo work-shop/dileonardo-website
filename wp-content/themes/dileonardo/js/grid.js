@@ -8,14 +8,14 @@ function grid(){
 
 		if( $('body').hasClass('single-projects') ){
 
-			setTimeout(function() {
+			//setTimeout(function() {
 				$('#grid-project').masonry({
 					itemSelector: '.grid-item',
 					columnWidth: '.grid-sizer',
 					gutter: '.gutter-sizer',
 					percentPosition: true
 				});
-			}, 500);
+			//}, 500);
 
 		}
 

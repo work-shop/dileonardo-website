@@ -25,7 +25,7 @@
 		<?php if( get_field('row_2_column_1') || get_field('row_2_column_2') ){ ?>
 			<div class="row row-updates home-updates-row-2">
 				<div class="col-12 col-md-5 col-lg-4 update">
-					<?php  $post_object = get_field('row_3_column_1'); ?>
+					<?php  $post_object = get_field('row_2_column_1'); ?>
 					<?php if( $post_object ){ ?>
 						<?php $post = $post_object;	setup_postdata( $post );  ?>
 						<?php get_template_part('partials/home/card_update' ); ?>

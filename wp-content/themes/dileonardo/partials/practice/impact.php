@@ -13,13 +13,17 @@ $background_image = $background_image['sizes']['xl'];
 						<?php $count = 0; ?>
 						<?php  while ( have_rows('impact_statistics') ) : the_row(); ?>
 							<?php 
+							$starting_statistic_number = get_sub_field('starting_statistic_number'); 
+							$starting_statistic_number_trimmed = trim( $starting_statistic_number );
+							$starting_statistic_number_trimmed = str_replace( ',', '', $starting_statistic_number_trimmed );
+							$number_start = $starting_statistic_number_trimmed;
+
 							$statistic_number = get_sub_field('statistic_number'); 
-							$statistic_number_suffix = get_sub_field('statistic_number_suffix'); 
 							$statistic_number_trimmed = trim( $statistic_number );
 							$statistic_number_trimmed = str_replace( ',', '', $statistic_number_trimmed );
-							$number_start = round($statistic_number_trimmed * .9);
-							//$number_start = $statistic_number_trimmed - 1000;
 							$number_end = $statistic_number_trimmed;
+
+							$statistic_number_suffix = get_sub_field('statistic_number_suffix'); 
 							?>
 							<div class="col-4 impact-statistic-container">
 								<h1 class="impact-statistic-number brand centered">

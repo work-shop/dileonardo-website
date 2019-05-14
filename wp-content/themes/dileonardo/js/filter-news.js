@@ -40,8 +40,6 @@ function filterNews() {
 				updateUrl(categoryStart);
 			}
 
-
-
 			//events
 
 			$('.filter-button-category').click(function(e) {

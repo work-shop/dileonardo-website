@@ -10,9 +10,9 @@
 		<?php if( get_field('page_introduction_text') ){ ?>
 			<div class="row">
 				<div class="col-12 col-md-8 col-lg-7">
-					<h3 class="page-intro-text">
+					<h2 class="page-section-intro-text">
 						<?php the_field('page_introduction_text'); ?>
-					</h3>
+					</h2>
 				</div>
 			</div>
 		<?php } ?>

@@ -4,7 +4,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-right offset">
-					<h2 class="page-section-intro-text mb2">
+					<h2 class="page-section-intro-text">
 						<?php the_field('legacy_text'); ?>
 					</h2>
 					<?php if( get_field('legacy_text_secondary')){ ?>
@@ -25,10 +25,9 @@
 						<div class="history-line"></div>
 						<div class="history-events slick slick-history">
 							<?php $count = 1; ?>
-							<?php for ($i=0; $i < 3; $i++) { ?>
-								<?php  while ( have_rows('history_timeline') ) : the_row(); ?>
+							<?php  while ( have_rows('history_timeline') ) : the_row(); ?>
 									<div class="history-slide">
-										<div class="history-event">
+										<div class="history-event <?php if( get_sub_field('milestone') ): echo 'milestone'; endif; ?>">
 											<h5 class="uppercase brand bold tracked history-event-year mb1">
 												<?php the_sub_field('year'); ?>
 											</h5>
@@ -48,8 +47,7 @@
 									</div>
 									<?php $count++; ?>
 								<?php endwhile; ?>
-							<?php } ?>
-						</div>
+							</div>
 					<?php } ?>
 				</div>
 			</div>

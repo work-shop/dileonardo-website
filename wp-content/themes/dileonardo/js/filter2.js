@@ -534,9 +534,14 @@ function filter2() {
 		}, 500);
 
 		progressiveCount++;
-		// if ( progressiveCount === (progressiveLength - 1) ){
-		// 	$('#grid').isotope();
-		// }
+		if ( progressiveCount === (progressiveLength - 1) ){
+			setTimeout(function() {
+				$('#grid').isotope();
+				setTimeout(function() {
+					$('#grid').isotope();
+				}, 2000);
+			}, 1000);
+		}
 
 	}
 

@@ -59,21 +59,21 @@
 						</a>
 					</li>
 					<li class="footer-social-links">
-						<a href="https://www.facebook.com/dileonardo/" target="_blank">
+						<a href="<?php the_field('facebook_link','option'); ?>" target="_blank">
 							<img src="<?php bloginfo( 'template_directory' );?>/images/fb.png" class="social-icon">
 						</a> 
-						<a href="https://linkedin.com/dileonardo" target="_blank">
+						<a href="<?php the_field('linkedin_link','option'); ?>" target="_blank">
 							<img src="<?php bloginfo( 'template_directory' );?>/images/in.png" class="social-icon">
 						</a>
-						<a href="https://www.instagram.com/dileonardo/" target="_blank">
+						<a href="<?php the_field('instagram_link','option'); ?>" target="_blank">
 							<img src="<?php bloginfo( 'template_directory' );?>/images/ig.png" class="social-icon">
 						</a>
 					</li>
 				</ul>
 			</div>
 		</div>
-		<div class="row row-100 footer-2">
-			<div class="col-sm-12 col-md-6 col-lg-9 footer-locations-col">
+		<div class="footer-2">
+			<div class="footer-locations-col">
 				<?php if( have_rows('footer_locations','option') ): ?>
 					<ul class="footer-locations">
 						<?php  while ( have_rows('footer_locations','option') ) : the_row(); ?>
@@ -86,7 +86,7 @@
 					</ul>
 				<?php endif; ?>
 			</div>
-			<div class="col-sm-12 col-md-6 col-lg-3 site-credit-container justify-content-end">
+			<div class="footer-credit-col site-credit-container">
 				<h4 class="white site-credit">
 					© <?php echo date("Y"); ?> DiLeonardo. All rights reserved.<br>
 					<a href="http://workshop.co" target="_blank" class="ml2">

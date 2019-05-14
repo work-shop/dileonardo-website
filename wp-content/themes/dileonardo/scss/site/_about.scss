@@ -240,136 +240,6 @@
 }
 
 
-// #history{
-// 	overflow: hidden;
-// 	//border: 2px solid blue;
-// 	//@extend .page-section;
-
-// 	.history-top{
-// 		height: 90vh;
-// 		display: flex;
-// 		@extend .align-items-center;
-// 		//@extend .flex-center-vertical;
-// 	}
-
-// 	//events container
-// 	.history-events{
-// 		//border: 2px solid teal;
-// 		//position: relative;
-// 		width: 66.667%;
-// 		margin-left: 33.333%;
-// 		//height: 100%;
-
-// 		//line
-// 		&:after{
-// 			content: '';
-// 			display: block;
-// 			position: absolute;
-// 			top: 50%;
-// 			height: 2px;
-// 			width: 100vw;
-// 			//left: 20px;
-// 			left: 0;
-// 			background: $medium;
-// 			z-index: 0;
-// 			//transform: translateX(-40vw);
-// 		}
-// 	}
-
-// 	//track
-// 	.history-events-track{
-// 		height: 100%;
-// 		display: flex;
-// 		width: 10000px;
-// 		max-width: none;
-// 		transition: transform 1s;
-// 		transform: translateX(0vw);
-// 	}
-
-// 	//individual event
-// 	.history-event{
-// 		padding: 20px 10px 30px 10px;
-// 		position: relative;
-// 		z-index: 1;
-// 		flex: 0 0 20vw;
-// 		max-width: 20vw;
-// 		//height: 50vh;
-// 		//overflow: hidden;
-
-// 		//lower events
-// 		&:nth-child(odd){
-// 			transform: translateY(50%);
-// 			padding-bottom: 0;
-// 			//border: 2px solid $distudio;
-// 		}
-
-// 		//upper events
-// 		&:nth-child(even){
-// 			transform: translateY(-50%);
-// 			padding-top: 0;
-// 			//border: 2px solid $brand;
-
-// 			&:before{
-// 				top: auto;
-// 				top: calc(100% - 6px);
-// 			}
-// 		}
-
-
-// 		//dot
-// 		&:before{
-// 			content: '';
-// 			display: block;
-// 			height: 14px;
-// 			width: 14px;
-// 			border-radius: 10px;
-// 			background: $brand;
-// 			position: absolute;
-// 			top: -6px;
-// 			z-index: 2;
-// 			//flex: 1 100%;
-// 		}
-
-// 		.history-event-year{
-
-// 		}
-
-// 		//event text
-// 		.history-event-description{
-// 			//flex: 1 100%;
-// 			font-size: 16px;
-// 			line-height: 1.2 !important;
-// 		}
-
-// 		//event image
-// 		.history-event-image-container{
-// 			//flex: 1 100%;
-// 		}
-// 	}
-
-// 	//advance arrow
-// 	#history-arrows{
-// 		//border: 3px solid yellow;
-// 		height: 10vh;
-
-// 		.history-arrow{
-// 			padding: 10px;
-// 			//border: 1px solid red;
-// 		}
-
-// 		&:hover{
-// 			cursor: pointer;
-// 		}
-
-// 		.icon:before{
-// 			font-size: 70px;
-// 			color: $medium;
-// 		}
-
-// 	}
-
-// }
-
 .history-2{
 	overflow: hidden;
 	//border: 2px solid blue;
@@ -416,23 +286,6 @@
 			//border: 1px solid red;
 		}
 
-		//dot
-		&:before{
-			content: '';
-			display: block;
-			height: 14px;
-			width: 14px;
-			border-radius: 10px;
-			background: $brand;
-			position: absolute;
-			top: calc(50% - 6px);
-			z-index: 2;
-
-			@media screen and (max-width: $sm) {
-				display: none;
-			}
-		}
-
 		&>div{
 			//background: pink;
 			height: 50%;
@@ -448,6 +301,10 @@
 
 		//lower events
 		&:nth-child(even){
+			.history-event:before{
+				top: calc(0% - 6px);
+			}
+
 			&>div{
 				margin-top: $history-height / 2;
 				@extend .align-items-start;
@@ -518,11 +375,40 @@
 		position: relative;
 		z-index: 1;
 
+		//dot
+		&:before{
+			content: '';
+			display: block;
+			height: 14px;
+			width: 14px;
+			border-radius: 10px;
+			background: $brand;
+			position: absolute;
+			top: calc(100% - 6px);
+			z-index: 2;
+			margin-left: -10px;
+
+			@media screen and (max-width: $sm) {
+				display: none;
+			}
+		}
+
+		&.milestone{
+			&:before{
+				width: 19px;
+				height: 19px;
+				top: calc(100% - 10px);
+			}
+		}
+
 		@media screen and (max-width: $sm) {
 			padding: 30px 20px; 
 		}
 
 		.history-event-year{
+			font-size: 16px;
+			margin-bottom: .5em;
+			@extend .bold;
 			@media screen and (max-width: $sm) {
 				font-size: 14px;
 			}
@@ -530,12 +416,21 @@
 
 		//event text
 		.history-event-description{
-			font-size: 16px;
+			font-size: 15px;
 			line-height: 1.2 !important;
+
+			@media screen and (max-width: $md) {
+				font-size: 14px;
+			}
+
+			@media screen and (max-width: $sm) {
+				font-size: 13px;
+			}
 		}
 
 		//event image
 		.history-event-image-container{
+			width: 70%;
 		}
 	}
 
