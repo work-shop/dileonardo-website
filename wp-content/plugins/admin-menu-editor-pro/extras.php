@@ -130,6 +130,9 @@ class wsMenuEditorExtras {
 			$this->wp_menu_editor->get_magic_hook_priority()
 		);
 
+		//Add extra scripts to the menu editor.
+		add_action('admin_menu_editor-register_scripts', array($this, 'register_extra_scripts'));
+		add_filter('admin_menu_editor-editor_script_dependencies', array($this, 'add_extra_editor_dependencies'));
 
 		/**
 		 * Access management extensions.
@@ -481,7 +484,7 @@ class wsMenuEditorExtras {
 		}
 
 		$styles = array(
-			'border' => 'none',
+			'border' => '0 none',
 			'width'  => '100%',
 			'min-height' => '300px',
 		);
@@ -493,6 +496,8 @@ class wsMenuEditorExtras {
 			$styles['height'] = $height . 'px';
 			unset($styles['min-height']);
 		}
+
+		$is_scrolling_disabled = !empty($item['is_iframe_scroll_disabled']);
 
 		$style_attr = '';
 		foreach($styles as $property => $value) {
@@ -509,7 +514,12 @@ class wsMenuEditorExtras {
 			src="<?php echo esc_attr($item['file']); ?>" 
 			style="<?php echo esc_attr($style_attr); ?>>"
 			id="ws-framed-page"
-			frameborder="0" 
+			frameborder="0"
+			<?php
+			if ( $is_scrolling_disabled ) {
+				echo ' scrolling="no" ';
+			}
+			?>
 		></iframe>
 		</div>
 		<?php
@@ -530,21 +540,43 @@ class wsMenuEditorExtras {
 				var empiricalFudgeFactor = 29; //Based on the default admin theme in WP 4.1 (without the test helper output).
 				var initialHeight = maxHeight - empiricalFudgeFactor;
 
+				//Match the height of the frame to its contents. This only works if the frame
+				//is in the same origin and it has already finished loading.
+				var contentHeight = null;
+				var isContentHeightUsed = false;
+				try {
+					contentHeight = frame.contents().height();
+					if ((contentHeight > initialHeight) && (contentHeight > 100)) {
+						initialHeight = contentHeight;
+						isContentHeightUsed = true;
+					}
+				} catch (error) {
+					//The frame is probably on a different origin and we can't access its contents.
+					contentHeight = null;
+				}
+
 				frame.height(initialHeight);
 
-				setTimeout(function() {
-					//Check if there's a scroll bar and reduce the height just enough to get rid of it.
-					//Sometimes it's not possible to avoid scrolling because another part of the page is too tall,
-					//so we have a minimum height limit.
-					var scrollDelta = $(document).height() - $(window).height();
-					if (scrollDelta > 0) {
-						frame.height(Math.max(initialHeight - scrollDelta, minHeight));
-					}
-				}, 1)
+				if (!isContentHeightUsed) {
+					setTimeout(function () {
+						//Check if there's a scroll bar and reduce the height just enough to get rid of it.
+						//Sometimes it's not possible to avoid scrolling because another part of the page is too tall,
+						//so we have a minimum height limit.
+						var scrollDelta = $(document).height() - $(window).height();
+						if (scrollDelta > 0) {
+							frame.height(Math.max(initialHeight - scrollDelta, minHeight));
+						}
+					}, 1)
+				}
 			}
 
-			jQuery(function(){
+			jQuery(function($){
 				wsResizeFrame();
+
+				$('#ws-framed-page').on('load', function () {
+					//For same-origin frames, we can auto-resize the frame once it finishes loading.
+					wsResizeFrame();
+				});
 			});
 			</script>
 		<?php
@@ -1071,6 +1103,24 @@ wsEditorData.importMenuNonce = "<?php echo esc_js(wp_create_nonce('import_custom
 		<input type="button" id='ws_import_menu' value="Import" class="button ws_main_button" />
 		<?php
 	}
+
+	public function register_extra_scripts() {
+		wp_register_auto_versioned_script(
+			'ame-menu-editor-extras',
+			plugins_url('extras/menu-editor-extras.js', $this->wp_menu_editor->plugin_file),
+			array('jquery')
+		);
+	}
+
+	/**
+	 * @param array $dependencies
+	 * @return array
+	 */
+	public function add_extra_editor_dependencies($dependencies) {
+		$dependencies[] = 'ame-menu-editor-extras';
+		return $dependencies;
+	}
+
 
 	function hook_user_has_cap($allcaps, /** @noinspection PhpUnusedParameterInspection */ $caps, $args){
 		//Add "user:user_login" to the user's capabilities. This makes it possible to restrict

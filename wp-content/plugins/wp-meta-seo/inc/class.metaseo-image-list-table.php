@@ -694,6 +694,15 @@ class MetaSeoImageListTable extends WP_List_Table
 
                 $upload_dir = wp_upload_dir();
                 $img_path = $upload_dir['basedir'] . '/' . $img_meta['file'];
+
+                $size_optional = get_post_meta($rec->ID, '_metaseo_sizes_optional', true);
+                if (!empty($size_optional)) {
+                    $last = end($size_optional);
+                    if (isset($last['url'])) {
+                        $img_path = str_replace($upload_dir['baseurl'], $upload_dir['basedir'], $last['url']);
+                    }
+                }
+
                 //Get the date that image was uploaded
                 $img_date = get_the_date('', $rec->ID);
                 //Get image size
@@ -1888,6 +1897,7 @@ class MetaSeoImageListTable extends WP_List_Table
                         }
                         update_option('wpms_last_update_post', time());
                         $response->updated = true;
+                        $response->type_change = 'edit_meta_alt';
                         $response->msg     = ucfirst($meta_type) . esc_html__(' was saved', 'wp-meta-seo');
                     }
                 } else {

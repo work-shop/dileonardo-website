@@ -31,7 +31,9 @@ function scrollSpy( config ){
 
 		update();
 
-		setTimeout(function() {	update(); setTimeout(function() { update(); }, 5000); }, 2500);
+		setTimeout(function() {	update(); 
+			//setTimeout(function() { update(); }, 5000); 
+		}, 2000);
 
 	});
 
@@ -51,7 +53,6 @@ function update(){
 		var offset = $(this).offset();
 		scrollSpyProperties.spyMap[i].targetOffset = Math.round(offset.top);
 
-
 		//take the ID of this target element, and see if there is a link that matches it
 
 		//if there is a link that pairs with this target, store that as well
@@ -64,7 +65,6 @@ function update(){
 		} else{
 			scrollSpyProperties.spyMap[i].hasLink = false;
 		}
-
 
 		// console.log('target:');
 		// console.log('#' + scrollSpyProperties.spyMap[i].target.attr('id') + ': ' + scrollSpyProperties.spyMap[i].targetOffset);

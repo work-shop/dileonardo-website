@@ -6,12 +6,11 @@
 
 	&.card-project{
 
-		
 		.card-project-title{
 			position: absolute;
 			bottom: 0px;
 			right: 0px;
-			width: 100%;
+			width: 90%;
 			height: 50px;
 			margin-bottom: 0;
 			font-size: 27px;
@@ -22,6 +21,7 @@
 			padding: 10px 20px;
 			@extend .align-items-end;
 			@extend .justify-content-end;
+			text-align: right;
 			transition: opacity .2s;
 			display: flex;
 

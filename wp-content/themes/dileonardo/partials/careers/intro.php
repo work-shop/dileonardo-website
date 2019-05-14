@@ -6,6 +6,11 @@
 					<h2 class="page-section-intro-text">
 						<?php the_field('careers_introduction_statement'); ?>
 					</h2>
+					<?php if( get_field('careers_text_secondary')){ ?>
+						<h4 class="page-section-intro-text-2">
+							<?php the_field('careers_text_secondary'); ?>
+						</h4>
+					<?php  } ?>
 				</div>
 				<?php if(false){ ?>
 					<div class="row">

@@ -6,16 +6,18 @@ function grid(){
 
 	$(window).on('load', function() {
 
-		setTimeout(function() {
-			$('#grid-home').masonry({
-			// set itemSelector so .grid-sizer is not used in layout
-			itemSelector: '.grid-item',
-			// use element for option
-			columnWidth: '.grid-sizer',
-			gutter: '.gutter-sizer',
-			percentPosition: true
-		});
-		}, 500);
+		if( $('body').hasClass('single-projects') ){
+
+			setTimeout(function() {
+				$('#grid-project').masonry({
+					itemSelector: '.grid-item',
+					columnWidth: '.grid-sizer',
+					gutter: '.gutter-sizer',
+					percentPosition: true
+				});
+			}, 500);
+
+		}
 
 	});
 

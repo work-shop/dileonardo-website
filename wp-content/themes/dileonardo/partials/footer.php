@@ -15,10 +15,15 @@
             	gtag('js', new Date());
             	gtag('config', 'UA-');
             </script> -->
-            <script src="<?php bloginfo('template_directory'); ?>/js/isotope.js"></script>
+            <?php if( is_page(21) ){ ?>
+                <script src="<?php bloginfo('template_directory'); ?>/js/isotope.js"></script>
+            <?php } ?>
+            <?php if( is_singular('projects')){ ?>
+                <script src="<?php bloginfo('template_directory'); ?>/js/masonry.js"></script>
+            <?php } ?>
         </div>
 
-    <?php wp_footer(); ?>
+        <?php wp_footer(); ?>
 
-</body>
-</html>
+    </body>
+    </html>

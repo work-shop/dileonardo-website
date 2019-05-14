@@ -4243,27 +4243,36 @@ class ameMenuTemplateBuilder {
 		$this->templates = array();
 		$this->blacklist = $blacklist;
 
-		//At this point, the menu might not be sorted yet, especially if other plugins have made changes to it.
-		//We need to know the relative order of menus to insert new items in the right place.
-		ksort($menu, SORT_NUMERIC);
+		if ( !empty($menu) ) {
+			//At this point, the menu might not be sorted yet, especially if other plugins have made changes to it.
+			//We need to know the relative order of menus to insert new items in the right place.
+			ksort($menu, SORT_NUMERIC);
 
-		foreach($menu as $pos => $item){
-			$this->addItem($item, $pos);
+			foreach($menu as $pos => $item){
+				$this->addItem($item, $pos);
+			}
 		}
 
-		foreach($submenu as $parent => $items){
-			//Skip sub-menus attached to non-existent parents. This should theoretically never happen,
-			//but a buggy plugin can cause such a situation.
-			if ( !isset($this->parentNames[$parent]) ) {
-				continue;
-			}
+		if ( !empty($submenu) ) {
+			foreach($submenu as $parent => $items){
+				//Skip NULL's and empty arrays.
+				if ( empty($items) ) {
+					continue;
+				}
 
-			ksort($items, SORT_NUMERIC);
-			$this->previousItemId = '';
-			$this->wasPreviousItemSeparated = false;
+				//Skip sub-menus attached to non-existent parents. This should theoretically never happen,
+				//but a buggy plugin can cause such a situation.
+				if ( !isset($this->parentNames[$parent]) ) {
+					continue;
+				}
 
-			foreach($items as $pos => $item) {
-				$this->addItem($item, $pos, $parent);
+				ksort($items, SORT_NUMERIC);
+				$this->previousItemId = '';
+				$this->wasPreviousItemSeparated = false;
+
+				foreach($items as $pos => $item) {
+					$this->addItem($item, $pos, $parent);
+				}
 			}
 		}
 

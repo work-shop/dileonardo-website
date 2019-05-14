@@ -1,4 +1,4 @@
-<section class="block padded-bottom thought-intro single-intro <?php if( !get_field('show_hero') ) { ?> no-hero <?php } ?>" id="single-intro">
+<section class="block thought-intro single-intro <?php if( !get_field('show_hero') ) { ?> no-hero <?php } ?>" id="single-intro">
 	<div class="single-title-container container-fluid bg-white">
 		<div class="row mb4 single-title-row">
 			<div class="col-left">

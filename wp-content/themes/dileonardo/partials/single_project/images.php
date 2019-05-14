@@ -12,17 +12,21 @@ $images = get_field('project_images');
 			</div>
 		</div>
 		<div class="project-images-container container-fluid">
-			<?php $count = 0; ?>
-			<?php foreach ($images as $image): ?> 
-				<div class="project-image">
-					<a href="#" class="modal-toggle project-image-modal-toggle" data-modal-target="modal-project-images" id="project-image-link-<?php echo $count; ?>" data-index="<?php echo $count; ?>">
-						<div class="progressive replace" data-src="<?php echo $image['sizes']['md']; ?>">
-							<img src="<?php echo $image['sizes']['xs']; ?>" class="preview">
-						</div>
-					</a>
-				</div>
-				<?php $count++; ?>
-			<?php endforeach; ?>
+			<div id="grid-project">
+				<?php $count = 0; ?>
+				<?php foreach ($images as $image): ?> 
+					<div class="project-image grid-item">
+						<a href="#" class="modal-toggle project-image-modal-toggle" data-modal-target="modal-project-images" id="project-image-link-<?php echo $count; ?>" data-index="<?php echo $count; ?>">
+							<div class="progressive replace" data-src="<?php echo $image['sizes']['md']; ?>">
+								<img src="<?php echo $image['sizes']['xs']; ?>" class="preview">
+							</div>
+						</a>
+					</div>
+					<?php $count++; ?>
+				<?php endforeach; ?>
+				<div class="grid-sizer"></div>
+				<div class="gutter-sizer"></div>
+			</div>
 		</div>
 		<div class="modal" id="modal-project-images">
 			<div class="slick slick-project-modal">

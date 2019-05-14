@@ -470,20 +470,20 @@ $grid-gutter-sm: 3%;
 
 
 .project-images-container{
-	columns: 3;
-	column-gap: 20px;
+	//columns: 3;
+	//column-gap: 20px;
 
 	@media screen and (max-width: $sm) {
-		columns: 2;
-		column-gap: 10px;
+		//columns: 2;
+		//column-gap: 10px;
 	}
 
 	.project-image{
-		margin-bottom: 20px;
+		margin-bottom: $grid-gutter;
 		position: relative;
 
 		@media screen and (max-width: $sm) {
-			margin-bottom: 10px;
+			margin-bottom: $grid-gutter-sm;
 		}
 
 		&:after{

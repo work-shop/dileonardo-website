@@ -11,7 +11,7 @@ $slides = get_field('culture_slideshow');
 						</div>
 					</div>
 					<div class="slide-caption-container container-fluid height-100 d-flex align-items-end">
-						<div class="row">
+						<div class="row row-100">
 							<div class="col-right offset">
 								<?php if( $image['caption'] ): ?>
 									<h2 class="slide-caption bold"><?php echo $image['caption']; ?></h2>

@@ -563,6 +563,9 @@ function saveChanges(element_id, post_id, meta_type, meta_value) {
                     );
                 }
 
+                if (typeof response.type_change !== "undefined" && response.type_change === 'edit_meta_alt') {
+                    jQuery('#img-alt-' + element.data('img-post-id')).val(element.val());
+                }
             } else {
                 element.val(response.iname);
                 savedInfo.removeClass('metaseo-msg-success').addClass('metaseo-msg-warning')
@@ -812,6 +815,9 @@ function optimize_imgs(element) {
                     var img = jQuery('[data-img-post-id="' + img_post_id + '"]');
                     _metaSeoScanImages({'name': img.data('name'), 'img_post_id': img_post_id});
 
+                   setTimeout(function(){
+                        window.location.reload(true);
+                    }, 1000);
                 } else {
                     $this.parent().find('span.spinner').hide();
                     $this.parent().find('p.metaseo-msg').removeClass('msg-success').addClass('msg-error');

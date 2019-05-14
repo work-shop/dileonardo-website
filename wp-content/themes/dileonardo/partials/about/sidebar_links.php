@@ -1,11 +1,11 @@
 <li>
-	<a href="#mission" class="jump spy-link">
-		Mission
+	<a href="#history" class="jump spy-link">
+		Legacy
 	</a>
 </li>
 <li>
-	<a href="#history" class="jump spy-link">
-		Legacy
+	<a href="#mission" class="jump spy-link">
+		Mission
 	</a>
 </li>
 <li>

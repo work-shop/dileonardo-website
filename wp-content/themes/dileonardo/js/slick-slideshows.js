@@ -58,6 +58,7 @@ function slickSlideshows( config ) {
 			arrows: true,
 			autoplay: false,
 			fade: false,
+			infinite: false,
 			autoplaySpeed: config.autoplaySpeed,
 			speed: config.speed,
 			pauseOnDotsHover: true,
@@ -65,6 +66,7 @@ function slickSlideshows( config ) {
 			{
 				breakpoint: 993,
 				settings: {
+					infinite: false,
 					slidesToShow: 2,
 					slidesToScroll: 1
 				}
@@ -72,6 +74,7 @@ function slickSlideshows( config ) {
 			{
 				breakpoint: 767,
 				settings: {
+					infinite: false,
 					slidesToShow: 1,
 					slidesToScroll: 1
 				}

@@ -2,8 +2,8 @@
 Contributors: whiteshadow
 Tags: admin, dashboard, menu, security, wpmu
 Requires at least: 4.1
-Tested up to: 5.0
-Stable tag: 2.8.1
+Tested up to: 5.2
+Stable tag: 2.9
 
 Lets you directly edit the WordPress admin menu. You can re-order, hide or rename existing menus, add custom menus and more.
 
@@ -82,6 +82,23 @@ Here are some usage tips and other things that can be good to know when using th
 == Changelog ==
 
 [Get the latest version here.](http://adminmenueditor.com/updates/)
+
+= 2.9 (2019-05-09) =
+##### Added
+* Added a "Hide the frame scollbar" option to menu items that open in an iframe.
+
+##### Changed
+* Improved the automatic frame height calculation algorithm. When the framed page is on the same site (that is, same origin), the frame height will match the content height. This means you no longer need to manually set the frame height for pages like that.
+* Tested with WP 5.2.
+
+= 2.8.2 (2019-04-05) =
+##### Added
+* Added an option to automatically hide new plugins from the "Plugins" page. It was already possible to hide newly installed plugins, but previously this feature was tied to the "show all plugins" checkbox in the "Plugins" tab. Now there's a separate setting just for new plugins, which lets you hide new plugins without also hiding existing plugins.
+
+##### Fixed
+* Fixed a bug that stopped the icon dropdown from working in certain menu items and made it impossible to change the icon of the Jetpack menu.
+* Fixed a PHP warning: "non-string needles will be interpreted as strings". This was originally patched in 2.8, but the patch was incomplete and did not fully resolve the issue. This version should fix the warning in all cases.
+* Fixed missing dependencies that prevented users from hiding meta boxes in Gutenberg. Partial Gutenberg support was added in 2.8, but most users couldn't take advantage of it due to missing files.
 
 = 2.8.1 (2019-02-15) =
 ##### Fixed

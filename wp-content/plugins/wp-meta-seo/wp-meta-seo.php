@@ -4,7 +4,7 @@
  * Plugin Name: WP Meta SEO
  * Plugin URI: http://www.joomunited.com/wordpress-products/wp-meta-seo
  * Description: WP Meta SEO is a plugin for WordPress to fill meta for content, images and main SEO info in a single view.
- * Version: 4.0.4
+ * Version: 4.0.6
  * Text Domain: wp-meta-seo
  * Domain Path: /languages
  * Author: JoomUnited
@@ -121,7 +121,7 @@ if (!defined('WPMSEO_VERSION')) {
     /**
      * Plugin version
      */
-    define('WPMSEO_VERSION', '4.0.4');
+    define('WPMSEO_VERSION', '4.0.6');
 }
 
 if (!defined('WPMS_CLIENTID')) {
@@ -229,7 +229,7 @@ function wpmsGetDefaultSettings()
 function wpmsRetrieveDate($current_post)
 {
     $replacement = null;
-    if ($current_post->post_date !== '') {
+    if (isset($current_post->post_date) && $current_post->post_date !== '') {
         $replacement = mysql2date(get_option('date_format'), $current_post->post_date, true);
     } else {
         if (get_query_var('day') && get_query_var('day') !== '') {
@@ -915,6 +915,19 @@ function wpmsTemplateRedirect()
         $target          = '';
         $status_redirect = 302;
         foreach ($redirects as $link) {
+            // If redirect success, not redirect again
+            $parse_url = parse_url($link->link_url_redirect);
+            if (isset($parse_url['path'])) {
+                if (rtrim($parse_url['path'], '/') === rtrim($url, '/')) {
+                    break;
+                }
+            }
+            // Fix with xlink
+            $query_str = parse_url($url, PHP_URL_QUERY);
+            if (!empty($query_str) && strpos($query_str, 'xlink') !== false) {
+                break;
+            }
+
             $link->link_url = str_replace(' ', '%20', $link->link_url);
             $matches        = false;
             // phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged -- remove warning if match the URL

@@ -314,11 +314,23 @@ class MenuEd_ShadowPluginFramework {
 			$filename = $this->plugin_file;
 		}
 
-		$muPluginDir = realpath(WPMU_PLUGIN_DIR);
-		if ( empty($muPluginDir) ) {
-			return false;
+		$normalizedMuPluginDir = realpath(WPMU_PLUGIN_DIR);
+		$normalizedFileName = realpath($filename);
+
+		//If realpath() fails, just normalize the syntax instead.
+		if ( empty($normalizedFileName) || empty($normalizedMuPluginDir) ) {
+			$normalizedMuPluginDir = wp_normalize_path(WPMU_PLUGIN_DIR);
+			$normalizedFileName = wp_normalize_path($filename);
 		}
-		return (strpos( realpath($filename), $muPluginDir ) !== false);
+		//Yet another fallback if the above also fails.
+		if ( !is_string($normalizedMuPluginDir) || empty($normalizedMuPluginDir) ) {
+			if ( is_string(WPMU_PLUGIN_DIR) ) {
+				$normalizedMuPluginDir = WPMU_PLUGIN_DIR;
+			} else {
+				return false;
+			}
+		}
+		return (strpos( $normalizedFileName, $normalizedMuPluginDir ) !== false);
 	}
 	
 	/**

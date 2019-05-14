@@ -5,9 +5,9 @@
 
 <?php get_template_part('partials/page/page_sidebar' ); ?>
 
-<?php get_template_part('partials/about/mission' ); ?>
-
 <?php get_template_part('partials/about/history' ); ?>
+
+<?php get_template_part('partials/about/mission' ); ?>
 
 <?php get_template_part('partials/about/team' ); ?>
 

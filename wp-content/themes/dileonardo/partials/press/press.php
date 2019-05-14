@@ -30,25 +30,29 @@
 										<a href="<?php the_sub_field('press_link'); ?>">
 										<?php } else if( get_sub_field('press_file')) {?>
 											<a href="<?php the_sub_field('press_file'); ?>" target="_blank">
-										<?php } ?>
-										<?php if( get_sub_field('press_image')) { 
-											$image = get_sub_field('press_image');
-											?>
-											<img class="" src="<?php echo $image['sizes']['sm']; ?>">
-										<?php } ?>
-										<h4 class="press-title">
-											<?php the_sub_field('press_title'); ?>
-										</h4>
-										<?php if( get_sub_field('press_link') || get_sub_field('press_file')){ ?>
-										</a>
+											<?php } ?>
+											<?php if( get_sub_field('press_image')) { 
+												$image = get_sub_field('press_image');
+												?>
+												<?php if( is_page(11) ){ ?>
+													<img class="" src="<?php echo $image['sizes']['press']; ?>">
+													<?php } else{ ?>
+														<img class="" src="<?php echo $image['sizes']['sm']; ?>">
+													<?php } ?>
+												<?php } ?>
+												<h4 class="press-title">
+													<?php the_sub_field('press_title'); ?>
+												</h4>
+												<?php if( get_sub_field('press_link') || get_sub_field('press_file')){ ?>
+												</a>
+											<?php } ?>
+										</div>
+										<?php $count++; ?>
 									<?php } ?>
-								</div>
-								<?php $count++; ?>
-							<?php } ?>
-						<?php endwhile; ?>
+								<?php endwhile; ?>
+							</div>
+						<?php } ?>
 					</div>
-				<?php } ?>
+				</div>
 			</div>
-		</div>
-	</div>
-</section>
+		</section>

@@ -550,6 +550,21 @@ class MetaSeoAdmin
             $wpdb->query('ALTER TABLE ' . $wpdb->prefix . 'wpms_links MODIFY `link_url` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL');
             update_option($option_v, true);
         }
+
+        // Add index for wpms links
+        $option_v     = 'metaseo_db_version4.0.4';
+        $db_installed = get_option($option_v, false);
+        if (!$db_installed) {
+            // Add index for wpms_links table;
+            $wpdb->query('ALTER TABLE ' . $wpdb->prefix . 'wpms_links ADD INDEX linkurl(link_url(256))');
+            $wpdb->query('ALTER TABLE ' . $wpdb->prefix . 'wpms_links ADD INDEX typeurl(type(50))');
+            $wpdb->query('ALTER TABLE ' . $wpdb->prefix . 'wpms_links ADD INDEX sourceid(source_id)');
+
+            // Add index for metaseo_images table;
+            $wpdb->query('ALTER TABLE ' . $wpdb->prefix . 'metaseo_images ADD INDEX postid(post_id)');
+            // Update option metaseo_db
+            update_option($option_v, true);
+        }
     }
 
     /**
@@ -991,6 +1006,26 @@ class MetaSeoAdmin
     }
 
     /**
+     * Inject Woocommerce short description to content
+     *
+     * @param string  $content Post content
+     * @param integer $post_id Post ID
+     *
+     * @return string
+     */
+    public function injectWooCommerce($content, $post_id)
+    {
+        if (class_exists('WooCommerce')) {
+            $post = get_post($post_id);
+
+            if (!empty($post->post_excerpt)) {
+                $content .= '' . $post->post_excerpt;
+            }
+        }
+
+        return $content;
+    }
+    /**
      * Ajax load page analysis
      *
      * @return void
@@ -1048,6 +1083,8 @@ class MetaSeoAdmin
         );
 
         $content = $this->injectAcfField($content, $_POST['datas']['post_id']);
+
+        $content = $this->injectWooCommerce($content, $_POST['datas']['post_id']);
 
         if (isset($_POST['datas']['first_load']) && !empty($meta_analysis) && !empty($meta_analysis['heading_title'])) {
             $output .= $this->createFieldAnalysis(
@@ -1286,9 +1323,12 @@ class MetaSeoAdmin
             );
             $check ++;
         } else {
+            $mpageurl = '';
             if ($_POST['datas']['editor'] === 'gutenberg') {
-                $infos    = pathinfo($_POST['datas']['mpageurl']);
-                $mpageurl = $infos['filename'];
+                if (isset($_POST['datas']['mpageurl'])) {
+                    $infos    = pathinfo($_POST['datas']['mpageurl']);
+                    $mpageurl = $infos['filename'];
+                }
             } else {
                 $mpageurl = $_POST['datas']['mpageurl'];
             }
@@ -1417,8 +1457,8 @@ class MetaSeoAdmin
                     $img_wrong = false;
                 } else {
                     if (!empty($width_origin) && !empty($height_origin)) {
-                        if (((int) $width_origin !== (int) $tag['attributes']['width'])
-                            || ((int) $height_origin !== (int) $tag['attributes']['height'])) {
+                        if ((isset($tag['attributes']['width']) && (int) $width_origin !== (int) $tag['attributes']['width'])
+                            || (isset($tag['attributes']['height']) && (int) $height_origin !== (int) $tag['attributes']['height'])) {
                             $img_wrong = true;
                         }
                     }
@@ -3337,8 +3377,8 @@ class MetaSeoAdmin
 
                 foreach ($attachments as $attachment) {
                     $i_info_url = pathinfo($attachment->guid);
-                    switch ($_POST['mtype']) {
-                        case 'image_alt':
+                    switch ($_POST['action_name']) {
+                        case 'img-copy-alt':
                             $value = $i_info_url['filename'];
                             /**
                              * Filter before update meta for image
@@ -3354,7 +3394,7 @@ class MetaSeoAdmin
                             update_post_meta($attachment->ID, '_wp_attachment_image_alt', $value);
                             break;
 
-                        case 'image_title':
+                        case 'img-copy-title':
                             $value = $i_info_url['filename'];
                             /**
                              * Filter before update meta for image

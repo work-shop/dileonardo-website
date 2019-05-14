@@ -86,10 +86,10 @@ $footer-offset-2-mobile: $container-fluid-padding-mobile * 2;
 
 		li{
 			display: inline-block;
-			margin-right: 2em;
+			margin-right: 1.5em;
 
-			@media screen and (max-width: $sm) {
-				margin-right: 1.5em;
+			@media screen and (max-width: $lg) {
+				margin-right: 1em;
 				//text-align: center;
 				//display: block;
 			}
@@ -99,18 +99,23 @@ $footer-offset-2-mobile: $container-fluid-padding-mobile * 2;
 
 				a{
 					padding-bottom: 10px;
-
-
 				}
 			}
 
 			a{
 				@extend .button;
 				@extend .white;
+				@extend .bold;
+				font-size: 16px;
+				padding-bottom: 10px;
 
-						&:hover{
-						color: white !important;
-					}
+				@media screen and (max-width: $lg) {
+					font-size: 15px;
+				}
+
+				&:hover{
+					color: white !important;
+				}
 			}
 		}
 	}
@@ -174,10 +179,11 @@ $footer-offset-2-mobile: $container-fluid-padding-mobile * 2;
 	.site-credit{
 		font-size: 15px;
 		opacity: .75;
-		margin-top: 18px;
+		margin-top: 20px;
+		text-align: right;
 
 		br{
-			display: none;
+			//display: none;
 		}
 
 		@media screen and (max-width: $sm) {

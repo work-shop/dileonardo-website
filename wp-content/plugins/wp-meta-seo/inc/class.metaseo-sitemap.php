@@ -363,7 +363,7 @@ class MetaSeoSitemap
             }
         }
         echo '<input readonly id="wpms_sitemap_link" name="_metaseo_settings_sitemap[wpms_sitemap_link]"
-         type="text" value="' . esc_attr($value) . '" size="50" class="wpms-large-input wpms-no-margin wpms_width_90" />';
+         type="text" value="' . esc_attr($link) . '" size="50" class="wpms-large-input wpms-no-margin wpms_width_90" />';
         echo '<a class="wpms-open-xml-sitemap ju-button orange-button waves-effect waves-light wpms-small-btn" href="' . esc_url($link) . '" target="_blank">' . esc_html__('Open', 'wp-meta-seo') . '</a>';
     }
 
@@ -1528,6 +1528,13 @@ ORDER BY p.post_date DESC', array('publish', $post_type, $taxo, $cat->slug)));
                 WPMSEO_VERSION,
                 true
             );
+            wp_enqueue_script(
+                'wpms_tabs_js',
+                plugins_url('assets/js/wpms-tabs.js', dirname(__FILE__)),
+                array('jquery'),
+                WPMSEO_VERSION,
+                true
+            );
             wp_enqueue_style(
                 'wpms_materialize_style',
                 plugins_url('assets/css/materialize/materialize_frontend_tab_theme.css', dirname(__FILE__)),
@@ -1538,8 +1545,9 @@ ORDER BY p.post_date DESC', array('publish', $post_type, $taxo, $cat->slug)));
             require_once(WPMETASEO_ADDON_PLUGIN_DIR . 'inc/page/sitemaps/theme/tab/menu_bar.php');
             require_once(WPMETASEO_ADDON_PLUGIN_DIR . 'inc/page/sitemaps/theme/tab/source_posts.php');
             require_once(WPMETASEO_ADDON_PLUGIN_DIR . 'inc/page/sitemaps/theme/tab/source_pages.php');
-            require_once(WPMETASEO_ADDON_PLUGIN_DIR . 'inc/page/sitemaps/theme/tab/source_urlcustom.php');
-
+            if (!empty($this->settings_sitemap['wpms_sitemap_customUrl'])) {
+                require_once(WPMETASEO_ADDON_PLUGIN_DIR . 'inc/page/sitemaps/theme/tab/source_urlcustom.php');
+            }
             // source menu
             $ids_menu   = array(0);
             $check_menu = array();

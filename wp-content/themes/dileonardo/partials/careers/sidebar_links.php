@@ -5,7 +5,7 @@
 </li>
 <li>
 	<a href="#values" class="jump spy-link">
-		Our Values
+		Creativity
 	</a>
 </li>
 <li>
