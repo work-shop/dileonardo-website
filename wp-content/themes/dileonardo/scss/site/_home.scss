@@ -112,8 +112,14 @@
 
 	.home-hero-video-container{
 		position: relative;
-		height: calc(100vh - #{$container-fluid-padding * 2});
+		//height: calc((var(--vh, 1vh) * 100) - #{$container-fluid-padding * 2});
+		height: 100%;
 		overflow: hidden;
+
+		@media screen and (max-width: $md) {
+			//height: calc((var(--vh, 1vh) * 100) - #{$container-fluid-padding});
+			height: 100%;
+		}
 	}
 
 	video{
@@ -134,7 +140,7 @@
 	}
 
 	.slide-image{
-		height: calc(100vh - #{$container-fluid-padding * 2});
+		height: calc( (var(--vh, 1vh) * 100) - #{$container-fluid-padding * 2});
 		background-size: cover;
 		background-position: center center;
 		background-repeat: no-repeat;
@@ -156,8 +162,6 @@
 		width: 100%;
 		top: 0;
 		left: 0;
-		//animation: kenburns 20s infinite;
-		//filter: brightness(.9);
 
 		&:after{
 			display: none;
@@ -291,6 +295,10 @@
 
 		@media screen and (max-width: $md) {
 			font-size: 50px;
+		}
+
+		@media screen and (max-width: $xs) {
+			font-size: 40px;	
 		}
 	}
 

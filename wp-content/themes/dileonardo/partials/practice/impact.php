@@ -25,7 +25,7 @@ $background_image = $background_image['sizes']['xl'];
 
 							$statistic_number_suffix = get_sub_field('statistic_number_suffix'); 
 							?>
-							<div class="col-4 impact-statistic-container">
+							<div class="col-6 col-sm-4 impact-statistic-container">
 								<h1 class="impact-statistic-number brand centered">
 									<span 
 									class="impact-statistic impact-statistic-number-text" 

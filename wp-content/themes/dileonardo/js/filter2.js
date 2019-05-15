@@ -530,19 +530,33 @@ function filter2() {
 		
 		setTimeout(function() {
 			_newImg.addClass('revealed');
-			_oldImg.remove();	
+			_newImg.on('load', hideImage(_oldImg));
+			//_oldImg.remove();
+			//_newImg.on('load', loaded);	
 		}, 500);
 
 		progressiveCount++;
 		if ( progressiveCount === (progressiveLength - 1) ){
-			setTimeout(function() {
-				$('#grid').isotope();
-				setTimeout(function() {
-					$('#grid').isotope();
-				}, 2000);
-			}, 1000);
+
+			//$('img.preview').addClass('class_name')
+			//$('img.reveal').addClass('static');
+
+			// setTimeout(function() {
+			// 	$('#grid').isotope();
+			// 	setTimeout(function() {
+			// 		$('#grid').isotope();
+			// 	}, 2000);
+			// }, 1000);
+
 		}
 
+	}
+
+
+	function hideImage(_oldImg){
+		console.log(_oldImg);
+		console.log('loaded');
+		_oldImg.addClass('progressive-hidden');
 	}
 
 
