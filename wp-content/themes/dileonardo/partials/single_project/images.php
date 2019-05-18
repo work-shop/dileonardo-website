@@ -18,7 +18,7 @@ $images = get_field('project_images');
 					<div class="project-image grid-item">
 						<a href="#" class="modal-toggle project-image-modal-toggle" data-modal-target="modal-project-images" id="project-image-link-<?php echo $count; ?>" data-index="<?php echo $count; ?>">
 							<div class="progressive replace" data-src="<?php echo $image['sizes']['md']; ?>">
-								<img src="<?php echo $image['sizes']['xs']; ?>" class="preview">
+								<img src="<?php echo $image['sizes']['progressive']; ?>" class="preview">
 							</div>
 						</a>
 					</div>

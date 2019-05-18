@@ -34,7 +34,13 @@ function filterNews() {
 				categoryStart = 'all';
 			}
 
-			filterCategories(categoryStart);
+			//only get posts if there is a category to filter to from the url
+			if( $('.news-grid').hasClass('news-grid-loading')){
+				filterCategories(categoryStart);
+			} else{
+				turnLoaderOff();
+			}
+			
 			
 			if( categoryStart !== 'all'){
 				updateUrl(categoryStart);
@@ -63,7 +69,7 @@ function filterNews() {
 
 
 			window.addEventListener('popstate', function(e) {
-	  			//console.log(e.state);
+	  			console.log(e.state);
 
 	  			if( e.state === null ){
 
@@ -91,7 +97,7 @@ function filterNews() {
 
 
 	function filterCategories( category ) {
-		//console.log('filterCategories: ' + category);
+		console.log('filterCategories: ' + category);
 		currentCategory = category;
 		pagination = 1;
 		
@@ -199,24 +205,21 @@ function filterNews() {
 		.addClass('card-news-image');
 
 		var imageSrc;
-		if( typeof post._embedded['wp:featuredmedia'][0].media_details.sizes.md_cropped === 'undefined' ){
+		if( typeof post._embedded['wp:featuredmedia'][0].media_details.sizes.sm_cropped === 'undefined' ){
 			if( typeof post._embedded['wp:featuredmedia'][0].source_url !== 'undefined' ){
 				imageSrc = post._embedded['wp:featuredmedia'][0].source_url;
 			}
 		} else{
-			imageSrc = post._embedded['wp:featuredmedia'][0].media_details.sizes.md_cropped.source_url;
+			imageSrc = post._embedded['wp:featuredmedia'][0].media_details.sizes.sm_cropped.source_url;
 		}
 		if( !isEmpty(imageSrc)){
 			var image = $('<img>')
 			.attr('src', imageSrc);
 		}
 
-		var link1 = $('<a>')
+		var link = $('<a>')
+		.addClass('post-link')
 		.attr('href', post.link);
-
-		var link2 = $('<a>')
-		.attr('href', post.link)
-		.html(post.title.rendered);
 
 		var textContainer = $('<div>')
 		.addClass('card-news-text');
@@ -226,18 +229,16 @@ function filterNews() {
 		.html(post.acf.article_date);
 
 		var title = $('<h3>')
-		.addClass('card-news-title');
-
+		.addClass('card-news-title')
+		.html(post.title.rendered);
 
 		if( !isEmpty(imageSrc)){
-			link1.append(image);
-			imageContainer.append(link1);
-			card.append(imageContainer);
+			imageContainer.append(image);
+			link.append(imageContainer);
 		}
-		title.append(link2);
 		textContainer.append(date).append(title);
-		card.append(textContainer);
-		root.append(card);
+		link.append(textContainer);
+		root.append(link);
 
 		$('.news-grid').append(root);
 
@@ -339,12 +340,12 @@ function filterNews() {
 
 
 	function turnLoaderOn(){
-		console.log('turn loader on');
+		//console.log('turn loader on');
 		$('#grid-loading').removeClass('grid-loaded').addClass('grid-loading');
 	}
 
 	function turnLoaderOff(){
-		console.log('turn loader off');
+		//console.log('turn loader off');
 		$('#grid-loading').removeClass('grid-loading').addClass('grid-loaded');
 	}
 

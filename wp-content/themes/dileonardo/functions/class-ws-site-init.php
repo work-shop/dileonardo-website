@@ -167,6 +167,7 @@ class WS_Site {
     public function register_image_sizing() {
         if ( function_exists( 'add_image_size' ) ) {
             add_image_size('progressive', 32, 20, false); 
+            add_image_size('progressive_cropped', 32, 20, true); 
             add_image_size('xs', 300, 187, false); //1.6:1
             add_image_size('xs_cropped', 300, 187, true); //1.6:1
             add_image_size('xs_square', 300, 300, true);

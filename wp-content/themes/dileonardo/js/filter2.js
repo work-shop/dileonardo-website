@@ -81,9 +81,7 @@ function filter2() {
 					$(regionButtonSelector).addClass('filter-active');
 					var regionTitle = $(regionButtonSelector).text();
 					$('.filter-current-region').text(regionTitle);
-					$('.filter-current-region')
-					.removeClass('inactive')
-					.addClass('active');
+					$('.filter-current-region').removeClass('inactive').addClass('active');
 					$('.filter-button-all-region').removeClass('filter-active');
 					regionStart = 'filter-region-' + urlRegion;
 				}
@@ -103,36 +101,29 @@ function filter2() {
 				if ($(this).hasClass('filter-active')) {
 					//turn off a filter
 
+					filterMenuToggle('#filter-buttons-categories');
+
 					if (!$(this).hasClass('filter-button-all')) {
 						filter('all', regionFilteredCurrent);
 						$(this).removeClass('filter-active');
-						$('.filter-button-all-category').addClass(
-							'filter-active'
-							);
-						$('.filter-current-category')
-						.removeClass('active')
-						.addClass('inactive');
+						$('.filter-button-all-category').addClass('filter-active');
+						$('.filter-current-category').removeClass('active').addClass('inactive');
 					}
 				} else {
 					//turn on a filter
 
 					var filterCategory = $(this).data('target');
 					filter(filterCategory, regionFilteredCurrent);
-					$('.filter-category .filter-button').removeClass(
-						'filter-active'
-						);
+					$('.filter-category .filter-button').removeClass('filter-active');
 					$(this).addClass('filter-active');
+					filterMenuToggle('#filter-buttons-categories');
 
 					if ($(this).hasClass('filter-button-all')) {
-						$('.filter-current-category')
-						.removeClass('active')
-						.addClass('inactive');
+						$('.filter-current-category').removeClass('active').addClass('inactive');
 					} else {
 						var categoryTitle = $(this).text();
 						$('.filter-current-category').text(categoryTitle);
-						$('.filter-current-category')
-						.removeClass('inactive')
-						.addClass('active');
+						$('.filter-current-category').removeClass('inactive').addClass('active');
 					}
 				}
 			});
@@ -144,37 +135,29 @@ function filter2() {
 				if ($(this).hasClass('filter-active')) {
 					//turn off a filter
 
+					filterMenuToggle('#filter-buttons-regions');
+
 					if (!$(this).hasClass('filter-button-all')) {
 						filter(categoryFilteredCurrent, 'all');
 						$(this).removeClass('filter-active');
-						$('.filter-button-all-region').addClass(
-							'filter-active'
-							);
-						$('.filter-current-region')
-						.removeClass('active')
-						.addClass('inactive');
+						$('.filter-button-all-region').addClass('filter-active');
+						$('.filter-current-region').removeClass('active').addClass('inactive');
 					}
 				} else {
 					//turn on a filter
 
 					var filterRegion = $(this).data('target');
 					filter(categoryFilteredCurrent, filterRegion);
-
-					$('.filter-region .filter-button').removeClass(
-						'filter-active'
-						);
+					$('.filter-region .filter-button').removeClass('filter-active');
 					$(this).addClass('filter-active');
+					filterMenuToggle('#filter-buttons-regions');
 
 					if ($(this).hasClass('filter-button-all')) {
-						$('.filter-current-region')
-						.removeClass('active')
-						.addClass('inactive');
+						$('.filter-current-region').removeClass('active').addClass('inactive');
 					} else {
 						var regionTitle = $(this).text();
 						$('.filter-current-region').text(regionTitle);
-						$('.filter-current-region')
-						.removeClass('inactive')
-						.addClass('active');
+						$('.filter-current-region').removeClass('inactive').addClass('active');
 					}
 				}
 			});
@@ -184,42 +167,30 @@ function filter2() {
 				if ($(this).hasClass('active')) {
 					categoryFilteredCurrent = 'all';
 					filter(categoryFilteredCurrent, regionFilteredCurrent);
-					$(this)
-					.removeClass('active')
-					.addClass('inactive');
+					$(this).removeClass('active').addClass('inactive');
 					$('.filter-button-category').removeClass('filter-active');
 					$('.filter-button-all-category').addClass('filter-active');
 				}
-				if (
-					$(this)
-					.closest('.filter-menu')
-					.hasClass('open')
-					) {
+				if ( $(this).closest('.filter-menu').hasClass('open') ) {
 					var target = $(this).data('toggle-target');
-				filterMenuToggle(target);
-			}
-		});
+					filterMenuToggle(target);
+				}
+			});
 
 			$('.filter-current-region').click(function(e) {
 				e.preventDefault();
 				if ($(this).hasClass('active')) {
 					regionFilteredCurrent = 'all';
 					filter(categoryFilteredCurrent, regionFilteredCurrent);
-					$(this)
-					.removeClass('active')
-					.addClass('inactive');
+					$(this).removeClass('active').addClass('inactive');
 					$('.filter-button-region').removeClass('filter-active');
 					$('.filter-button-all-region').addClass('filter-active');
 				}
-				if (
-					$(this)
-					.closest('.filter-menu')
-					.hasClass('open')
-					) {
+				if ($(this).closest('.filter-menu').hasClass('open')) {
 					var target = $(this).data('toggle-target');
-				filterMenuToggle(target);
-			}
-		});
+					filterMenuToggle(target);
+				}
+			});
 
 			$('.filter-menu-toggle').click(function(e) {
 				var target = $(this).data('toggle-target');

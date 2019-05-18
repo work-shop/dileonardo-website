@@ -23,10 +23,10 @@
 							<?php echo $address; ?>
 							<h5 class="location-directions mt1 mb2">
 								<a href="https://www.google.com/maps/dir/?api=1&destination=<?php echo $title; ?>&destination_place_id=<?php echo $placeId; ?>" target="_blank">GET DIRECTIONS</a></h5>
-							Phone: <?php echo $phone; ?>
-							<?php if($email){ ?>
-								<br>
-								Email: <?php echo $email; ?>
+								Phone: <?php echo $phone; ?>
+								<?php if($email){ ?>
+									<br>
+									Email: <a href="mailto:<?php echo $email; ?>" target="_blank"> <?php echo $email; ?></a>
 							<?php } ?>
 						</address>
 						<div class="location-contacts">
@@ -51,7 +51,9 @@
 															<br>
 														<?php } ?>
 														<?php if( get_sub_field('contact_email') ){ ?>
-															<?php the_sub_field('contact_email'); ?>
+															<a href="mailto:<?php the_sub_field('contact_email'); ?>" target="_blank">
+																<?php the_sub_field('contact_email'); ?>
+															</a>
 															<br>
 														<?php } ?>
 														<?php if( get_sub_field('contact_phone') ){ ?>

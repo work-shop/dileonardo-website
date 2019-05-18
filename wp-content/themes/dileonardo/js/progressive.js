@@ -60,7 +60,7 @@ function progressive(){
 	function displayProgressiveImage(_newImg,_oldImg){
 		setTimeout(function() {
 			_newImg.addClass('revealed');
-			_oldImg.addClass('progessive-hidden');	
+			_oldImg.addClass('progressive-hidden');	
 		}, 500);
 		progressiveCount++;
 	}
