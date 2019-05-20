@@ -30,26 +30,40 @@
 						<?php if(true){ ?>
 							<?php if ( has_post_thumbnail() ) { ?>
 								<?php 
+								$featured_img_url_xs = get_the_post_thumbnail_url(get_the_ID(),'xs'); 
+								$featured_img_url_sm = get_the_post_thumbnail_url(get_the_ID(),'sm'); 
 								$featured_img_url_md = get_the_post_thumbnail_url(get_the_ID(),'md'); 
 								$featured_img_url_tiny = get_the_post_thumbnail_url(get_the_ID(),'progressive'); 
 								?>
-								<div class="progressive-projects replace" data-src="<?php echo $featured_img_url_md; ?>">
-									<img src="<?php echo $featured_img_url_tiny; ?>" class="preview">
-								</div>
-							<?php } else { ?>
-								<img src="<?php echo get_bloginfo( 'stylesheet_directory' ); ?>/images/default.png" />
-							<?php } ?>
+								<div class="progressive-projects replace" 
+								data-srcset="
+								<?php echo $featured_img_url_xs; ?> 300w,
+								<?php echo $featured_img_url_sm; ?> 768w,
+								<?php echo $featured_img_url_md; ?> 1024w
+								"
+								data-sizes="
+								(max-width: 480px) 180px,
+								(max-width: 1200px) 768px,
+								1024px
+								"
+								data-src="<?php echo $featured_img_url_md; ?>"
+								>
+								<img src="<?php echo $featured_img_url_tiny; ?>" class="preview">
+							</div>
+						<?php } else { ?>
+							<img src="<?php echo get_bloginfo( 'stylesheet_directory' ); ?>/images/default.png" />
 						<?php } ?>
-						<h3 class="card-project-title">
-							<?php the_title(); ?>
-						</h3>
-					</a>
-				</article>
-				<?php $count++; ?>
-			<?php endwhile; ?>
-			<?php wp_reset_postdata(); ?>
-		<?php } ?>
-		<div class="grid-sizer"></div>
-		<div class="gutter-sizer"></div>
-	</div>
+					<?php } ?>
+					<h3 class="card-project-title">
+						<?php the_title(); ?>
+					</h3>
+				</a>
+			</article>
+			<?php $count++; ?>
+		<?php endwhile; ?>
+		<?php wp_reset_postdata(); ?>
+	<?php } ?>
+	<div class="grid-sizer"></div>
+	<div class="gutter-sizer"></div>
+</div>
 </section>

@@ -21,15 +21,27 @@
 								endforeach;
 							endif;
 							?>
-							<article class="card card-news col-md-6 <?php echo $news_categories_classes; ?>">
+							<article class="card card-news col-sm-6 <?php echo $news_categories_classes; ?>">
 								<a href="<?php the_permalink(); ?>" class="post-link">
 									<div class="card-news-image">
 										<?php if ( has_post_thumbnail() ) { ?>
 											<?php 
-											$featured_img_url_sm = get_the_post_thumbnail_url(get_the_ID(),'sm_cropped'); 
+											$featured_img_url_xs_cropped = get_the_post_thumbnail_url(get_the_ID(),'xs_cropped'); 
+											$featured_img_url_sm_cropped = get_the_post_thumbnail_url(get_the_ID(),'sm_cropped'); 
+											$featured_img_url_md_cropped = get_the_post_thumbnail_url(get_the_ID(),'md_cropped'); 
 											$featured_img_url_tiny = get_the_post_thumbnail_url(get_the_ID(),'progressive_cropped'); 
 											?>
-											<div class="progressive replace" data-src="<?php echo $featured_img_url_sm; ?>">
+											<div class="progressive replace" 
+											data-srcset="
+											<?php echo $featured_img_url_xs_cropped; ?> 300w,
+											<?php echo $featured_img_url_sm_cropped; ?> 768w
+											"
+											data-sizes="
+											(max-width: 767px) 200px,
+											768px
+											"
+											data-src="<?php echo $featured_img_url_sm_cropped; ?>"
+											>
 												<img src="<?php echo $featured_img_url_tiny; ?>" class="preview">
 											</div>
 										<?php } else { ?>
